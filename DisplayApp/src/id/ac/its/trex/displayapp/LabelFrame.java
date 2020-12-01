@@ -28,6 +28,7 @@ public class LabelFrame extends JFrame {
 		//label1.setToolTipText("This is label1");
 		add(label1);
 		
+		//resize foto
 		ImageIcon Allam = new ImageIcon(getClass().getResource("fotoallam.jpg")); // load the image to a imageIcon
 		Image AllamImg = Allam.getImage();
 		Image modAllamImg = AllamImg.getScaledInstance(150, 200, Image.SCALE_SMOOTH);
