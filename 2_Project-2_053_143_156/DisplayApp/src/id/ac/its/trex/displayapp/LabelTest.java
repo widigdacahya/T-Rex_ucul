@@ -1,4 +1,4 @@
-package id.ac.its.trex.project2;
+package id.ac.its.trex.displayapp;
 
 import javax.swing.JFrame;
 

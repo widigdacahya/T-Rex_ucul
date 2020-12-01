@@ -1,4 +1,4 @@
-package id.ac.its.trex.project2;
+package id.ac.its.trex.displayapp;
 
 import java.awt.FlowLayout;
 import javax.swing.JFrame;
@@ -9,6 +9,10 @@ import javax.swing.ImageIcon;
 
 public class LabelFrame extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final JLabel label1,nrp1;
 	private final JLabel label2,nrp2;
 	private final JLabel label3,nrp3;
