@@ -1,6 +1,6 @@
 package id.ac.its.trex.displayapp;
 
-import java.awt.FlowLayout;
+import java.awt.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -28,8 +28,11 @@ public class LabelFrame extends JFrame {
 		//label1.setToolTipText("This is label1");
 		add(label1);
 		
-		Icon cahya = new ImageIcon(getClass().getResource("fotocahya.jpg"));
-		nrp1 = new JLabel("05111940000053", cahya, SwingConstants.LEFT);
+		ImageIcon Allam = new ImageIcon(getClass().getResource("fotoallam.jpg")); // load the image to a imageIcon
+		Image AllamImg = Allam.getImage();
+		Image modAllamImg = AllamImg.getScaledInstance(150, 200, Image.SCALE_SMOOTH);
+		Allam = new ImageIcon(modAllamImg);
+		nrp1 = new JLabel("05111940000053", Allam, SwingConstants.LEFT);
 		add(nrp1);
 		
 		//Anggota 2
@@ -37,7 +40,7 @@ public class LabelFrame extends JFrame {
 		//label1.setToolTipText("This is label1");
 		add(label2);
 		
-		//Icon cahya = new ImageIcon(getClass().getResource("fotocahya.jpg"));
+		Icon cahya = new ImageIcon(getClass().getResource("fotocahya.jpg"));
 		nrp2 = new JLabel("05111940000143", cahya, SwingConstants.LEFT);
 		add(nrp2);
 		
@@ -52,8 +55,7 @@ public class LabelFrame extends JFrame {
 		add(nrp3);
 		
 		
-		
-		
 	}
 
 }
+

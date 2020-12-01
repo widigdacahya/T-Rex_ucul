@@ -9,7 +9,7 @@ public class LabelTest {
 
 		LabelFrame labelFrame = new LabelFrame();
 		labelFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		labelFrame.setResizable(false);
+		labelFrame.setResizable(true);
 		labelFrame.setSize(450, 700);
 		labelFrame.setVisible(true);
 
