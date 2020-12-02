@@ -25,7 +25,6 @@ public class LabelFrame extends JFrame {
 		
 		//Anggota 1
 		label1 = new JLabel("Alam Tajuu Sarof");
-		//label1.setToolTipText("This is label1");
 		add(label1);
 		
 		//resize foto
@@ -38,20 +37,22 @@ public class LabelFrame extends JFrame {
 		
 		//Anggota 2
 		label2 = new JLabel("M Maroqi Abdul Jalil");
-		//label1.setToolTipText("This is label1");
 		add(label2);
 		
-		Icon cahya = new ImageIcon(getClass().getResource("fotocahya.jpg"));
-		nrp2 = new JLabel("05111940000143", cahya, SwingConstants.LEFT);
+		//resize foto
+		ImageIcon Jalil = new ImageIcon(getClass().getResource("fotojalil.jpg")); // load the image to a imageIcon
+		Image JalilImg = Jalil.getImage();
+		Image modJalilImg = JalilImg.getScaledInstance(150, 200, Image.SCALE_SMOOTH);
+		Jalil = new ImageIcon(modJalilImg);
+		nrp2 = new JLabel("05111940000143", Jalil, SwingConstants.LEFT);
 		add(nrp2);
 		
 		
 		//Anggota 3
 		label3 = new JLabel("Cahyadesthian R.W.");
-		//label1.setToolTipText("This is label1");
 		add(label3);
 		
-		//Icon cahya = new ImageIcon(getClass().getResource("fotocahya.jpg"));
+		Icon cahya = new ImageIcon(getClass().getResource("fotocahya.jpg"));
 		nrp3 = new JLabel("05111940000156", cahya, SwingConstants.LEFT);
 		add(nrp3);
 		
