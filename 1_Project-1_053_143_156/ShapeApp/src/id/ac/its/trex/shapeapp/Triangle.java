@@ -42,6 +42,6 @@ public class Triangle extends Shape{
 	
 	@Override
 	public String toString() {
-		return "Trinagle [a= "+getA()+", b= "+getB()+", c= "+getC()+"]";
+		return "Triangle [a= "+getA()+", b= "+getB()+", c= "+getC()+"]";
 	}
 }
