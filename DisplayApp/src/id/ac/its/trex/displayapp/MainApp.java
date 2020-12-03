@@ -2,8 +2,10 @@ package id.ac.its.trex.displayapp;
 
 import javax.swing.JFrame;
 
+import id.ac.its.trex.displayapp.gui.LabelFrame;
 
-public class LabelTest {
+
+public class MainApp {
 
 	public static void main(String[] args) {
 

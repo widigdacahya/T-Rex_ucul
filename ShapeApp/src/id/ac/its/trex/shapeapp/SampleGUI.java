@@ -2,6 +2,11 @@ package id.ac.its.trex.shapeapp;
 
 import javax.swing.JOptionPane;
 
+import id.ac.its.trex.shapeapp.shape.Circle;
+import id.ac.its.trex.shapeapp.shape.Rectangle;
+import id.ac.its.trex.shapeapp.shape.Shape;
+import id.ac.its.trex.shapeapp.shape.Triangle;
+
 public class SampleGUI {
 	public static void main(String[] args)
 	{

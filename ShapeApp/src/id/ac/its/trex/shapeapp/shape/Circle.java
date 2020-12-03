@@ -1,4 +1,4 @@
-package id.ac.its.trex.shapeapp;
+package id.ac.its.trex.shapeapp.shape;
 
 public class Circle extends Shape{
 
