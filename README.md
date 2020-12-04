@@ -15,9 +15,10 @@ Pemrograman Berorientasi Objek Kelas E
 🦖project 2: DisplayApp
 
 ---------------------------------------
-☕️Project 1:
+☕️Project 1:      
 
-
+<img src="screenshot/projectShape.PNG" width="700">
+            
 ☕️Project 2:
       
 <img src="screenshot/project2.PNG" width="200">
