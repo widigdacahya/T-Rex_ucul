@@ -25,4 +25,4 @@ Pemrograman Berorientasi Objek Kelas E
 
 ☕️Project 3:
       
-<img src="screenshot/project3.png" width="200">
+<img src="screenshot/project3.png" width="700">
