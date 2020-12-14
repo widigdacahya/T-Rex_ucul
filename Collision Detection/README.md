@@ -14,9 +14,11 @@
 
 ### Alien
 ***Sebuah kelas yang menurunkan kelas `Sprite`***, memiliki fungsi sebagai kelas dari objek alien dalam permainan.  
-Daftar atribut:  
+  
+Daftar atribut:
 - `INITIAL_X`: atribut `final` untuk menentukan posisi default setiap alien ketika melewati frame paling kiri.  
-Daftar Fungsi:  
+  
+Daftar Fungsi:
 1. `Alien` (Konstruktor): sebuah fungsi untuk menginisialisasi posisi dari setiap alien.
 2. `initAlien`: mendapatkan gambar alien yang ada pada resource.
 3. `move`: fungsi untuk mnggerakkan objek alien.
