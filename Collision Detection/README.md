@@ -13,16 +13,19 @@
 ## Penjelasan Kelas
 
 ### Alien
-***Sebuah kelas yang menurunkan kelas `Sprite`***, memiliki fungsi sebagai kelas dari objek alien dalam permainan.    
+***Sebuah kelas yang menurunkan kelas `Sprite`***, memiliki fungsi sebagai kelas dari objek alien dalam permainan.  
+  
 Daftar atribut:
-- `INITIAL_X`: atribut `final` untuk menentukan posisi default setiap alien ketika melewati frame paling kiri.    
+- `INITIAL_X`: atribut `final` untuk menentukan posisi default setiap alien ketika melewati frame paling kiri.  
+  
 Daftar Fungsi:
 1. `Alien` (Konstruktor): sebuah fungsi untuk menginisialisasi posisi dari setiap alien.
 2. `initAlien`: mendapatkan gambar alien yang ada pada resource.
 3. `move`: fungsi untuk mnggerakkan objek alien.
 
 ### Board
-***Sebuah kelas yang menurunkan kelas `JPanel` dan mengimplementasikan interface `ActionListener`***, memiliki fungsi sebagai kelas dari papan permainan.    
+***Sebuah kelas yang menurunkan kelas `JPanel` dan mengimplementasikan interface `ActionListener`***, memiliki fungsi sebagai kelas dari papan permainan.  
+  
 Daftar atribut:
 - `timer`: atribut untuk menghitung waktu berjalannya permainan.
 - `spaceShip`: atribut pesawat dari permainan.
@@ -33,7 +36,8 @@ Daftar atribut:
 - `ingame`: atribut boolean untuk menentukan status permainan apakah masih berlangsung atau sudah selesai.
 - `B_WIDTH`: lebar dari frame.
 - `B_HEIGHT`: tinggi dari frame.
-- `pos`: atribut berupa array 2 dimensi yang menyimpan koordinat awal dari alien.    
+- `pos`: atribut berupa array 2 dimensi yang menyimpan koordinat awal dari alien.  
+  
 Daftar Fungsi:
 1. `Board` (Konstruktor): sebuah fungsi yang memanggil fungsi `initBoard`.
 2. `initBoard`: menginisialisasi papan permainan yang akan digunakan, dalam hal ini penambahan adapter untuk (input) kunci `TAdapter`, pengaturan warna background, inisialisasi status permainan, ukuran, pesawat beserta posisinya, pemanggilan fungsi `initAliens`, serta memulai penghitungan waktu.
@@ -53,21 +57,25 @@ Kelas tambahan: Jadi, di dalam kelas `Board` ini terdapat kelas `TAdapter` yang 
 2. `keyPressed`.
 
 ### Missile
-***Sebuah kelas yang menurunkan kelas `Sprite`***, memiliki fungsi sebagai kelas dari objek misil dalam permainan.    
+***Sebuah kelas yang menurunkan kelas `Sprite`***, memiliki fungsi sebagai kelas dari objek misil dalam permainan.  
+  
 Daftar atribut:
 - `BOARD_WIDTH`: lebar dari papan permainan.
-- `MISSILE_SPEED`: kecepatan dari misil.    
+- `MISSILE_SPEED`: kecepatan dari misil.  
+  
 Daftar Fungsi:
 1. `Missile` (Konstruktor): sebuah fungsi untuk menginisialisasi posisi dari misil.
 2. `initMissile`: mendapatkan gambar misil yang ada pada resource.
 3. `move`: fungsi untuk menggerakkan objek misil.
 
 ### SpaceShip
-***Sebuah kelas yang menurunkan kelas `Sprite`***, memiliki fungsi sebagai kelas dari objek pesawat dalam permainan.    
+***Sebuah kelas yang menurunkan kelas `Sprite`***, memiliki fungsi sebagai kelas dari objek pesawat dalam permainan.  
+  
 Daftar atribut:
 - `dx`: atribut pengubah posisi pesawat pada koordinat-X.
 - `dy`: atribut pengubah posisi pesawat pada koordinat-Y.
-- `missiles`: atribut daftar yang berisi misil-misil yang akan ditembakkan.    
+- `missiles`: atribut daftar yang berisi misil-misil yang akan ditembakkan.  
+  
 Daftar Fungsi:
 1. `SpaceShip` (Konstruktor): sebuah fungsi untuk menginisialisasi posisi dari pesawat.
 2. `initSpaceShip`: mendapatkan gambar pesawat yang ada pada resource serta inisialisasi atribut `missiles`.
@@ -76,14 +84,16 @@ Daftar Fungsi:
 5. `keyPressed`, `fire`, dan `keyReleased`: fungsi yang akan dipanggil kelas `TAdapter` (yang menangani tombol dari user) untuk menggerakkan pesawat dan menembakkan misil.
 
 ### Sprite
-***Sebuah kelas induk dari kelas `Alien`, `Missile`, dan `SpaceShip`***, memiliki fungsi sebagai kelas yang menyimpan atribut dan fungsi pembangun objek dalam permainan.    
+***Sebuah kelas induk dari kelas `Alien`, `Missile`, dan `SpaceShip`***, memiliki fungsi sebagai kelas yang menyimpan atribut dan fungsi pembangun objek dalam permainan.  
+  
 Daftar atribut:
 - `x`: posisi objek pada koordinat-X.
 - `y`: posisi objek pada koordinat-Y.
 - `width`: lebar dari objek.
 - `height`: tinggi dari objek.
 - `visible`: visibilitas objek.
-- `image`: gambar dari objek.    
+- `image`: gambar dari objek.  
+  
 Daftar Fungsi:
 1. `Sprite` (Konstruktor): sebuah fungsi untuk menginisialisasi posisi dan visibilitas objek.
 2. `loadImage`: mendapatkan gambar objek sesuai dengan direktori gambar.
@@ -96,7 +106,8 @@ Daftar Fungsi:
 9. `getBounds`: mendapatkan garis batas setiap objek yang nantinya digunakan untuk memeriksa sebuah tabrakan.
 
 ### MainApp
-***Sebuah kelas yang berisi fungsi utama aplikasi (`main`) dan menurunkan kelas `JFrame`***, memiliki fungsi untuk menjalankan program.    
+***Sebuah kelas yang berisi fungsi utama aplikasi (`main`) dan menurunkan kelas `JFrame`***, memiliki fungsi untuk menjalankan program.  
+  
 Daftar Fungsi:
 1. `MainApp` (Konstruktor): sebuah fungsi yang memanggil fungsi `initUI`.
 2. `initUI`: menambahkan papan permainan pada frame sekaligus mengatur judul frame, lebar dan tinggi frame, serta beberapa pengaturan *default* lainnya.
