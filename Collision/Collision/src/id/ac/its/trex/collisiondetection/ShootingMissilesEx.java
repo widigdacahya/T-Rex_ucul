@@ -27,6 +27,4 @@ public class ShootingMissilesEx extends JFrame {
 			ex.setVisible(true);
 		});
 	}
-	
-
 }
