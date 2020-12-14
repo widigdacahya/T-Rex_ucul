@@ -128,10 +128,11 @@ Diatas sudah dijelaskan kegunaan dari setiap atribut dan fungsi yang ada dalam s
 
 ****
 ## Screenshot
-Program:
-    - Ketika bermain
+Program:  
+    - Ketika bermain  
     <img src="Screenshot/Playing.png" width="700">
-    - Ketika selesai
+    - Ketika selesai  
     <img src="Screenshot/GameOver.png" width="700">
-Class Diagram:
+  
+Class Diagram:  
 <img src="Screenshot/ClassDiagram.png" width="500">
