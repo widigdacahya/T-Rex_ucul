@@ -1,4 +1,4 @@
-# Collision Detection
+# ☕️ Collision Detection
 ****
 ***Project ini merupakan tugas mingguan dari Kelas Pemrograman Berbasis Objek Kelas E.*** Kode program dari project ini berdasarkan apa yang ada pada <http://zetcode.com/javagames/collision/> dengan beberapa pengembangan. Berikut sedikit penjelasan terkait project ini:
 ****
@@ -125,3 +125,13 @@ Diatas sudah dijelaskan kegunaan dari setiap atribut dan fungsi yang ada dalam s
 5. Permainan akan berakhir ketika:
     - Semua alien berhasil dikalahkan, dalam artian user berhasil menembak seluruh pesawat alien.
     - User dikalahkan alien, dalam artian pesawat user telah ditabrak oleh pesawat alien.
+
+****
+## Screenshot
+Program:
+    - Ketika bermain
+    <img src="Screenshot/Playing.png" width="700">
+    - Ketika selesai
+    <img src="Screenshot/GameOver.png" width="700">
+Class Diagram:
+<img src="Screenshot/ClassDiagram.png" width="500">
