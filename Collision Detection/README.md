@@ -46,7 +46,8 @@ Daftar Fungsi:
     - `updateShip`: fungsi yang akan memanggil fungsi `move` pada objek `spaceShip` berdasar pada visibilitas dari pesawat.
     - `updateMissiles`: fungsi ini akan mengambil objek misil dari pesawat kemudian ditentukan apakah misil masih didalam frame, jika iya maka akan digerakkan dengan memanggil fungsi `move` pada objek `missile`, jika tidak maka akan dihapus dari frame dengan memanggil fungsi `remove`-nya.
     - `updateAliens`: fungsi ini akan memanggil fungsi `move`/`remove` pada objek `aliens` berdasar pada visibilitasnya yang ditentukan dari tabrakannya dengan misil.
-    - `checkCollisions`: fungsi ini akan memeriksa tabrakan antara pesawat dengan alien dan alien dengan misil. Jika terjadi tabrakan, maka akan memengaruhi status visibilitas dari masing-masing obhek dan status permainan.    
+    - `checkCollisions`: fungsi ini akan memeriksa tabrakan antara pesawat dengan alien dan alien dengan misil. Jika terjadi tabrakan, maka akan memengaruhi status visibilitas dari masing-masing obhek dan status permainan.
+    
 Kelas tambahan: Jadi, di dalam kelas `Board` ini terdapat kelas `TAdapter` yang menurunkan kelas `KeyAdapter`. FUngsi kelas ini adalah untuk menangani tombol arah pada keyboard untuk menggerakkan pesawat dan tombol spasi untuk menembakkan misil. Di dalam kelas ini terdapat beberapa fungsi:
 1. `keyReleased`.
 2. `keyPressed`.
