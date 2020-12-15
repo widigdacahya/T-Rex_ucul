@@ -12,7 +12,7 @@ Pemrograman Berorientasi Objek Kelas E
 🦖username : widigdacahya
 
 🦖project 1: ShapeApp     
-🦖project 2: DisplayApp
+🦖project 2: DisplayApp             
 🦖project 3: Collision Detection
 
 ---------------------------------------
