@@ -1,5 +1,15 @@
 # ☕️ Collision Detection
 ****
+🦖Nama : Allam Taju Sarof (05111940000053)
+🦖username : Allam0053
+
+🦖Nama: Muchamad Maroqi Abdul Jalil (05111940000143)
+🦖username: maroqijalil
+
+🦖Nama : Cahyadesthian Rizki Widigda (05111940000156)
+🦖username : widigdacahya
+****
+****
 ***Project ini merupakan tugas mingguan dari Kelas Pemrograman Berbasis Objek Kelas E.*** Kode program dari project ini berdasarkan apa yang ada pada <http://zetcode.com/javagames/collision/> dengan beberapa pengembangan. Berikut sedikit penjelasan terkait project ini:
 ****
 ## Daftar Kelas
