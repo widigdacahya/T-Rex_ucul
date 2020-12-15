@@ -13,6 +13,7 @@ Pemrograman Berorientasi Objek Kelas E
 
 🦖project 1: ShapeApp     
 🦖project 2: DisplayApp
+🦖project 3: Collision Detection
 
 ---------------------------------------
 ☕️Project 1:      
@@ -25,4 +26,4 @@ Pemrograman Berorientasi Objek Kelas E
 
 ☕️Project 3:
       
-<img src="screenshot/project3.png" width="700">
+<img src="screenshot/preview3.jpg" width="700">
