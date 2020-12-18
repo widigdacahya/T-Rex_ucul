@@ -3,8 +3,8 @@ package id.ac.its.trexucul.collisiondetection;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
-public class MainApp extends JFrame{
-
+public class MainApp extends JFrame {
+	
 	public MainApp() {
 		initUI();
 	}
@@ -20,16 +20,9 @@ public class MainApp extends JFrame{
 	}
 
 	public static void main(String[] args) {
-		
-		
 		EventQueue.invokeLater(() -> {
 			MainApp ex = new MainApp();
 			ex.setVisible(true);
 		});
-		
-		
-
 	}
-
-	
 }

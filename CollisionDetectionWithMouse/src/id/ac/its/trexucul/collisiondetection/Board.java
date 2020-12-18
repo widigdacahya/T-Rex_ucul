@@ -12,13 +12,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class Board extends JPanel implements ActionListener {
+public class Board extends JPanel implements ActionListener, MouseListener, MouseMotionListener {
 
 	private Timer timer;
 	private SpaceShip spaceShip;
@@ -29,6 +32,7 @@ public class Board extends JPanel implements ActionListener {
 	private boolean ingame;
 	private final int B_WIDTH = 1280;
 	private final int B_HEIGHT = 720;
+	private int x, y;
 	
 	private final int [][] pos = {
 			{2380,29}, {2500,59}, {1380,89},
@@ -46,10 +50,10 @@ public class Board extends JPanel implements ActionListener {
 		initBoard();
 	}
 	
-	
 	private void initBoard() {
-		
 		addKeyListener(new TAdapter());
+		this.addMouseListener(this);
+		this.addMouseMotionListener(this);
 		setBackground(Color.black);
 		setFocusable(true);
 		ingame = true;
@@ -62,7 +66,6 @@ public class Board extends JPanel implements ActionListener {
 		
 		timer = new Timer(DELAY, this);
 		timer.start();
-		
 	}
 	
 	public void initAliens() {
@@ -72,7 +75,6 @@ public class Board extends JPanel implements ActionListener {
 			aliens.add(new Alien(p[0],p[1]));
 		}
 	}
-	
 	
 	@Override
 	public void paintComponent(Graphics g) {
@@ -86,7 +88,6 @@ public class Board extends JPanel implements ActionListener {
 
 		Toolkit.getDefaultToolkit().sync();
 	}
-	
 	
 	private void drawObjects(Graphics g) {
 		
@@ -113,8 +114,9 @@ public class Board extends JPanel implements ActionListener {
 		
 		g.setColor(Color.white);
 		g.drawString("Aliens left: " + aliens.size(), 5, 15);
+		g.setColor(Color.white);
+		g.drawString("Spaceship position: " + x + " " + y, B_WIDTH-185, 15);
 	}
-	
 	
 	private void drawGameOver(Graphics g) {
 		String msg = "Game Over";
@@ -146,15 +148,11 @@ public class Board extends JPanel implements ActionListener {
 		}
 	}
 	
-	
-	
 	private void updateShip() {
 		if(spaceShip.isVisible()) {
 			spaceShip.move();
 		}
 	}
-	
-
 
 	private void updateMissiles() {
 		List<Missile> missiles = spaceShip.getMissiles();
@@ -224,16 +222,48 @@ public class Board extends JPanel implements ActionListener {
 		}
 	}
 	
-	
 	private class TAdapter extends KeyAdapter {
-		@Override
-		public void keyReleased(KeyEvent e) {
-			spaceShip.keyReleased(e);
-		}
+//		@Override
+//		public void keyReleased(KeyEvent e) {
+//			spaceShip.keyReleased(e);
+//		}
 		
 		@Override
 		public void keyPressed(KeyEvent e) {
 			spaceShip.keyPressed(e);
 		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		spaceShip.cursorEnter(e.getX(), e.getY());
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		spaceShip.cursorExit(e.getX(), e.getY());
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		spaceShip.cursorEnter(e.getX(), e.getY());
+		x = e.getX();
+		y = e.getY();
 	}
 }
