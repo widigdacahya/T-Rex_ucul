@@ -3,6 +3,7 @@ package id.ac.its.trexucul.collisiondetection;
 
 
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +47,18 @@ public class SpaceShip extends Sprite{
 	}
 	
 	public void cursorExit(int dx, int dy) {
+	}
+	
+	public void mouseClick(MouseEvent e) {
+		
+		//if mouse dragged
+		if(e.getButton() == 0) {
+			fire();
+		}
+
+		if (e.getButton() == MouseEvent.BUTTON1 || e.getButton() == MouseEvent.MOUSE_DRAGGED) {
+			fire();
+		}
 	}
 	
     public void keyPressed(KeyEvent e) {

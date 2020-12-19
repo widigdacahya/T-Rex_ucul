@@ -236,6 +236,7 @@ public class Board extends JPanel implements ActionListener, MouseListener, Mous
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		spaceShip.mouseClick(e);
 	}
 
 	@Override
@@ -258,6 +259,8 @@ public class Board extends JPanel implements ActionListener, MouseListener, Mous
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
+		if (e.getButton() == 0)
+			spaceShip.mouseClick(e);
 	}
 
 	@Override
