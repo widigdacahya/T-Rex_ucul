@@ -236,36 +236,38 @@ public class Board extends JPanel implements ActionListener, MouseListener, Mous
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		spaceShip.mouseClick(e);
+		spaceShip.fire();
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		spaceShip.cursorEnter(e.getX(), e.getY());
+		spaceShip.updatePosition(e.getX(), e.getY());
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		spaceShip.cursorExit(e.getX(), e.getY());
+		spaceShip.updatePosition(e.getX(), e.getY());
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
+		spaceShip.fire();
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		if (e.getButton() == 0)
-			spaceShip.mouseClick(e);
+		spaceShip.updatePosition(e.getX(), e.getY());
+		
+		x = e.getX();
+		y = e.getY();
+		
+		mousePressed(e);
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		spaceShip.cursorEnter(e.getX(), e.getY());
+		spaceShip.updatePosition(e.getX(), e.getY());
+		
 		x = e.getX();
 		y = e.getY();
 	}

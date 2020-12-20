@@ -41,25 +41,22 @@ public class SpaceShip extends Sprite{
 		return missiles;
 	}
 	
-	public void cursorEnter(int dx, int dy) {
+	public void updatePosition(int dx, int dy) {
 		this.dx = dx;
 		this.dy = dy;
 	}
 	
-	public void cursorExit(int dx, int dy) {
-	}
-	
-	public void mouseClick(MouseEvent e) {
-		
-		//if mouse dragged
-		if(e.getButton() == 0) {
-			fire();
-		}
-
-		if (e.getButton() == MouseEvent.BUTTON1 || e.getButton() == MouseEvent.MOUSE_DRAGGED) {
-			fire();
-		}
-	}
+//	public void mouseClick(MouseEvent e) {
+//		
+//		//if mouse dragged
+//		if(e.getButton() == 0) {
+//			fire();
+//		}
+//
+//		if (e.getButton() == MouseEvent.BUTTON1 || e.getButton() == MouseEvent.MOUSE_DRAGGED) {
+//			fire();
+//		}
+//	}
 	
     public void keyPressed(KeyEvent e) {
     	int key = e.getKeyCode();
