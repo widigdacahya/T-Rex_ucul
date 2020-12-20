@@ -271,4 +271,8 @@ public class Board extends JPanel implements ActionListener, MouseListener, Mous
 		x = e.getX();
 		y = e.getY();
 	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
 }
