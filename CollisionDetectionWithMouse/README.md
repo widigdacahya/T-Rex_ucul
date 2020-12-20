@@ -72,7 +72,7 @@ Kelas untuk menangani event mouse:
 4. `mousePressed`
 5. `mouseReleased`
 6. `mouseDragged`
-7. `mouseMoved`: menanagni pergerakan mouse di dalam frame
+7. `mouseMoved`: menangani pergerakan mouse di dalam frame
 
 ### Missile
 ***Sebuah kelas yang menurunkan kelas `Sprite`***, memiliki fungsi sebagai kelas dari objek misil dalam permainan.  
@@ -153,4 +153,4 @@ Program:
     <img src="Screenshot/GameOver.png" width="700">
   
 Class Diagram:  
-<img src="Screenshot/ClassDiagram.png" width="500">
+<img src="Screenshot/ShootingAliensMoveMouseTrexUcul.png" width="1000">
