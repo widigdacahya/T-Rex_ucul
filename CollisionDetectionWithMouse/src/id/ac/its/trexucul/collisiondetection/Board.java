@@ -18,6 +18,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -33,6 +34,15 @@ public class Board extends JPanel implements ActionListener, MouseListener, Mous
 	private final int B_WIDTH = 1280;
 	private final int B_HEIGHT = 720;
 	private int x, y;
+	
+	private boolean firstOpen = false;
+	private boolean initTime = false;
+	private boolean startGame = false;
+	
+	private Long startTime = 0l;
+	private Long currentTime = 0l;
+	private int timeSec = 0;
+	private int counter = 3;
 	
 	private final int [][] pos = {
 			{2380,29}, {2500,59}, {1380,89},
@@ -52,8 +62,6 @@ public class Board extends JPanel implements ActionListener, MouseListener, Mous
 	
 	private void initBoard() {
 		addKeyListener(new TAdapter());
-		this.addMouseListener(this);
-		this.addMouseMotionListener(this);
 		setBackground(Color.black);
 		setFocusable(true);
 		ingame = true;
@@ -66,6 +74,15 @@ public class Board extends JPanel implements ActionListener, MouseListener, Mous
 		
 		timer = new Timer(DELAY, this);
 		timer.start();
+	}
+	
+	private void firstInstruction() {
+		JOptionPane.showMessageDialog(null, "Place your cursor at left outside this window!\n" +
+				"To avoid the collision of your spaceship with aliens", "Suggestion", 
+				JOptionPane.INFORMATION_MESSAGE);
+		
+		this.addMouseListener(this);
+		this.addMouseMotionListener(this);
 	}
 	
 	public void initAliens() {
@@ -116,6 +133,19 @@ public class Board extends JPanel implements ActionListener, MouseListener, Mous
 		g.drawString("Aliens left: " + aliens.size(), 5, 15);
 		g.setColor(Color.white);
 		g.drawString("Spaceship position: " + x + " " + y, B_WIDTH-185, 15);
+		
+		if (!startGame) {
+			String msg = Integer.toString(counter - timeSec);
+			Font medium = new Font("Helvetica", Font.BOLD, 18);
+			FontMetrics fm = getFontMetrics(medium);
+			
+			g.setColor(Color.white);
+			g.setFont(medium);
+			if (counter - timeSec > 0)
+				g.drawString(msg, (B_WIDTH - fm.stringWidth(msg))/2, B_HEIGHT/2);
+			else
+				g.drawString("Go!", (B_WIDTH - fm.stringWidth("Go!"))/2, B_HEIGHT/2);
+		}
 	}
 	
 	private void drawGameOver(Graphics g) {
@@ -132,12 +162,21 @@ public class Board extends JPanel implements ActionListener, MouseListener, Mous
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		inGame();
-
-		updateShip();
-		updateMissiles();
-		updateAliens();
 		
-		checkCollisions();
+		if (!firstOpen) {
+			firstInstruction();
+			firstOpen = true;
+		}
+		
+		if (startGame) {
+			updateShip();
+			updateMissiles();
+			updateAliens();
+			
+			checkCollisions();
+		} else {
+			countingStart();
+		}
 		
 		repaint();
 	}
@@ -219,6 +258,20 @@ public class Board extends JPanel implements ActionListener, MouseListener, Mous
 					alien.setVisible(false);
 				}
 			}
+		}
+	}
+	
+	private void countingStart() {
+		if (!initTime) {
+			startTime = System.currentTimeMillis();
+			initTime = true;
+		}
+		
+		currentTime = System.currentTimeMillis() - startTime;
+		timeSec = currentTime.intValue()/1000;
+		
+		if (counter - timeSec < 0) {
+			startGame = true;
 		}
 	}
 	
