@@ -155,4 +155,4 @@ Program:
     <img src="Screenshot/GameOver.png" width="700">
   
 Class Diagram:  
-<img src="Screenshot/ShootingAliensMoveMouseTrexUcul.png" width="1000">
+<img src="Screenshot/ShootingAliensMouse.jpg" width="1000">
