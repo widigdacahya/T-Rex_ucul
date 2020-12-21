@@ -1,6 +1,6 @@
 # ☕️ Collision Detection
 ****
-<a href="https://www.youtube.com/watch?v=-xCdYSH7Qd0">Video Saat Playing</a>
+<a href="https://youtu.be/hJ1MGWCdPKY">Video Saat Playing</a>
 ****
 🦖Nama : Allam Taju Sarof (05111940000053)
 🦖username : Allam0053
