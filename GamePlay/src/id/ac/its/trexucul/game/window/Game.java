@@ -7,12 +7,14 @@ import java.awt.image.BufferStrategy;
 import java.util.Random;
 
 import id.ac.its.trexucul.game.framework.ObjectId;
-import id.ac.its.trexucul.game.object.Test;
+import id.ac.its.trexucul.game.object.Block;
 
 public class Game extends Canvas implements Runnable {
 	
 	private boolean running = false;
 	private Thread thread;
+	
+	public static int WIDTH, HEIGHT;
 	
 	//object handler
 	Handler handler;
@@ -20,12 +22,13 @@ public class Game extends Canvas implements Runnable {
 	Random rand = new Random();
 	
 	private void init() {
-		handler = new Handler();
 		
-		//handler.addObject(new Test(100,100,ObjectId.Test));
-		for(int i=0; i<50; i++) {
-			handler.addObject(new Test(rand.nextInt(800), rand.nextInt(600), ObjectId.Test));
-		}
+		WIDTH = getWidth();
+		HEIGHT = getHeight();
+		
+		handler = new Handler();
+		handler.createLevel();
+		
 	}
 	
 	

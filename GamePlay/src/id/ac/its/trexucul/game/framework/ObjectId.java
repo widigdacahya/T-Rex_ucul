@@ -4,7 +4,7 @@ package id.ac.its.trexucul.game.framework;
 public enum ObjectId {
 
 	
-	Player(), Test();
+	Player(), Block();
 	
 }
 

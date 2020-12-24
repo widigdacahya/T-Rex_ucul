@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.util.LinkedList;
 
 import id.ac.its.trexucul.game.framework.GameObject;
+import id.ac.its.trexucul.game.framework.ObjectId;
+import id.ac.its.trexucul.game.object.Block;
 
 public class Handler {
 
@@ -37,6 +39,11 @@ public LinkedList<GameObject> object = new LinkedList<GameObject>();
 		this.object.remove(object);
 	}
 	
-	
+	public void createLevel() {
+		//handler.addObject(new Test(100,100,ObjectId.Test));
+				for(int xx=0; xx<Game.WIDTH+32; xx+=32) {
+					addObject(new Block(xx, Game.HEIGHT-32, ObjectId.Block));
+				}
+	}
 	
 }
