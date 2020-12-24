@@ -1,4 +1,4 @@
-package id.ac.its.trexucul.game;
+package id.ac.its.trexucul.game.window;
 
 import java.awt.Dimension;
 
