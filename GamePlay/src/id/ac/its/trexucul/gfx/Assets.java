@@ -11,13 +11,19 @@ import id.ac.its.trexucul.util.ImageLoader;
 public class Assets {
 	
 	public static Image menuBG;
+	public static Image levelBG;
+	
 	public static Image mainMenuBtn;
 	public static Image pengaturanMenuBtn;
 	public static Image mainMenuBtnHov;
 	public static Image pengaturanMenuBtnHov;
+	public static Image kembaliBtn;
+	public static int width = 250, height = 80;
 	
 	public static void init() {
 		menuBG = ImageLoader.loadImage("menu/menu_bg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
+		levelBG = ImageLoader.loadImage("menu/LevelPage.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
+		
 //		mainMenuBtn = ImageLoader.loadImage("/menu/main_menu_btn.png");
 //		pengaturanMenuBtn = ImageLoader.loadImage("/menu/pengaturan_menu_btn.png");
 //		mainMenuBtnHov = ImageLoader.loadImage("/menu/main_menu_btn_hov.png");
@@ -25,6 +31,7 @@ public class Assets {
 	}
 	
 	public static Image getImageBtn(String imgName) {
-		return ImageLoader.loadImage("button/" + imgName).getScaledInstance(250, 80, BufferedImage.SCALE_DEFAULT);
+		return ImageLoader.loadImage("button/" + imgName).getScaledInstance(width, height, BufferedImage.SCALE_DEFAULT);
 	}
+	
 }

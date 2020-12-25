@@ -9,14 +9,14 @@ import id.ac.its.trexucul.util.MouseHandler;
 
 public class CommonButton {
 	
-	private String btnName;
+	protected String btnName;
 	private int x, y;
 	private Rectangle bounds;
 	private boolean hovering;
 	private ClickListener click;
 	
-	private Image btn;
-	private Image btnHov;
+	protected Image btn;
+	protected Image btnHov;
 	
 	public CommonButton(String name, int x, int y, ClickListener click) {
 		this.btnName = name;

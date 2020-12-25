@@ -39,6 +39,38 @@ public class Window extends JFrame implements Runnable {
 	private MenuPage menuPage;
 	private SplashPage splashPage;
 	
+	public GamePage getGamePage() {
+		return gamePage;
+	}
+
+	public void setGamePage(GamePage gamePage) {
+		this.gamePage = gamePage;
+	}
+
+	public LevelPage getLevelPage() {
+		return levelPage;
+	}
+
+	public void setLevelPage(LevelPage levelPage) {
+		this.levelPage = levelPage;
+	}
+
+	public MenuPage getMenuPage() {
+		return menuPage;
+	}
+
+	public void setMenuPage(MenuPage menuPage) {
+		this.menuPage = menuPage;
+	}
+
+	public SplashPage getSplashPage() {
+		return splashPage;
+	}
+
+	public void setSplashPage(SplashPage splashPage) {
+		this.splashPage = splashPage;
+	}
+
 	public Window(String title) {
 		setTitle(title);
 		setSize(WIDTH, HEIGHT);
@@ -94,7 +126,7 @@ public class Window extends JFrame implements Runnable {
 		gamePage = new GamePage();
 		menuPage = new MenuPage(this);
 		splashPage = new SplashPage();
-		levelPage = new LevelPage();
+		levelPage = new LevelPage(this);
 		PageState.currentState = menuPage;
 		Assets.init();
 	}
