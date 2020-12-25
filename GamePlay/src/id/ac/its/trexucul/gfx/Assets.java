@@ -25,6 +25,6 @@ public class Assets {
 	}
 	
 	public static Image getImageBtn(String imgName) {
-		return ImageLoader.loadImage("button/" + imgName).getScaledInstance(250, 80, BufferedImage.SCALE_DEFAULT);
+		return ImageLoader.loadImage("button/" + imgName).getScaledInstance(308, 118, BufferedImage.SCALE_DEFAULT);
 	}
 }

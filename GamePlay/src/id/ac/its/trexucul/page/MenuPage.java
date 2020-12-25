@@ -15,13 +15,13 @@ public class MenuPage extends PageState {
 
 	public MenuPage(Window window) {
 		super(window);
-		btns.add(new CommonButton("main_menu_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 - 50, new ClickListener() {
+		btns.add(new CommonButton("main_menu_btn", Window.WIDTH/2 - 154, Window.HEIGHT/2 - 80, new ClickListener() {
 			@Override
 			public void onClick() {
 				// Level
 			}
 		}));
-		btns.add(new CommonButton("pengaturan_menu_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 + 50, new ClickListener() {
+		btns.add(new CommonButton("pengaturan_menu_btn", Window.WIDTH/2 - 154, Window.HEIGHT/2 + 80, new ClickListener() {
 			@Override
 			public void onClick() {
 				// pengaturan
