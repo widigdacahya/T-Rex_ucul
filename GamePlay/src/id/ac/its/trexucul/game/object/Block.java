@@ -12,7 +12,6 @@ public class Block extends GameObject{
 
 	public Block(float x, float y, ObjectId id) {
 		super(x, y, id);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
@@ -25,7 +24,6 @@ public class Block extends GameObject{
 	public void render(Graphics g) {
 		g.setColor(Color.white);
 		g.drawRect((int)x, (int)y, 32, 32);
-		
 	}
 
 	@Override

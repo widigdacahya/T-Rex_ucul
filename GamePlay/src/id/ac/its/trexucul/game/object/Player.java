@@ -16,7 +16,7 @@ public class Player extends GameObject {
 	private float height =96;
 	
 	
-	private float gravity = 0.05f;
+	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
 
 	private Handler handler;
@@ -52,12 +52,33 @@ public class Player extends GameObject {
 			GameObject tempObject = handler.object.get(i);
 			
 			if(tempObject.getId() == ObjectId.Block) {
-				y = tempObject.getY() - height; //comment this line to fall before start
+				
+				if(getBoundsTop().intersects(tempObject.getBounds())) {
+					y = tempObject.getY() + 39 ;
+					velY = 0;
+				}
+				
+				
 				if(getBounds().intersects(tempObject.getBounds())) {
+					y = tempObject.getY()-height; //make player objetct above the block
 					velY = 0;
 					falling = false;
 					jumping = false;
+				} else 
+					falling = true;
+				
+				
+				//right side collision
+				if(getBoundsRight().intersects(tempObject.getBounds())) {
+					x = tempObject.getX() -width;
 				}
+				
+				//left side collision
+				if(getBoundsLeft().intersects(tempObject.getBounds())) {
+					x = tempObject.getX() + 34;	//it blinks if we use + width
+				}
+				
+				
 			
 			}
 		
@@ -72,11 +93,6 @@ public class Player extends GameObject {
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
-		g.setColor(Color.red);
-		g2d.draw(getBounds());
-		g2d.draw(getBoundsLeft());
-		g2d.draw(getBoundsRight());
-		g2d.draw(getBoundsTop());
 		
 	}
 
