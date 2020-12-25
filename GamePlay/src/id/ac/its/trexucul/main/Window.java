@@ -13,6 +13,7 @@ import id.ac.its.trexucul.util.PageState;
 public class Window extends JFrame implements Runnable {
 	
 	public static final int WIDTH = 1280, HEIGHT = 720;
+	
 	private Canvas canvas;
 	private Thread thread;
 	private boolean running = false;
@@ -27,8 +28,8 @@ public class Window extends JFrame implements Runnable {
 	private KeyboardHandler keyBoard;
 	private MouseHandler mouse;
 	
-	public Window() {
-		setTitle("New Game");
+	public Window(String title) {
+		setTitle(title);
 		setSize(WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
@@ -50,10 +51,6 @@ public class Window extends JFrame implements Runnable {
 		canvas.addMouseMotionListener(mouse);
 		canvas.addKeyListener(keyBoard);
 		setVisible(true);
-	}
-
-	public static void main(String[] args) {
-		new Window().start();
 	}
 	
 	private void update() {
@@ -107,6 +104,7 @@ public class Window extends JFrame implements Runnable {
 				delta --;
 				frames ++;
 			}
+			
 			if(time >= 1000000000) {
 				frames = 0;
 				time = 0;
@@ -116,7 +114,7 @@ public class Window extends JFrame implements Runnable {
 		stop();
 	}
 	
-	private void start() {
+	public void start() {
 		thread = new Thread(this);
 		thread.start();
 		running = true;		
