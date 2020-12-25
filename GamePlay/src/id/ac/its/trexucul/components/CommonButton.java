@@ -43,11 +43,11 @@ public class CommonButton {
 	
 	public void render(Graphics g) {
 		if(hovering) {
-			g.drawImage(btn, this.x, this.y, null);
-			bounds = new Rectangle(x, y, btn.getHeight(null), btn.getWidth(null));
-		} else {
 			g.drawImage(btnHov, this.x, this.y, null);
-			bounds = new Rectangle(x, y, btnHov.getHeight(null), btnHov.getWidth(null));
+			bounds = new Rectangle(x, y, btnHov.getWidth(null), btnHov.getHeight(null));
+		} else {
+			g.drawImage(btn, this.x, this.y, null);
+			bounds = new Rectangle(x, y, btn.getWidth(null), btn.getHeight(null));
 		}
 	}
 }
