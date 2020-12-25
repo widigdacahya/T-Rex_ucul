@@ -8,6 +8,7 @@ import java.util.Random;
 
 import id.ac.its.trexucul.game.framework.ObjectId;
 import id.ac.its.trexucul.game.object.Block;
+import id.ac.its.trexucul.game.object.Player;
 
 public class Game extends Canvas implements Runnable {
 	
@@ -27,6 +28,11 @@ public class Game extends Canvas implements Runnable {
 		HEIGHT = getHeight();
 		
 		handler = new Handler();
+		
+		//the moving object maybe
+		handler.addObject(new Player(100,100,ObjectId.Player));
+		
+		//seems like floor
 		handler.createLevel();
 		
 	}
