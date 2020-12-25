@@ -8,6 +8,7 @@ import java.util.LinkedList;
 
 import id.ac.its.trexucul.game.framework.GameObject;
 import id.ac.its.trexucul.game.framework.ObjectId;
+import id.ac.its.trexucul.game.window.Handler;
 
 public class Player extends GameObject {
 	
@@ -18,8 +19,11 @@ public class Player extends GameObject {
 	private float gravity = 0.05f;
 	private final float MAX_SPEED = 10;
 
-	public Player(float x, float y, ObjectId id) {
+	private Handler handler;
+	
+	public Player(float x, float y, Handler handler, ObjectId id) {
 		super(x, y, id);
+		this.handler = handler;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -27,7 +31,7 @@ public class Player extends GameObject {
 	public void tick(LinkedList<GameObject> object) {
 		
 		x += velX;
-		//y += velY;
+		y += velY;
 		
 		if(falling || jumping) {
 			velY += gravity;
@@ -37,8 +41,30 @@ public class Player extends GameObject {
 			}
 		}
 		
+		Collision(object);
 	}
 
+	
+	private void Collision(LinkedList<GameObject> object) {
+		
+		for(int i=0; i< handler.object.size();i++) {
+	
+			GameObject tempObject = handler.object.get(i);
+			
+			if(tempObject.getId() == ObjectId.Block) {
+				y = tempObject.getY() - height; //comment this line to fall before start
+				if(getBounds().intersects(tempObject.getBounds())) {
+					velY = 0;
+					falling = false;
+					jumping = false;
+				}
+			
+			}
+		
+		}
+	
+	}
+	
 	@Override
 	public void render(Graphics g) {
 		g.setColor(Color.blue);

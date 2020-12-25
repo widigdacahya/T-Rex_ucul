@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
+import id.ac.its.trexucul.game.framework.KeyInput;
 import id.ac.its.trexucul.game.framework.ObjectId;
 import id.ac.its.trexucul.game.object.Block;
 import id.ac.its.trexucul.game.object.Player;
@@ -30,11 +31,12 @@ public class Game extends Canvas implements Runnable {
 		handler = new Handler();
 		
 		//the moving object maybe
-		handler.addObject(new Player(100,100,ObjectId.Player));
+		handler.addObject(new Player(100,100, handler, ObjectId.Player));
 		
 		//seems like floor
 		handler.createLevel();
 		
+		this.addKeyListener(new KeyInput(handler));
 	}
 	
 	
