@@ -14,7 +14,7 @@ public class ImageLoader {
 			e.printStackTrace();
 			System.exit(1);
 		}
+		
 		return null;
 	}
-
 }

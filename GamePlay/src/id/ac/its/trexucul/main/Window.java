@@ -6,6 +6,12 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
+
+import id.ac.its.trexucul.gfx.Assets;
+import id.ac.its.trexucul.page.GamePage;
+import id.ac.its.trexucul.page.MenuPage;
+import id.ac.its.trexucul.page.LevelPage;
+import id.ac.its.trexucul.page.SplashPage;
 import id.ac.its.trexucul.util.KeyboardHandler;
 import id.ac.its.trexucul.util.MouseHandler;
 import id.ac.its.trexucul.util.PageState;
@@ -27,6 +33,11 @@ public class Window extends JFrame implements Runnable {
 	
 	private KeyboardHandler keyBoard;
 	private MouseHandler mouse;
+	
+	private GamePage gamePage;
+	private LevelPage levelPage;
+	private MenuPage menuPage;
+	private SplashPage splashPage;
 	
 	public Window(String title) {
 		setTitle(title);
@@ -68,8 +79,9 @@ public class Window extends JFrame implements Runnable {
 		
 		g = bs.getDrawGraphics();
 		
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, WIDTH, HEIGHT);
+//		g.setColor(Color.BLACK);
+//		g.fillRect(0, 0, WIDTH, HEIGHT);
+//		g.drawImage(Assets.menuBG, 0, 0, null);
 		
 		if(PageState.currentState != null)
 			PageState.currentState.render(g);
@@ -79,12 +91,16 @@ public class Window extends JFrame implements Runnable {
 	}
 	
 	private void init() {
+		gamePage = new GamePage();
+		menuPage = new MenuPage(this);
+		splashPage = new SplashPage();
+		levelPage = new LevelPage();
+		PageState.currentState = menuPage;
+		Assets.init();
 	}
-	
 	
 	@Override
 	public void run() {
-		
 		long now = 0;
 		long lastTime = System.nanoTime();
 		int frames = 0;

@@ -7,8 +7,8 @@ public class MouseHandler extends MouseAdapter {
 	
 	public static int x;
 	public static int y;
-	public static boolean btnLeft;
-	public static boolean btnRight;
+	public static boolean leftBtn;
+	public static boolean rightBtn;
 	
 	public MouseHandler() {
 		x = 0;
@@ -18,25 +18,25 @@ public class MouseHandler extends MouseAdapter {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(e.getButton() == MouseEvent.BUTTON1)
-			btnLeft = true;
+			leftBtn = true;
 		if(e.getButton() == MouseEvent.BUTTON2)
-			btnRight= true;
+			rightBtn= true;
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e){
 		if(e.getButton() == MouseEvent.BUTTON1)
-			btnLeft = true;
+			leftBtn = true;
 		if(e.getButton() == MouseEvent.BUTTON2)
-			btnRight= true;
+			rightBtn= true;
 	}
 	
 	@Override
 	public void mouseReleased(MouseEvent e){
 		if(e.getButton() == MouseEvent.BUTTON1)
-			btnLeft = false;
+			leftBtn = false;
 		if(e.getButton() == MouseEvent.BUTTON2)
-			btnRight= false;
+			rightBtn= false;
 	}
 	@Override
 	public void mouseDragged(MouseEvent e){
