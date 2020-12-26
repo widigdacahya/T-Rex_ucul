@@ -21,8 +21,4 @@ public class Window {
 		
 		g.start();
 	}
-
-	public static void main() {
-		
-	}
 }
