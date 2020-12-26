@@ -21,8 +21,6 @@ public class SplashPage extends PageState{
 		lastTime = System.currentTimeMillis();
 	}
 
-	
-
 	@Override
 	public void update() {
 		
