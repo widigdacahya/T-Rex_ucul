@@ -24,7 +24,8 @@ public class LevelPage extends PageState{
 		btns.add(new CommonButton("main_menu_btn", 194, 525, new ClickListener() {
 			@Override
 			public void onClick() {
-				// Level
+				// Level 1
+				PageState.currentState = window.getGamePage();
 			}
 		}));
 		
@@ -32,7 +33,8 @@ public class LevelPage extends PageState{
 		btns.add(new CommonButton("main_menu_btn", 581, 525, new ClickListener() {
 			@Override
 			public void onClick() {
-				// Level
+				// Level 2
+				PageState.currentState = window.getGamePage2();
 			}
 		}));
 		
@@ -40,7 +42,8 @@ public class LevelPage extends PageState{
 		btns.add(new CommonButton("main_menu_btn", 968, 525, new ClickListener() {
 			@Override
 			public void onClick() {
-				// Level
+				// Level 3
+				PageState.currentState = window.getGamePage3();
 			}
 		}));
 		
