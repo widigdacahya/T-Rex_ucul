@@ -78,24 +78,35 @@ public class Player {
 	
 	private void move() {
 		
+		x += velX;
+		y += velY;
+		
 		if(falling || jumping) {
 			velY += gravity;
 			
 			if(velY > MAX_SPEED) {
 				velY = MAX_SPEED;
 			}
-			
-			this.x += velX;
-			this.y += velY;
-			
 		}else {
-
-			this.x += velX;
-			this.y += velY;
-			
-			velX = velY = 0;
+			velX = velY= 0;
 		}
 		
 	}
+	
+	public Rectangle getBounds() {
+		return new Rectangle( (int) ((int)x+(playerImg.getWidth(null)/2)-(playerImg.getWidth(null)/2)/2) ,(int) ((int)y+(playerImg.getHeight(null)/2)), (int)playerImg.getWidth(null)/2, (int)playerImg.getHeight(null)/2);
+	}
+	
+//	public Rectangle getBoundsTop() {
+//		return new Rectangle((int) ((int)x+(width/2)-((width/2)/2)),  (int)y,  (int)width/2,  (int)height/2);
+//	}
+//	
+//	public Rectangle getBoundsRight() {
+//		return new Rectangle((int) ((int)x+width-5),(int)y+5,(int)5,(int)height-10);
+//	}
+//	
+//	public Rectangle getBoundsLeft() {
+//		return new Rectangle((int)x,(int)y+5,(int)5,(int)height-10);
+//	}
 	
 }
