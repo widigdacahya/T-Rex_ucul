@@ -13,6 +13,7 @@ public class Player {
 	private int x, y;
 	private float velX, velY;
 	private float gravity = 0.5f;
+	private float velSpeed = 3.0f;
 	private Rectangle bounds;
 	protected boolean falling = false;
 	protected boolean jumping = false;
@@ -57,16 +58,16 @@ public class Player {
 	
 	public void update(){		
 		if(KeyboardHandler.UP) {
-			velY = -1;
+			velY = -velSpeed;
 		}
 		if(KeyboardHandler.LEFT) {
-			velX = -1;
+			velX = -velSpeed;
 		}
 		if(KeyboardHandler.DOWN) {
-			velY = 1;
+			velY = velSpeed;
 		}
 		if(KeyboardHandler.RIGHT) {
-			velX = 1;
+			velX = velSpeed;
 		}
 		move();
 	}
