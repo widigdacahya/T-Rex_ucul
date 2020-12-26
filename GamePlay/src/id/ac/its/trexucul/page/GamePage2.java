@@ -41,8 +41,8 @@ public class GamePage2 extends PageState{
 		enemy.update();
 		bullet.update();
 	}
-
 	
-	
-
+	public Player getPlayer() {
+		return player;
+	}
 }

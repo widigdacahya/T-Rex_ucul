@@ -11,14 +11,14 @@ import id.ac.its.trexucul.main.Window;
 import id.ac.its.trexucul.util.PageState;
 
 //Level 1 Game Page
-public class GamePage extends PageState {
+public class GamePage1 extends PageState {
 	
 	private Player player;
 	private Enemy enemy;
 	private Bullet bullet;
 	private Ground ground;
 	
-	public GamePage(Window window) {
+	public GamePage1(Window window) {
 		super(window);
 		player = new Player("Player", 20, 500);
 		enemy = new Enemy("Enemy", 1100, 500);
@@ -42,5 +42,8 @@ public class GamePage extends PageState {
 		bullet.update();
 		
 	}
-
+	
+	public Player getPlayer() {
+		return player;
+	}
 }

@@ -4,12 +4,17 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
 import id.ac.its.trexucul.gfx.Assets;
+
 import id.ac.its.trexucul.page.GameOverPage;
-import id.ac.its.trexucul.page.GamePage;
+
+import id.ac.its.trexucul.id.SelectedGamePage;
+import id.ac.its.trexucul.page.GamePage1;
+
 import id.ac.its.trexucul.page.GamePage2;
 import id.ac.its.trexucul.page.GamePage3;
 import id.ac.its.trexucul.page.MenuPage;
@@ -37,7 +42,7 @@ public class Window extends JFrame implements Runnable {
 	private KeyboardHandler keyBoard;
 	private MouseHandler mouse;
 	
-	private GamePage gamePage1;
+	private GamePage1 gamePage1;
 	private GamePage2 gamePage2;
 	private GamePage3 gamePage3;
 	
@@ -49,11 +54,11 @@ public class Window extends JFrame implements Runnable {
 	Camera cam;
 	
 	
-	public GamePage getGamePage() {
+	public GamePage1 getGamePage1() {
 		return gamePage1;
 	}
 
-	public void setGamePage(GamePage gamePage1) {
+	public void setGamePage(GamePage1 gamePage1) {
 		this.gamePage1 = gamePage1;
 	}
 	
@@ -136,6 +141,16 @@ public class Window extends JFrame implements Runnable {
 			PageState.currentState.update();
 		
 		keyBoard.update();
+		
+		if (PageState.currentState == gamePage1 || PageState.currentState == gamePage2 ||
+				PageState.currentState == gamePage3) {
+			if (LevelPage.selectedPage.equals(SelectedGamePage.Satu))
+				cam.update(gamePage1.getPlayer());
+			else if (LevelPage.selectedPage.equals(SelectedGamePage.Dua))
+				cam.update(gamePage2.getPlayer());
+			else if (LevelPage.selectedPage.equals(SelectedGamePage.Tiga))
+				cam.update(gamePage3.getPlayer());
+		}
 	}
 
 	private void draw() {
@@ -148,12 +163,14 @@ public class Window extends JFrame implements Runnable {
 		
 		g = bs.getDrawGraphics();
 		
-//		g.setColor(Color.BLACK);
-//		g.fillRect(0, 0, WIDTH, HEIGHT);
-//		g.drawImage(Assets.menuBG, 0, 0, null);
+		Graphics2D g2d = (Graphics2D)g;
+
+		g2d.translate(cam.getX(), cam.getY());
 		
 		if(PageState.currentState != null)
 			PageState.currentState.render(g);
+
+		g2d.translate(-cam.getX(), -cam.getY());
 		
 		g.dispose();
 		bs.show();
@@ -161,14 +178,17 @@ public class Window extends JFrame implements Runnable {
 	
 	private void init() {
 		cam = new Camera(0,0);
-		gamePage1 = new GamePage(this);
+		gamePage1 = new GamePage1(this);
 		gamePage2 = new GamePage2(this);
 		gamePage3 = new GamePage3(this);
 		menuPage = new MenuPage(this);
 		splashPage = new SplashPage();
 		levelPage = new LevelPage(this);
+
 		gameOverPage = new GameOverPage(this);
 		PageState.currentState = gameOverPage;
+
+
 		Assets.init();
 	}
 	
