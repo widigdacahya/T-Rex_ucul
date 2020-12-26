@@ -22,6 +22,7 @@ public class Assets {
 	public static Image gamepage1BG;
 	public static Image gamepage2BG;
 	public static Image gamepage3BG;
+	public static Image gameOverPage;
 	
 	public static void init() {
 		menuBG = ImageLoader.loadImage("res/menu/menu_bg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
@@ -35,12 +36,16 @@ public class Assets {
 		gamepage1BG = ImageLoader.loadImage("res/menu/map1.png").getScaledInstance(4370, 720, BufferedImage.SCALE_DEFAULT);
 		gamepage2BG = ImageLoader.loadImage("res/menu/map2.png").getScaledInstance(4370, 720, BufferedImage.SCALE_DEFAULT);
 		gamepage3BG = ImageLoader.loadImage("res/menu/map3.png").getScaledInstance(4370, 720, BufferedImage.SCALE_DEFAULT);
+		gameOverPage = ImageLoader.loadImage("res/menu/bggameover.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 	}
 	
 	public static Image getImageBtn(String imgName) {
 		return ImageLoader.loadImage("res/button/" + imgName).getScaledInstance(width, height, BufferedImage.SCALE_DEFAULT);
 	}
 	
+	public static Image getImageText(String imgName) {
+		return ImageLoader.loadImage("res/asset/" + imgName).getScaledInstance(481, 87, BufferedImage.SCALE_DEFAULT);
+	}
 	
 	public static Image getImagePlayer(String imgObject) {
 		return ImageLoader.loadImage("res/asset/" + imgObject).getScaledInstance(121, 130, BufferedImage.SCALE_DEFAULT);

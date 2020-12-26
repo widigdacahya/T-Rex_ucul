@@ -8,6 +8,7 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
 import id.ac.its.trexucul.gfx.Assets;
+import id.ac.its.trexucul.page.GameOverPage;
 import id.ac.its.trexucul.page.GamePage;
 import id.ac.its.trexucul.page.GamePage2;
 import id.ac.its.trexucul.page.GamePage3;
@@ -43,6 +44,7 @@ public class Window extends JFrame implements Runnable {
 	private LevelPage levelPage;
 	private MenuPage menuPage;
 	private SplashPage splashPage;
+	private GameOverPage gameOverPage;
 	
 	Camera cam;
 	
@@ -94,6 +96,14 @@ public class Window extends JFrame implements Runnable {
 
 	public void setSplashPage(SplashPage splashPage) {
 		this.splashPage = splashPage;
+	}
+
+	public GameOverPage getGameOverPage() {
+		return gameOverPage;
+	}
+
+	public void setGameOverPage(GameOverPage gameOverPage) {
+		this.gameOverPage = gameOverPage;
 	}
 
 	public Window(String title) {
@@ -157,7 +167,8 @@ public class Window extends JFrame implements Runnable {
 		menuPage = new MenuPage(this);
 		splashPage = new SplashPage();
 		levelPage = new LevelPage(this);
-		PageState.currentState = gamePage3;
+		gameOverPage = new GameOverPage(this);
+		PageState.currentState = gameOverPage;
 		Assets.init();
 	}
 	
