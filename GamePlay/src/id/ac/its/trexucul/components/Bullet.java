@@ -10,6 +10,7 @@ public class Bullet {
 	
 	private String imgName;
 	private int x, y;
+	private float velX = 10.0f;
 	private Rectangle bounds;
 	
 	private Image bulletImg;
@@ -25,14 +26,12 @@ public class Bullet {
 		bulletImg = Assets.getImageBullet(imgName + ".png");
 	}
 	
-	public void update(){		
-		
+	public void update(){
+		x += velX;
 	}
 	
 	public void render(Graphics g) {
 		g.drawImage(bulletImg, this.x, this.y, null);
 		bounds = new Rectangle(x, y, bulletImg.getWidth(null), bulletImg.getHeight(null));
 	}
-	
-
 }
