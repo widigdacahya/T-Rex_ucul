@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 import id.ac.its.trexucul.game.framework.KeyInput;
@@ -19,6 +20,8 @@ public class Game extends Canvas implements Runnable {
 	
 	public static int WIDTH, HEIGHT;
 	
+	private BufferedImage level = null;
+	
 	//object 
 	Handler handler;
 	Camera cam;
@@ -30,15 +33,20 @@ public class Game extends Canvas implements Runnable {
 		WIDTH = getWidth();
 		HEIGHT = getHeight();
 		
+		BufferedImageLoader loader = new BufferedImageLoader();
+		level = loader.loadImage("res/level.png"); //loading the level
+		
 		handler = new Handler();
 		
 		cam = new Camera(0,0);
 		
+		LoadImageLevel(level);
+		
 		//the moving object maybe
-		handler.addObject(new Player(100,100, handler, ObjectId.Player));
+		//handler.addObject(new Player(100,100, handler, ObjectId.Player));
 		
 		//seems like floor
-		handler.createLevel();
+		//handler.createLevel();
 		
 		this.addKeyListener(new KeyInput(handler));
 	}
@@ -131,6 +139,28 @@ public class Game extends Canvas implements Runnable {
 		bs.show();
 		
 	}
+
+	
+	private void LoadImageLevel(BufferedImage image) {
+		int w = image.getWidth();
+		int h = image.getHeight();
+		
+		System.out.println("width, height : " + w + ", " + h);
+		
+		for(int xx = 0; xx<h; xx++) {
+			for(int yy =0; yy<w ; yy++) {
+				int pixel = image.getRGB(xx, yy);
+				int red = (pixel >> 16) & 0xff;
+				int green = (pixel >> 8) & 0xff;
+				int blue = (pixel) & 0xff;
+				
+				if(red == 255 && green == 255 && blue == 255) handler.addObject(new Block(xx*32, yy*32, ObjectId.Block));
+				if(red == 0 && green == 0 && blue == 255) handler.addObject(new Player(xx*32, yy*32,handler, ObjectId.Player));
+				
+			}
+		}
+	}
+	
 	
 	public static void main(String args[]) {
 		new Window(800, 600, "Neon Platform Game Prototype", new Game());
