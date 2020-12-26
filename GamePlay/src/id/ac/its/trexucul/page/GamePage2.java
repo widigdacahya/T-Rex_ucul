@@ -48,7 +48,7 @@ public class GamePage2 extends PageState{
 	@Override
 	public void update() {
 		player.update(ground);
-		enemy.update();
+		enemy.update(ground);
 		
 		for(int i = 0; i < bullets.size(); i++) {
 			bullets.get(i).update();
