@@ -29,7 +29,7 @@ private float x,y;
 	
 	
 	public void tick(Player player) {
-		x--; //biar kamera gerak sendiri
+		//x--; //biar kamera gerak sendiri
 		//x = -player.getX() + Window.WIDTH/2;
 	}
 
