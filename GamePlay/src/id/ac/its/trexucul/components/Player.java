@@ -11,8 +11,28 @@ public class Player {
 	
 	private String imgName;
 	private int x, y;
-	private int velX, velY;
+	private float velX, velY;
+	private float gravity = 0.5f;
 	private Rectangle bounds;
+	protected boolean falling = true;
+	protected boolean jumping = false;
+	private final int MAX_SPEED = 7; 
+	
+	protected boolean isFalling() {
+		return falling;
+	}
+
+	protected void setFalling(boolean falling) {
+		this.falling = falling;
+	}
+
+	protected boolean isJumping() {
+		return jumping;
+	}
+
+	protected void setJumping(boolean jumping) {
+		this.jumping = jumping;
+	}
 	
 	private Image playerImg;
 	
@@ -49,10 +69,25 @@ public class Player {
 	}
 	
 	private void move() {
-		this.x += velX;
-		this.y += velY;
 		
-		velX = velY = 0;
+		if(falling || jumping) {
+			velY += gravity;
+			
+			if(velY > MAX_SPEED) {
+				velY = MAX_SPEED;
+			}
+			
+			this.x += velX;
+			this.y += velY;
+			
+		}else {
+
+			this.x += velX;
+			this.y += velY;
+			
+			velX = velY = 0;
+		}
+		
 	}
 	
 }
