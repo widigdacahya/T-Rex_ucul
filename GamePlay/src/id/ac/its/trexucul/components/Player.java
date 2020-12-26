@@ -14,10 +14,18 @@ public class Player {
 	private float velX, velY;
 	private float gravity = 0.5f;
 	private Rectangle bounds;
-	protected boolean falling = true;
+	protected boolean falling = false;
 	protected boolean jumping = false;
 	private final int MAX_SPEED = 7; 
 	
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
 	protected boolean isFalling() {
 		return falling;
 	}

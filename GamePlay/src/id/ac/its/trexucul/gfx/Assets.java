@@ -54,5 +54,9 @@ public class Assets {
 		return ImageLoader.loadImage("res/asset/" + imgObject).getScaledInstance(80, 4, BufferedImage.SCALE_DEFAULT);
 	}
 	
+	public static Image getGround(String imgObject) {
+		return ImageLoader.loadImage("res/menu/" + imgObject).getScaledInstance(4370, 56, BufferedImage.SCALE_DEFAULT);
+	}
+		
 	
 }

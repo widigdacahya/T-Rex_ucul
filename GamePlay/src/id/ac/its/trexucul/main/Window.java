@@ -44,6 +44,9 @@ public class Window extends JFrame implements Runnable {
 	private MenuPage menuPage;
 	private SplashPage splashPage;
 	
+	Camera cam;
+	
+	
 	public GamePage getGamePage() {
 		return gamePage1;
 	}
@@ -147,13 +150,14 @@ public class Window extends JFrame implements Runnable {
 	}
 	
 	private void init() {
+		cam = new Camera(0,0);
 		gamePage1 = new GamePage(this);
 		gamePage2 = new GamePage2(this);
 		gamePage3 = new GamePage3(this);
 		menuPage = new MenuPage(this);
 		splashPage = new SplashPage();
 		levelPage = new LevelPage(this);
-		PageState.currentState = gamePage1;
+		PageState.currentState = gamePage3;
 		Assets.init();
 	}
 	
@@ -202,4 +206,20 @@ public class Window extends JFrame implements Runnable {
 			e.printStackTrace();
 		}
 	}
+	
+	/*
+	private void update() {
+		handler.tick();
+		
+		for(int u=0; u < handler.object.size(); u++ ) {
+			
+			if(handler.object.get(u).getId() == ObjectId.Player) {
+				cam.tick(handler.object.get(u));
+				
+			}
+			
+		}
+		
+	}
+	*/
 }
