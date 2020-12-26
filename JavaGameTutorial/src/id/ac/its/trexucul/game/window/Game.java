@@ -10,6 +10,7 @@ import java.util.Random;
 
 import id.ac.its.trexucul.game.framework.KeyInput;
 import id.ac.its.trexucul.game.framework.ObjectId;
+import id.ac.its.trexucul.game.framework.Texture;
 import id.ac.its.trexucul.game.object.Block;
 import id.ac.its.trexucul.game.object.Player;
 
@@ -23,8 +24,10 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage level = null;
 	
 	//object 
+	Player player;
 	Handler handler;
 	Camera cam;
+	static Texture tex;
 	
 	Random rand = new Random();
 	
@@ -32,6 +35,8 @@ public class Game extends Canvas implements Runnable {
 		
 		WIDTH = getWidth();
 		HEIGHT = getHeight();
+		
+		tex = new Texture();
 		
 		BufferedImageLoader loader = new BufferedImageLoader();
 		level = loader.loadImage("res/level.png"); //loading the level
@@ -154,13 +159,17 @@ public class Game extends Canvas implements Runnable {
 				int green = (pixel >> 8) & 0xff;
 				int blue = (pixel) & 0xff;
 				
-				if(red == 255 && green == 255 && blue == 255) handler.addObject(new Block(xx*32, yy*32, ObjectId.Block));
-				if(red == 0 && green == 0 && blue == 255) handler.addObject(new Player(xx*32, yy*32,handler, ObjectId.Player));
+				if((red == 255) && (green == 255) && (blue == 255)) handler.addObject(new Block(xx*32, yy*32, 0, ObjectId.Block));
+				if((red == 128) && (green == 128) && (blue == 128)) handler.addObject(new Block(xx*32, yy*32, 1, ObjectId.Block));
+				if((red == 0) && (green == 0) && (blue == 255)) handler.addObject(new Player(xx*32, yy*32, handler, ObjectId.Block));
 				
 			}
 		}
 	}
 	
+	public static Texture getInstance() {
+		return tex;
+	}
 	
 	public static void main(String args[]) {
 		new Window(800, 600, "Neon Platform Game Prototype", new Game());

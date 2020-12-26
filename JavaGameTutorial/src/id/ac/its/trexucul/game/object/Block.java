@@ -7,11 +7,17 @@ import java.util.LinkedList;
 
 import id.ac.its.trexucul.game.framework.GameObject;
 import id.ac.its.trexucul.game.framework.ObjectId;
+import id.ac.its.trexucul.game.framework.Texture;
+import id.ac.its.trexucul.game.window.Game;
 
 public class Block extends GameObject{
 
-	public Block(float x, float y, ObjectId id) {
+	Texture tex = Game.getInstance();
+	private int type;
+
+	public Block(float x, float y, int type, ObjectId id) {
 		super(x, y, id);
+		this.type = type;
 	}
 	
 	@Override
