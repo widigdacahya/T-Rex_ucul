@@ -19,7 +19,9 @@ public class Assets {
 	public static Image pengaturanMenuBtnHov;
 	public static Image kembaliBtn;
 	public static int width = 250, height = 80;
-	public static Image gamepageBG;
+	public static Image gamepage1BG;
+	public static Image gamepage2BG;
+	public static Image gamepage3BG;
 	
 	public static void init() {
 		menuBG = ImageLoader.loadImage("res/menu/menu_bg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
@@ -30,7 +32,9 @@ public class Assets {
 //		mainMenuBtnHov = ImageLoader.loadImage("/menu/main_menu_btn_hov.png");
 //		pengaturanMenuBtnHov = ImageLoader.loadImage("/menu/pengaturan_menu_btn_hov.png");
 		
-		gamepageBG = ImageLoader.loadImage("res/menu/game_bg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
+		gamepage1BG = ImageLoader.loadImage("res/menu/map1.png").getScaledInstance(4370, 720, BufferedImage.SCALE_DEFAULT);
+		gamepage2BG = ImageLoader.loadImage("res/menu/map2.png").getScaledInstance(4370, 720, BufferedImage.SCALE_DEFAULT);
+		gamepage3BG = ImageLoader.loadImage("res/menu/map3.png").getScaledInstance(4370, 720, BufferedImage.SCALE_DEFAULT);
 	}
 	
 	public static Image getImageBtn(String imgName) {

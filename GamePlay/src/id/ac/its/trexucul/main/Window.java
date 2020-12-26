@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 
 import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.page.GamePage;
+import id.ac.its.trexucul.page.GamePage2;
+import id.ac.its.trexucul.page.GamePage3;
 import id.ac.its.trexucul.page.MenuPage;
 import id.ac.its.trexucul.page.LevelPage;
 import id.ac.its.trexucul.page.SplashPage;
@@ -34,17 +36,37 @@ public class Window extends JFrame implements Runnable {
 	private KeyboardHandler keyBoard;
 	private MouseHandler mouse;
 	
-	private GamePage gamePage;
+	private GamePage gamePage1;
+	private GamePage2 gamePage2;
+	private GamePage3 gamePage3;
+	
 	private LevelPage levelPage;
 	private MenuPage menuPage;
 	private SplashPage splashPage;
 	
 	public GamePage getGamePage() {
-		return gamePage;
+		return gamePage1;
 	}
 
-	public void setGamePage(GamePage gamePage) {
-		this.gamePage = gamePage;
+	public void setGamePage(GamePage gamePage1) {
+		this.gamePage1 = gamePage1;
+	}
+	
+
+	public GamePage2 getGamePage2() {
+		return gamePage2;
+	}
+
+	public void setGamePage2(GamePage2 gamePage2) {
+		this.gamePage2 = gamePage2;
+	}
+
+	public GamePage3 getGamePage3() {
+		return gamePage3;
+	}
+
+	public void setGamePage3(GamePage3 gamePage3) {
+		this.gamePage3 = gamePage3;
 	}
 
 	public LevelPage getLevelPage() {
@@ -123,11 +145,13 @@ public class Window extends JFrame implements Runnable {
 	}
 	
 	private void init() {
-		gamePage = new GamePage(this);
+		gamePage1 = new GamePage(this);
+		gamePage2 = new GamePage2(this);
+		gamePage3 = new GamePage3(this);
 		menuPage = new MenuPage(this);
 		splashPage = new SplashPage();
 		levelPage = new LevelPage(this);
-		PageState.currentState = menuPage;
+		PageState.currentState = gamePage2;
 		Assets.init();
 	}
 	
