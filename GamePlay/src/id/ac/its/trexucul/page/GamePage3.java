@@ -20,7 +20,7 @@ public class GamePage3 extends PageState {
 	
 	public GamePage3(Window window) {
 		super(window);
-		player = new Player("Player", 20, 500);
+		player = new Player("Player", 20, 280);
 		enemy = new Enemy("Enemy", 1100, 500);
 		bullet = new Bullet("Bullet",180,524);
 		ground = new Ground("grounddark3", 0, 646);
@@ -38,7 +38,7 @@ public class GamePage3 extends PageState {
 	@Override
 	public void update() {
 		player.update(ground);
-		enemy.update();
+		enemy.update(ground);
 		bullet.update();
 	}
 	

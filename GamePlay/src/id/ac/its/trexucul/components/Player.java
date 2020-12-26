@@ -17,7 +17,7 @@ public class Player {
 	private float gravity = 0.5f;
 	private float velSpeed = 3.0f;
 	private Rectangle bounds;
-	protected boolean falling = false;
+	protected boolean falling = true;
 	protected boolean jumping = false;
 	private final int MAX_SPEED = 7; 
 	
