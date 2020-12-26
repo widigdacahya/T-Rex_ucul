@@ -5,9 +5,12 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.util.Timer;
+
 import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.main.Camera;
 import id.ac.its.trexucul.util.BulletListener;
+import id.ac.its.trexucul.util.BulletTimer;
 import id.ac.its.trexucul.util.ClickListener;
 import id.ac.its.trexucul.util.KeyboardHandler;
 
@@ -24,7 +27,11 @@ public class Player {
 	
 	protected boolean falling = true;
 	protected boolean jumping = false;
-	private final int MAX_SPEED = 7; 
+	private final int MAX_SPEED = 7;
+	
+	private Timer timer;
+	private BulletTimer bt;
+	private final int Delay = 200;
 	
 	private Image playerImg;
 	private BulletListener click;
@@ -34,6 +41,8 @@ public class Player {
 		this.x = x;
 		this.y = y;
 		this.click = click;
+		
+		this.bt = new BulletTimer(0.2f);
 		initPlayer();
 	}
 
@@ -55,9 +64,13 @@ public class Player {
 		if(KeyboardHandler.RIGHT) {
 			velX = velSpeed;
 		}
-
+		
+		
 		if(KeyboardHandler.SPACE) {
-			click.onClick(x + 84, y + 23);
+			
+			if(bt.countingStart())
+				click.onClick(x + 84, y + 23);
+			
 		}
 
 		move();

@@ -10,7 +10,7 @@ public class Bullet {
 	
 	private String imgName;
 	private int x, y;
-	private float velX = 10.0f;
+	private float velX = 50.0f;
 	private Rectangle bounds;
 	
 	private Image bulletImg;
