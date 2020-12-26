@@ -9,6 +9,7 @@ import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.main.Window;
 import id.ac.its.trexucul.util.PageState;
 
+//Level 1 Game Page
 public class GamePage extends PageState {
 	
 	private Player player;
