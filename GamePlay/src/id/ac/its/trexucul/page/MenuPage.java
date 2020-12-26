@@ -16,7 +16,6 @@ public class MenuPage extends PageState {
 	public MenuPage(Window window) {
 		
 		super(window);
-		
 		//mengubah ukuran tombol main
 		Assets.width = 250;
 		Assets.height = 80;
@@ -30,7 +29,6 @@ public class MenuPage extends PageState {
 				
 			}
 		}));
-		
 		btns.add(new CommonButton("pengaturan_menu_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 + 50, new ClickListener() {
 			@Override
 			public void onClick() {
