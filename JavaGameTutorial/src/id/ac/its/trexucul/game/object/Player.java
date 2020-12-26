@@ -96,7 +96,11 @@ public class Player extends GameObject {
 		g.drawImage(tex.player[0], (int)x, (int)y, null);
 		
 		Graphics2D g2d = (Graphics2D) g;
-		
+		g.setColor(Color.red);
+		g2d.draw(getBounds());
+		g2d.draw(getBoundsTop());
+		g2d.draw(getBoundsRight());
+		g2d.draw(getBoundsLeft());
 		
 	}
 
