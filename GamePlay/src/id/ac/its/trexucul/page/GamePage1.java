@@ -37,7 +37,7 @@ public class GamePage1 extends PageState {
 
 	@Override
 	public void update() {
-		player.update();
+		player.update(ground);
 		enemy.update();
 		bullet.update();
 		

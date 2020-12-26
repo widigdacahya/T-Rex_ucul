@@ -10,9 +10,8 @@ public class Ground {
 	
 	private String imgName;
 	private int x, y;
-	private Rectangle bounds;
 	
-	private Image groundImg;
+	protected static Image groundImg;
 	
 	public Ground(String name, int x, int y) {
 		this.imgName = name;
@@ -29,9 +28,12 @@ public class Ground {
 		
 	}
 	
+	public Rectangle getBounds() {
+		return new Rectangle(x, y, groundImg.getWidth(null), groundImg.getHeight(null));
+	}
+
 	public void render(Graphics g) {
 		g.drawImage(groundImg, this.x, this.y, null);
-		bounds = new Rectangle(x, y, groundImg.getWidth(null), groundImg.getHeight(null));
 	}
 
 }
