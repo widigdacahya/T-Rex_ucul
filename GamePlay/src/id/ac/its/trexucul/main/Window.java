@@ -123,11 +123,11 @@ public class Window extends JFrame implements Runnable {
 	}
 	
 	private void init() {
-		gamePage = new GamePage();
+		gamePage = new GamePage(this);
 		menuPage = new MenuPage(this);
 		splashPage = new SplashPage();
 		levelPage = new LevelPage(this);
-		PageState.currentState = menuPage;
+		PageState.currentState = gamePage;
 		Assets.init();
 	}
 	
