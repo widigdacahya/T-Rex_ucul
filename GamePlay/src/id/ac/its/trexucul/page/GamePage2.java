@@ -9,13 +9,13 @@ import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.main.Window;
 import id.ac.its.trexucul.util.PageState;
 
-public class GamePage extends PageState {
+public class GamePage2 extends PageState{
 	
 	private Player player;
 	private Enemy enemy;
 	private Bullet bullet;
 	
-	public GamePage(Window window) {
+	public GamePage2(Window window) {
 		super(window);
 		player = new Player("Player", 20, 500);
 		enemy = new Enemy("Enemy", 1100, 500);
@@ -24,7 +24,7 @@ public class GamePage extends PageState {
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(Assets.gamepage1BG, 0, 0, null);
+		g.drawImage(Assets.gamepage2BG, 0, 0, null);
 		player.render(g);
 		enemy.render(g);
 		bullet.render(g);
@@ -36,5 +36,8 @@ public class GamePage extends PageState {
 		enemy.update();
 		bullet.update();
 	}
+
+	
+	
 
 }
