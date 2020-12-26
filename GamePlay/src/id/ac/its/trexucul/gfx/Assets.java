@@ -22,32 +22,32 @@ public class Assets {
 	public static Image gamepageBG;
 	
 	public static void init() {
-		menuBG = ImageLoader.loadImage("menu/menu_bg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
-		levelBG = ImageLoader.loadImage("menu/LevelPage.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
+		menuBG = ImageLoader.loadImage("res/menu/menu_bg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
+		levelBG = ImageLoader.loadImage("res/menu/LevelPage.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		
 //		mainMenuBtn = ImageLoader.loadImage("/menu/main_menu_btn.png");
 //		pengaturanMenuBtn = ImageLoader.loadImage("/menu/pengaturan_menu_btn.png");
 //		mainMenuBtnHov = ImageLoader.loadImage("/menu/main_menu_btn_hov.png");
 //		pengaturanMenuBtnHov = ImageLoader.loadImage("/menu/pengaturan_menu_btn_hov.png");
 		
-		gamepageBG = ImageLoader.loadImage("menu/game_bg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
+		gamepageBG = ImageLoader.loadImage("res/menu/game_bg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 	}
 	
 	public static Image getImageBtn(String imgName) {
-		return ImageLoader.loadImage("button/" + imgName).getScaledInstance(width, height, BufferedImage.SCALE_DEFAULT);
+		return ImageLoader.loadImage("res/button/" + imgName).getScaledInstance(width, height, BufferedImage.SCALE_DEFAULT);
 	}
 	
 	
 	public static Image getImagePlayer(String imgObject) {
-		return ImageLoader.loadImage("asset/" + imgObject).getScaledInstance(121, 130, BufferedImage.SCALE_DEFAULT);
+		return ImageLoader.loadImage("res/asset/" + imgObject).getScaledInstance(121, 130, BufferedImage.SCALE_DEFAULT);
 	}
 	
 	public static Image getImageEnemy(String imgObject) {
-		return ImageLoader.loadImage("asset/" + imgObject).getScaledInstance(94, 132, BufferedImage.SCALE_DEFAULT);
+		return ImageLoader.loadImage("res/asset/" + imgObject).getScaledInstance(94, 132, BufferedImage.SCALE_DEFAULT);
 	}
 	
 	public static Image getImageBullet(String imgObject) {
-		return ImageLoader.loadImage("asset/" + imgObject).getScaledInstance(80, 4, BufferedImage.SCALE_DEFAULT);
+		return ImageLoader.loadImage("res/asset/" + imgObject).getScaledInstance(80, 4, BufferedImage.SCALE_DEFAULT);
 	}
 	
 	
