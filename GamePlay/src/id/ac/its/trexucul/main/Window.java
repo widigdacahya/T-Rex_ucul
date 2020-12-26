@@ -121,6 +121,8 @@ public class Window extends JFrame implements Runnable {
 	private void update() {
 		if(PageState.currentState != null)
 			PageState.currentState.update();
+		
+		keyBoard.update();
 	}
 
 	private void draw() {
@@ -151,7 +153,7 @@ public class Window extends JFrame implements Runnable {
 		menuPage = new MenuPage(this);
 		splashPage = new SplashPage();
 		levelPage = new LevelPage(this);
-		PageState.currentState = gamePage2;
+		PageState.currentState = gamePage1;
 		Assets.init();
 	}
 	
