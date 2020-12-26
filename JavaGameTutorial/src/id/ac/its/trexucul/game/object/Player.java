@@ -81,13 +81,8 @@ public class Player extends GameObject {
 				if(getBoundsLeft().intersects(tempObject.getBounds())) {
 					x = tempObject.getX() + 34;	//it blinks if we use + width
 				}
-				
-				
-			
 			}
-		
 		}
-	
 	}
 	
 	@Override
@@ -96,8 +91,6 @@ public class Player extends GameObject {
 		g.drawImage(tex.player[0], (int)x, (int)y, null);
 		
 		Graphics2D g2d = (Graphics2D) g;
-		
-		
 	}
 
 	@Override
@@ -116,6 +109,4 @@ public class Player extends GameObject {
 	public Rectangle getBoundsLeft() {
 		return new Rectangle((int)x,(int)y+5,(int)5,(int)height-10);
 	}
-	
-
 }
