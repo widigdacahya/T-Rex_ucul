@@ -1,7 +1,10 @@
 package id.ac.its.trexucul.gfx;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -23,6 +26,9 @@ public class Assets {
 	public static Image gamepage2BG;
 	public static Image gamepage3BG;
 	public static Image gameOverPage;
+	public static Image gameSplashPage;
+	
+	public static Font fontSplash;
 	
 	public static void init() {
 		menuBG = ImageLoader.loadImage("res/menu/menu_bg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
@@ -37,6 +43,9 @@ public class Assets {
 		gamepage2BG = ImageLoader.loadImage("res/menu/map2.png").getScaledInstance(4370, 720, BufferedImage.SCALE_DEFAULT);
 		gamepage3BG = ImageLoader.loadImage("res/menu/map3.png").getScaledInstance(4370, 720, BufferedImage.SCALE_DEFAULT);
 		gameOverPage = ImageLoader.loadImage("res/menu/bggameover.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
+		gameSplashPage = ImageLoader.loadImage("res/menu/bgsplash.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
+		
+		fontSplash = loadFont("res/fonts/Russo_One.ttf", 48);
 	}
 	
 	public static Image getImageBtn(String imgName) {
@@ -63,5 +72,13 @@ public class Assets {
 		return ImageLoader.loadImage("res/menu/" + imgObject).getScaledInstance(4370, 56, BufferedImage.SCALE_DEFAULT);
 	}
 		
+	public static Font loadFont(String path, int size){
+		try {
+			return Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont(Font.PLAIN, size);
+		} catch (FontFormatException | IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 }
