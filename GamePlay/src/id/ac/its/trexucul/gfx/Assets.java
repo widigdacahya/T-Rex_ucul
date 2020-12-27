@@ -48,7 +48,7 @@ public class Assets {
 		gameOverPage = ImageLoader.loadImage("res/menu/bggameover.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		gameSplashPage = ImageLoader.loadImage("res/menu/bgsplash.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		
-		fontSplash = loadFont("res/fonts/Russo_One.ttf", 48);
+		fontSplash = loadFont("res/fonts/Russo_One.ttf", 32);
 	}
 	
 	public static Image getImageBtn(String imgName) {
@@ -59,6 +59,9 @@ public class Assets {
 		return ImageLoader.loadImage("res/asset/" + imgName).getScaledInstance(481, 87, BufferedImage.SCALE_DEFAULT);
 	}
 	
+	public static Image getImageAssetGen(String imgName) {
+		return ImageLoader.loadImage("res/asset/" + imgName).getScaledInstance(1280, 720, BufferedImage.SCALE_DEFAULT);
+	}
 	
 	
 	public static Image getImagePlayer(String imgObject) {

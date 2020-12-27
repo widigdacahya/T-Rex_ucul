@@ -109,13 +109,15 @@ public class Enemy {
 	public void updateVisibility(PlayerBullet bullet) {
 		if (getBounds() != null && bullet.getBounds() != null) {
 			if( getBounds().intersects(bullet.getBounds()) ) {
-				health -= (20 + rand.nextInt(7)+1 );
-				
+
+				health -= (20 + rand.nextInt(7)+1 );	
+				bullet.visible = false;
+
 				if(health<0) {
 					System.out.println("tes");
 					visibility = false;
 				}
-					
+
 			}
 		}
 

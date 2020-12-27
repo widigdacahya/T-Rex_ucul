@@ -12,6 +12,7 @@ public class Bullet {
 	protected int x, y;
 	protected float velX;
 	protected Rectangle bounds;
+	protected boolean visible;
 
 	
 	protected Image bulletImg;
@@ -21,6 +22,7 @@ public class Bullet {
 		this.x = x;
 		this.y = y;
 		this.velX = velX;
+		this.visible = true;
 		initBullet();
 	}
 	
@@ -40,4 +42,15 @@ public class Bullet {
 	public Rectangle getBounds() {
 		return bounds;
 	}
+
+	public boolean isVisible() {
+		return visible;
+	}
+
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+	
+	
+	
 }
