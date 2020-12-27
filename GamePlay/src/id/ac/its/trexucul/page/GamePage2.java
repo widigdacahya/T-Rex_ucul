@@ -1,7 +1,9 @@
 package id.ac.its.trexucul.page;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.List;
 
 import id.ac.its.trexucul.components.Bullet;
 import id.ac.its.trexucul.components.Enemy;
@@ -17,14 +19,24 @@ import id.ac.its.trexucul.util.PageState;
 public class GamePage2 extends PageState{
 	
 	private Player player;
-	private Enemy enemy;
+	private List<Enemy> enemy;
 	private Ground ground;
+	
+	private final int [][] enemyPosition = {
+			{900,500},{1220,500},{1450,500},{1609,500},{1780,500},
+			{2150,500},{2350,500},{2500,500},{2700,500},{2880,500},
+			{3120,500},{3220,500},{3450,500},{3650,500},{3800,500}
+	};
 	
 	private ArrayList<PlayerBullet> pBullets = new ArrayList<PlayerBullet>();
 	
 	public GamePage2(Window window) {
 		super(window);
-		enemy = new Enemy("Enemy", 1100, 500);
+		enemy = new ArrayList<>(); 
+		
+		for (int[] p: enemyPosition) {
+			enemy.add(new Enemy("Enemy",p[0],p[1]));
+		}
 		player = new Player("Player", 20, 500, new BulletListener() {
 			@Override
 			public void onClick(int x, int y) {
@@ -38,22 +50,39 @@ public class GamePage2 extends PageState{
 	public void render(Graphics g) {
 		g.drawImage(Assets.gamepage2BG, 0, 0, null);
 		player.render(g);
-		enemy.render(g);
 		ground.render(g);
 		
 		for(int i = 0; i < pBullets.size(); i++) {
 			pBullets.get(i).render(g);
 		}
+		
+		
+		for(Enemy enemy: enemy) {	
+			if(enemy.isVisible()) {
+				enemy.render(g);
+				//enemy stats
+				g.setColor(Color.white);
+				g.drawString("Enemy: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);
+			}
+				
+		}
+		
 	}
 
 	@Override
 	public void update() {
 		player.update(ground);
-		enemy.update(ground);
+		
+		for(Enemy enemy: enemy) {
+			enemy.update(ground);
+		}
 		
 		for(int i = 0; i < pBullets.size(); i++) {
 			pBullets.get(i).update();
-			enemy.updateVisibility(pBullets.get(0));
+			
+			for(Enemy enemy: enemy) {
+				enemy.updateVisibility(pBullets.get(i));
+			}
 		}
 	}
 	
