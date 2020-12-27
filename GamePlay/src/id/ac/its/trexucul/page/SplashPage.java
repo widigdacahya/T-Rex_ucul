@@ -2,6 +2,7 @@ package id.ac.its.trexucul.page;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 
 import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.gfx.Text;
@@ -10,10 +11,11 @@ import id.ac.its.trexucul.util.PageState;
 
 public class SplashPage extends PageState{
 	
-	private final String NAMA_KELOMPOK = "T-Rex Ucul ";
+	private final String NAMA_KELOMPOK = "kelompok T-Rex Ucul ";
 	private String text = "";
 	private int index = 0;
 	private long time, lastTime;
+	private Image titleGame = Assets.getImageAssetGen("titlegameya.png");
 		
 	public SplashPage(Window window){
 		super(window);
@@ -50,7 +52,8 @@ public class SplashPage extends PageState{
 	public void render(Graphics g) {
 		g.drawImage(Assets.gameSplashPage, 0, 0, null);
 		g.setFont(Assets.fontSplash);
-		Text.drawString(g, text, Window.WIDTH/2, Window.HEIGHT/2, true, Color.WHITE);
+		Text.drawString(g, text, Window.WIDTH/2, (Window.HEIGHT/2)+64, true, Color.WHITE);
+		g.drawImage(titleGame, 0, 0, null);
 		
 	}
 

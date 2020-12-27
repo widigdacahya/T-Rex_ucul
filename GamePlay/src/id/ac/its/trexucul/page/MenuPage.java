@@ -2,6 +2,7 @@ package id.ac.its.trexucul.page;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
 import id.ac.its.trexucul.components.CommonButton;
 import id.ac.its.trexucul.gfx.Assets;
@@ -12,6 +13,7 @@ import id.ac.its.trexucul.util.PageState;
 public class MenuPage extends PageState {
 	
 	private ArrayList<CommonButton> btns  = new ArrayList<CommonButton>();
+	private Image titleGameMenu = Assets.getImageAssetGen("titledimenuya.png");
 
 	public MenuPage(Window window) {
 		
@@ -48,5 +50,6 @@ public class MenuPage extends PageState {
 		g.drawImage(Assets.menuBG, 0, 0, null);
 		for(int i = 0; i < btns.size(); i++)
 			btns.get(i).render(g);
+		g.drawImage(titleGameMenu, 0, 0, null);
 	}
 }

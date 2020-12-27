@@ -106,6 +106,7 @@ public class Enemy {
 		if (getBounds() != null && bullet.getBounds() != null) {
 			if( getBounds().intersects(bullet.getBounds()) ) {
 				visibility = false;
+				bullet.visible = false;
 			}
 		}
 
