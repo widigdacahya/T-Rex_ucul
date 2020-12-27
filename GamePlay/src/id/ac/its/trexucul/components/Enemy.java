@@ -45,7 +45,6 @@ public class Enemy {
 	private BufferedImage[] pIWBuffered = new BufferedImage[6];
 	private Animation walking;
 	
-	private ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 //	public EnemyBullet eBullet = new ArrayList<EnemyBullet>();
 	
 	private boolean visibility = true;
@@ -98,7 +97,6 @@ public class Enemy {
 	public void update(Ground ground){
 		if (included) {
 			jump();
-			fire();
 		}
 		
 		move();
