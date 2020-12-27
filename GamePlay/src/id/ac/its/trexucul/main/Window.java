@@ -9,7 +9,7 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
 import id.ac.its.trexucul.gfx.Assets;
-
+import id.ac.its.trexucul.page.CreditPage;
 import id.ac.its.trexucul.page.GameOverPage;
 
 import id.ac.its.trexucul.id.SelectedGamePage;
@@ -50,6 +50,7 @@ public class Window extends JFrame implements Runnable {
 	private MenuPage menuPage;
 	private SplashPage splashPage;
 	private GameOverPage gameOverPage;
+	private CreditPage creditPage;
 	
 	public Camera cam;
 	
@@ -108,6 +109,14 @@ public class Window extends JFrame implements Runnable {
 
 	public void setGameOverPage(GameOverPage gameOverPage) {
 		this.gameOverPage = gameOverPage;
+	}
+	
+	public CreditPage getCreditPage() {
+		return creditPage;
+	}
+
+	public void setCreditPage(CreditPage creditPage) {
+		this.creditPage = creditPage;
 	}
 
 	public Window(String title) {
@@ -184,7 +193,8 @@ public class Window extends JFrame implements Runnable {
 		splashPage = new SplashPage(this);
 		levelPage = new LevelPage(this);
 		gameOverPage = new GameOverPage(this);
-		PageState.currentState = gamePage1;
+		creditPage = new CreditPage(this);
+		PageState.currentState = splashPage;
 
 		Assets.init();
 	}

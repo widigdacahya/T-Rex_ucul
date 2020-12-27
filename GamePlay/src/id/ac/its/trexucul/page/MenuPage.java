@@ -22,7 +22,7 @@ public class MenuPage extends PageState {
 		Assets.width = 250;
 		Assets.height = 80;
 		
-		btns.add(new CommonButton("main_menu_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 - 50, new ClickListener() {
+		btns.add(new CommonButton("main_menu_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 - 100, new ClickListener() {
 			@Override
 			public void onClick() {
 				
@@ -31,10 +31,17 @@ public class MenuPage extends PageState {
 				
 			}
 		}));
-		btns.add(new CommonButton("pengaturan_menu_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 + 50, new ClickListener() {
+		btns.add(new CommonButton("pengaturan_menu_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 , new ClickListener() {
 			@Override
 			public void onClick() {
 				// pengaturan
+			}
+		}));
+		btns.add(new CommonButton("credit_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 + 100 , new ClickListener() {
+			@Override
+			public void onClick() {
+				// go to credit screen
+				PageState.currentState = window.getCreditPage();
 			}
 		}));
 	}

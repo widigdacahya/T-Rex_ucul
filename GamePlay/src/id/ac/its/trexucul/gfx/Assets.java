@@ -27,6 +27,7 @@ public class Assets {
 	public static Image gamepage3BG;
 	public static Image gameOverPage;
 	public static Image gameSplashPage;
+	public static Image creditPage;
 	public static Image[] playerWalk = new Image[8];
 	public static Image[] playerFire = new Image[5];
 	public static Image[] playerWalkFire = new Image[5];
@@ -47,6 +48,7 @@ public class Assets {
 		gamepage3BG = ImageLoader.loadImage("res/menu/map3.png").getScaledInstance(4370, 720, BufferedImage.SCALE_DEFAULT);
 		gameOverPage = ImageLoader.loadImage("res/menu/bggameover.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		gameSplashPage = ImageLoader.loadImage("res/menu/bgsplash.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
+		creditPage = ImageLoader.loadImage("res/menu/creditbg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		
 		fontSplash = loadFont("res/fonts/Russo_One.ttf", 32);
 	}
