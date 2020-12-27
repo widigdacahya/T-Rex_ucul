@@ -53,9 +53,7 @@ public class GamePage2 extends PageState{
 		
 		for(int i = 0; i < pBullets.size(); i++) {
 			pBullets.get(i).update();
-			if (pBullets.get(i).checkCollision(enemy)) {
-				enemy.setVisibility(false);
-			}
+			enemy.updateVisibility(pBullets.get(0));
 		}
 	}
 	
