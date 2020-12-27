@@ -5,13 +5,16 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.util.Timer;
 
 import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.main.Camera;
+import id.ac.its.trexucul.system.Animation;
 import id.ac.its.trexucul.util.BulletListener;
 import id.ac.its.trexucul.util.BulletTimer;
 import id.ac.its.trexucul.util.ClickListener;
+import id.ac.its.trexucul.util.ImageLoader;
 import id.ac.its.trexucul.util.KeyboardHandler;
 
 public class Player {
@@ -34,6 +37,10 @@ public class Player {
 	private final int Delay = 200;
 	
 	private Image playerImg;
+	private Image[] playerImgWalk = new Image[6];
+	private BufferedImage[] pIWBuffered = new BufferedImage[6];
+	private Animation walking;
+	
 	private BulletListener click;
 	
 	public Player(String name, int x, int y, BulletListener click) {
@@ -48,6 +55,13 @@ public class Player {
 
 	private void initPlayer() {
 		playerImg = Assets.getImagePlayer(imgName + ".png");
+		
+		playerImgWalk = Assets.getImagePlayerWalk();
+		
+		for(int i=0; i<playerImgWalk.length; i++)
+			pIWBuffered[i] = ImageLoader.toBufferedImage(playerImgWalk[i]);
+		
+		walking = new Animation(1, pIWBuffered);
 	}
 	
 	public void update(Ground ground){		
@@ -76,11 +90,21 @@ public class Player {
 		move();
 		
 		Collision(ground);
+		
+		walking.runAnimation();
 	}
 	
 	public void render(Graphics g) {
-		g.drawImage(playerImg, this.x, this.y, null);
+		
 		bounds = new Rectangle(x, y, playerImg.getWidth(null), playerImg.getHeight(null));
+
+		//		System.out.printf("velX = %f\n", velX);
+		//walking animation
+		if(velX != 0) {
+			walking.drawAnimation(g, (int)x, (int)y);
+		}else {
+			g.drawImage(playerImg, this.x, this.y, null);
+		}
 		
 //		Graphics2D g2d = (Graphics2D) g;
 //		g.setColor(Color.red);
@@ -102,7 +126,8 @@ public class Player {
 				velY = MAX_SPEED;
 			}
 		} else {
-			velX = velY= 0;
+			velX = 0;
+			velY = 0;
 		}
 		
 		if (x < 0)

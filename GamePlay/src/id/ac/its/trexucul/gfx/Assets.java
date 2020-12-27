@@ -27,6 +27,7 @@ public class Assets {
 	public static Image gamepage3BG;
 	public static Image gameOverPage;
 	public static Image gameSplashPage;
+	public static Image[] playerWalk = new Image[6];
 	
 	public static Font fontSplash;
 	
@@ -56,9 +57,25 @@ public class Assets {
 		return ImageLoader.loadImage("res/asset/" + imgName).getScaledInstance(481, 87, BufferedImage.SCALE_DEFAULT);
 	}
 	
+	
+	
 	public static Image getImagePlayer(String imgObject) {
 		return ImageLoader.loadImage("res/asset/" + imgObject).getScaledInstance(121, 130, BufferedImage.SCALE_DEFAULT);
 	}
+	
+	public static Image[] getImagePlayerWalk() {
+		
+		playerWalk[0] = ImageLoader.loadImage("res/asset/Player/" + "walk 1.png");
+		playerWalk[1] = ImageLoader.loadImage("res/asset/Player/" + "walk 2.png");
+		playerWalk[2] = ImageLoader.loadImage("res/asset/Player/" + "walk 3.png");
+		playerWalk[3] = ImageLoader.loadImage("res/asset/Player/" + "walk 4.png");
+		playerWalk[4] = ImageLoader.loadImage("res/asset/Player/" + "walk 5.png");
+		playerWalk[5] = ImageLoader.loadImage("res/asset/Player/" + "walk 6.png");
+		
+		return playerWalk;
+	}
+	
+	
 	
 	public static Image getImageEnemy(String imgObject) {
 		return ImageLoader.loadImage("res/asset/" + imgObject).getScaledInstance(94, 132, BufferedImage.SCALE_DEFAULT);
