@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
-
 import id.ac.its.trexucul.components.Enemy;
 import id.ac.its.trexucul.components.EnemyBullet;
 import id.ac.its.trexucul.components.Ground;
@@ -51,13 +50,13 @@ public class GamePage1 extends PageState {
 				pBullets.add(new PlayerBullet("Bullet", x, y));
 			}
 		});
+		
 		ground = new Ground("darkground", 0, 646);
 
 	}
 
 	@Override
 	public void render(Graphics g) {
-		
 		g.drawImage(Assets.gamepage1BG, 0, 0, null);
 		ground.render(g);
 		player.render(g);
