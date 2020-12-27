@@ -27,6 +27,8 @@ public class ImageLoader {
 	    if (img instanceof BufferedImage)
 	    {
 	        return (BufferedImage) img;
+	    }else if(img==null) {
+	    	return (BufferedImage) img;
 	    }
 
 	    // Create a buffered image with transparency

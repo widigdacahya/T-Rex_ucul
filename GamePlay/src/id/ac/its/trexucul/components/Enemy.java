@@ -44,6 +44,7 @@ public class Enemy {
 	private ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 	
 	private boolean visibility = true;
+	private int health = 100;
 	
 	private Image enemyImg;
 	
@@ -105,7 +106,13 @@ public class Enemy {
 	public void updateVisibility(PlayerBullet bullet) {
 		if (getBounds() != null && bullet.getBounds() != null) {
 			if( getBounds().intersects(bullet.getBounds()) ) {
-				visibility = false;
+				health -= 30;
+				
+				if(health<0) {
+					System.out.println("tes");
+					visibility = false;
+				}
+					
 			}
 		}
 
@@ -141,7 +148,6 @@ public class Enemy {
 	
 	public void fire() {
 		if(bt.finishCounting() && rt.finishCounting()) {
-			
 			bullets.add(new EnemyBullet("Bullet", x, y+23, null));
 		}
 			
@@ -157,6 +163,7 @@ public class Enemy {
 				bullets.get(i).render(g);
 			}
 		}
+		
 	}
 	
 	private void collision(Ground ground) {
