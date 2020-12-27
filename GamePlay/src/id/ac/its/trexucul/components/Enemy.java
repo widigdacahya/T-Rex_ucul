@@ -47,6 +47,7 @@ public class Enemy {
 	private ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 	
 	private boolean visibility = true;
+	private boolean included = false;
 	private int health = 100;
 	
 	private Image enemyImg;
@@ -93,15 +94,17 @@ public class Enemy {
 	
 	
 	public void update(Ground ground){
-
-		jump();
+		if (included) {
+			jump();
+			
+			fire();
+			
+			for(int i = 0; i < bullets.size(); i++) {
+				bullets.get(i).update();
+			}
+		}
 		
 		move();
-		
-		fire();
-		for(int i = 0; i < bullets.size(); i++) {
-			bullets.get(i).update();
-		}
 		
 		collision(ground);
 		
@@ -118,13 +121,11 @@ public class Enemy {
 				bullet.visible = false;
 				collisionBullet(bullet);
 				
-				if(health<0) {
+				if(health < 0) {
 					visibility = false;
 				}
-
 			}
 		}
-
 	}
 	
 	public int getHealth() {
@@ -137,8 +138,7 @@ public class Enemy {
 
 	public void jump() {
 		
-		if(jt.finishCounting())
-		{
+		if(jt.finishCounting()) {
 			velY = -12;
 			jumping = true;
 			falling = true;
@@ -160,14 +160,12 @@ public class Enemy {
 		} else {
 			velX = velY= 0;
 		}
-		
 	}
 	
 	public void fire() {
 		if(bt.finishCounting() && rt.finishCounting()) {
 			bullets.add(new EnemyBullet("Bullet", x, y+23, null));
 		}
-			
 	}
 	
 	public void render(Graphics g) {
@@ -176,16 +174,12 @@ public class Enemy {
 			g.drawImage(enemyImg, this.x, this.y, null);
 			bounds = new Rectangle(x, y, enemyImg.getWidth(null), enemyImg.getHeight(null));
 			
-			
-			for(int i = 0; i < bullets.size(); i++) {
-				bullets.get(i).render(g);
+			if (included) {
+				for(int i = 0; i < bullets.size(); i++) {
+					bullets.get(i).render(g);
+				}
 			}
-			
-			
-		}else {
-			
 		}
-		
 	}
 	
 	private void collision(Ground ground) {
@@ -231,5 +225,13 @@ public class Enemy {
 	
 	public boolean isVisible() {
 		return visibility;
+	}
+
+	public boolean isIncluded() {
+		return included;
+	}
+
+	public void setIncluded(boolean included) {
+		this.included = included;
 	}
 }

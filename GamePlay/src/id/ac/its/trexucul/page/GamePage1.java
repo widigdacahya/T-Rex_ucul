@@ -59,11 +59,9 @@ public class GamePage1 extends PageState {
 		ground.render(g);
 		player.render(g);
 		
-		//stats
-		g.setColor(Color.white);
-		System.out.println(camX + " " + camY);
-		
-		g.drawString("Enemies: " + enemyCount + " ", (int)((int)(-window.cam.getX())+1100), (int)((int)(-window.cam.getY())+30));
+		g.setColor(Color.WHITE);
+		g.drawString("X: " + -camX + " X2: " + (-camX+Window.WIDTH), (int)((int)(-camX)+1000), (int)((int)(-camY)+20));
+		g.drawString("Enemies: " + enemyCount + " ", (int)((int)(-camX)+1100), (int)((int)(-camY)+30));
 		enemyCount = 0;
 		
 		for(Enemy enemy: enemy) {	
@@ -73,7 +71,6 @@ public class GamePage1 extends PageState {
 				g.drawString("Enemy: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);
 				enemyCount++;
 			}
-				
 		}
 		
 		for(int i = 0; i < pBullets.size(); i++) {
@@ -83,9 +80,16 @@ public class GamePage1 extends PageState {
 
 	@Override
 	public void update() {
+		camX = window.cam.getX();
+		camY = window.cam.getY();
+		
 		player.update(ground);
 		
 		for(Enemy enemy: enemy) {
+			if (enemy.getX() < (-camX+Window.WIDTH) && enemy.getX() > -camX)
+				enemy.setIncluded(true);
+			else
+				enemy.setIncluded(false);
 			enemy.update(ground);
 		}
 		
