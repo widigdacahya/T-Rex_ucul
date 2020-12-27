@@ -8,12 +8,13 @@ import id.ac.its.trexucul.gfx.Assets;
 
 public class Bullet {
 	
-	private String imgName;
-	private int x, y;
-	private float velX;
-	private Rectangle bounds;
+	protected String imgName;
+	protected int x, y;
+	protected float velX;
+	protected Rectangle bounds;
+
 	
-	private Image bulletImg;
+	protected Image bulletImg;
 	
 	public Bullet(String name, int x, int y, float velX) {
 		this.imgName = name;

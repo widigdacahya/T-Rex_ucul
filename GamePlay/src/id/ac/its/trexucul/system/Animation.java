@@ -4,14 +4,14 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 public class Animation {
-	private int speed;
-	private int frames;
+	protected int speed;
+	protected int frames;
 	
-	private int index = 0;
-	private int count = 0;
+	protected int index = 0;
+	protected int count = 0;
 	
-	private BufferedImage[] images;
-	private BufferedImage currentImg;
+	protected BufferedImage[] images;
+	protected BufferedImage currentImg;
 	
 	public Animation(int speed, BufferedImage... args) {
 		this.speed = speed;
@@ -31,7 +31,7 @@ public class Animation {
 		}
 	}
 	
-	private void nextFrame() {
+	protected void nextFrame() {
 		for (int i = 0; i < frames; i++) {
 			if (count == i) {
 				currentImg = images[i];

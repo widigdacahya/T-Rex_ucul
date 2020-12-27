@@ -10,6 +10,7 @@ import java.util.Timer;
 import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.main.Camera;
 import id.ac.its.trexucul.system.Animation;
+import id.ac.its.trexucul.system.AnimationFire;
 import id.ac.its.trexucul.util.BulletListener;
 import id.ac.its.trexucul.util.BulletTimer;
 import id.ac.its.trexucul.util.ClickListener;
@@ -35,10 +36,18 @@ public class Player {
 	private BulletTimer bt;
 	private final int Delay = 200;
 	
+	//idle player
 	private Image playerImg;
+	
+	//walking player
 	private Image[] playerImgWalk = new Image[6];
 	private BufferedImage[] pIWBuffered = new BufferedImage[6];
 	private Animation walking;
+	
+	//player firing
+	private Image[] playerImgFire = new Image[5];
+	private BufferedImage[] pIFBuffered = new BufferedImage[5];
+	private Animation firing;
 	
 	private BulletListener click;
 	
@@ -57,12 +66,17 @@ public class Player {
 	private void initPlayer() {
 		playerImg = Assets.getImagePlayer(imgName + ".png");
 		
+		//walking program
 		playerImgWalk = Assets.getImagePlayerWalk();
-		
 		for(int i=0; i<playerImgWalk.length; i++)
 			pIWBuffered[i] = ImageLoader.toBufferedImage(playerImgWalk[i]);
+		walking = new Animation(2, pIWBuffered);
 		
-		walking = new Animation(1, pIWBuffered);
+		//firing program
+		playerImgFire = Assets.getImagePlayerFire();
+		for(int i=0; i<playerImgFire.length; i++)
+			pIFBuffered[i] = ImageLoader.toBufferedImage(playerImgFire[i]);
+		firing = new Animation(100, pIFBuffered);
 	}
 	
 	public void update(Ground ground){		
@@ -94,6 +108,7 @@ public class Player {
 		collision(ground);
 		
 		walking.runAnimation();
+		firing.runAnimation();
 	}
 	
 	public void render(Graphics g) {
@@ -106,6 +121,11 @@ public class Player {
 			} else {
 				g.drawImage(playerImg, this.x, this.y, null);
 			}
+		}
+		
+		if(KeyboardHandler.SPACE) {
+			if(bt.finishCounting())
+				firing.drawAnimation(g, (int)x, (int)y);
 		}
 		
 //		Graphics2D g2d = (Graphics2D) g;
