@@ -24,9 +24,9 @@ public class GamePage1 extends PageState {
 	private List<Enemy> enemy;
 	
 	private final int [][] enemyPosition = {
-		{900,500},{1220,500},{1450,500},
-		{2150,500},{2650,500},{2750,500},
-		{3150,500},{3450,500},{3550,500},
+//		{900,500},{1220,500},{1450,500},
+//		{2150,500},{2650,500},{2750,500},
+//		{3150,500},{3450,500},{3550,500},
 		{3750,500}
 	};
 	
@@ -52,12 +52,14 @@ public class GamePage1 extends PageState {
 
 	@Override
 	public void render(Graphics g) {
+		
 		g.drawImage(Assets.gamepage1BG, 0, 0, null);
 		ground.render(g);
 		player.render(g);
-		//enemy.render(g);
-		for(Enemy enemy: enemy) {
-			enemy.render(g);
+		
+		for(Enemy enemy: enemy) {	
+			if(enemy.isVisible())
+				enemy.render(g);
 		}
 		
 		for(int i = 0; i < pBullets.size(); i++) {
@@ -78,7 +80,7 @@ public class GamePage1 extends PageState {
 			pBullets.get(i).update();
 			//enemy.updateVisibility(pBullets.get(0));
 			for(Enemy enemy: enemy) {
-				enemy.updateVisibility(pBullets.get(0));
+				enemy.updateVisibility(pBullets.get(i));
 			}
 		}
 	}

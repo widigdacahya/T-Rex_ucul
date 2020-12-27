@@ -107,14 +107,16 @@ public class Enemy {
 	}
 	
 	public void updateVisibility(PlayerBullet bullet) {
+		
 		if (getBounds() != null && bullet.getBounds() != null) {
+
 			if( getBounds().intersects(bullet.getBounds()) ) {
 
-				health -= (20 + rand.nextInt(7)+1 );	
+				health -= (20 + (rand.nextInt(7)+1) );
+
 				bullet.visible = false;
 
 				if(health<0) {
-					System.out.println("tes");
 					visibility = false;
 				}
 
@@ -163,10 +165,13 @@ public class Enemy {
 		if (visibility) {
 			g.drawImage(enemyImg, this.x, this.y, null);
 			bounds = new Rectangle(x, y, enemyImg.getWidth(null), enemyImg.getHeight(null));
-		
+			
+			
 			for(int i = 0; i < bullets.size(); i++) {
 				bullets.get(i).render(g);
 			}
+		}else {
+			
 		}
 		
 	}
