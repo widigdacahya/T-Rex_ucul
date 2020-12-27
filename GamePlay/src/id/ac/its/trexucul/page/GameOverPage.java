@@ -24,7 +24,7 @@ public class GameOverPage extends PageState {
 			@Override
 			public void onClick() {
 				
-				// Level Page
+				//Go to Level Page
 				PageState.currentState = window.getLevelPage();
 				
 			}
@@ -32,7 +32,8 @@ public class GameOverPage extends PageState {
 		buttons.add(new CommonButton("keluar_btn", Window.WIDTH/2 + 125, Window.HEIGHT/2, new ClickListener() {
 			@Override
 			public void onClick() {
-				// exit game
+				
+				// Exit game
 				System.exit(1);
 			}
 		}));
