@@ -10,15 +10,16 @@ public class Bullet {
 	
 	private String imgName;
 	private int x, y;
-	private float velX = 50.0f;
+	private float velX;
 	private Rectangle bounds;
 	
 	private Image bulletImg;
 	
-	public Bullet(String name, int x, int y) {
+	public Bullet(String name, int x, int y, float velX) {
 		this.imgName = name;
 		this.x = x;
 		this.y = y;
+		this.velX = velX;
 		initBullet();
 	}
 	
@@ -33,5 +34,9 @@ public class Bullet {
 	public void render(Graphics g) {
 		g.drawImage(bulletImg, this.x, this.y, null);
 		bounds = new Rectangle(x, y, bulletImg.getWidth(null), bulletImg.getHeight(null));
+	}
+
+	public Rectangle getBounds() {
+		return bounds;
 	}
 }

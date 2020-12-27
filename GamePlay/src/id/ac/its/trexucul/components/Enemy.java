@@ -11,11 +11,15 @@ public class Enemy {
 	private String imgName;
 	private int x, y;
 	private float velX, velY;
+	
 	private final int MAX_SPEED = 7;
 	private Rectangle bounds;
 	private float gravity = 0.5f;
+	
 	protected boolean falling = true;
 	protected boolean jumping = false;
+	
+	private boolean visibility = true;
 	
 	private Image enemyImg;
 	
@@ -55,12 +59,18 @@ public class Enemy {
 	}
 	
 	
-	public void update(Ground ground){		
-		
+	public void update(Ground ground){
 		move();
 		
-		Collision(ground);
-		
+		collision(ground);
+	}
+	
+	public void updateVisibility(PlayerBullet bullet) {
+		if (getBounds() != null && bullet.getBounds() != null) {
+			if( getBounds().intersects(bullet.getBounds()) ) {
+				visibility = false;
+			}
+		}
 	}
 	
 	private void move() {
@@ -74,28 +84,39 @@ public class Enemy {
 			if(velY > MAX_SPEED) {
 				velY = MAX_SPEED;
 			}
-		}else {
+		} else {
 			velX = velY= 0;
 		}
 		
 	}
 	
 	public void render(Graphics g) {
-		g.drawImage(enemyImg, this.x, this.y, null);
-		bounds = new Rectangle(x, y, enemyImg.getWidth(null), enemyImg.getHeight(null));
+		if (visibility) {
+			g.drawImage(enemyImg, this.x, this.y, null);
+			bounds = new Rectangle(x, y, enemyImg.getWidth(null), enemyImg.getHeight(null));
+		}
 	}
 	
-	private void Collision(Ground ground) {
-		
+	private void collision(Ground ground) {
 		if( getBounds().intersects( ground.getBounds() ) ) {
 			falling = false;
 			jumping = false;
 		}
-
 	}
 	
-	public Rectangle getBounds() { //Rectangle (x, y, width, height)
-		return new Rectangle( (int) (x + 4), (int) ((int)y+(enemyImg.getHeight(null)/2)), 24, 65);
+	public Rectangle getBounds() {
+		return new Rectangle(x+68, y, 14, enemyImg.getHeight(null));
+	}
+	
+	public Rectangle getWholeBounds() {
+		return new Rectangle( x, y, enemyImg.getWidth(null), enemyImg.getHeight(null));
 	}
 
+	public boolean isVisible() {
+		return visibility;
+	}
+
+	public void setVisibility(boolean visibility) {
+		this.visibility = visibility;
+	}
 }

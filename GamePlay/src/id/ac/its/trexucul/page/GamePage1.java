@@ -1,12 +1,13 @@
 package id.ac.its.trexucul.page;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
-
-import id.ac.its.trexucul.components.Bullet;
 import id.ac.its.trexucul.components.Enemy;
 import id.ac.its.trexucul.components.Ground;
 import id.ac.its.trexucul.components.Player;
+import id.ac.its.trexucul.components.PlayerBullet;
 import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.main.Window;
 import id.ac.its.trexucul.util.BulletListener;
@@ -19,17 +20,17 @@ public class GamePage1 extends PageState {
 	private Enemy enemy;
 	private Ground ground;
 	
-	private ArrayList<Bullet> bullets = new ArrayList<Bullet>();
+	private ArrayList<PlayerBullet> pBullets = new ArrayList<PlayerBullet>();
 	
 	public GamePage1(Window window) {
 		super(window);
+		enemy = new Enemy("Enemy", 1100, 500);
 		player = new Player("Player", 20, 500, new BulletListener() {
 			@Override
 			public void onClick(int x, int y) {
-				bullets.add(new Bullet("Bullet", x, y));
+				pBullets.add(new PlayerBullet("Bullet", x, y));
 			}
 		});
-		enemy = new Enemy("Enemy", 1100, 500);
 		ground = new Ground("darkground", 0, 646);
 	}
 
@@ -40,8 +41,8 @@ public class GamePage1 extends PageState {
 		player.render(g);
 		enemy.render(g);
 		
-		for(int i = 0; i < bullets.size(); i++) {
-			bullets.get(i).render(g);
+		for(int i = 0; i < pBullets.size(); i++) {
+			pBullets.get(i).render(g);
 		}
 	}
 
@@ -50,8 +51,9 @@ public class GamePage1 extends PageState {
 		player.update(ground);
 		enemy.update(ground);
 		
-		for(int i = 0; i < bullets.size(); i++) {
-			bullets.get(i).update();
+		for(int i = 0; i < pBullets.size(); i++) {
+			pBullets.get(i).update();
+			enemy.updateVisibility(pBullets.get(0));
 		}
 	}
 	

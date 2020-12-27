@@ -42,6 +42,8 @@ public class Player {
 	
 	private BulletListener click;
 	
+	private boolean visibility = true;
+	
 	public Player(String name, int x, int y, BulletListener click) {
 		this.imgName = name;
 		this.x = x;
@@ -82,7 +84,6 @@ public class Player {
 			velX = 0;
 		}
 		
-		
 		if(KeyboardHandler.SPACE) {
 			if(bt.finishCounting())
 				click.onClick(x + 84, y + 23);
@@ -90,28 +91,27 @@ public class Player {
 
 		move();
 		
-		Collision(ground);
+		collision(ground);
 		
 		walking.runAnimation();
 	}
 	
 	public void render(Graphics g) {
-		
-		bounds = new Rectangle(x, y, playerImg.getWidth(null), playerImg.getHeight(null));
-
-		//walking animation
-		if(velX != 0) {
-			walking.drawAnimation(g, (int)x, (int)y);
-		} else {
-			g.drawImage(playerImg, this.x, this.y, null);
+		if (visibility) {		
+			bounds = new Rectangle(x, y, playerImg.getWidth(null), playerImg.getHeight(null));
+	
+			//walking animation
+			if(velX != 0) {
+				walking.drawAnimation(g, (int)x, (int)y);
+			} else {
+				g.drawImage(playerImg, this.x, this.y, null);
+			}
 		}
 		
 //		Graphics2D g2d = (Graphics2D) g;
 //		g.setColor(Color.red);
 //		g2d.draw(getBounds());
-//		g2d.draw(getBoundsTop());
-//		g2d.draw(getBoundsRight());
-//		g2d.draw(getBoundsLeft());
+//		g2d.draw(getWholeBounds());
 	}
 	
 	private void move() {
@@ -133,7 +133,7 @@ public class Player {
 			x = Camera.MAX_BG_WIDTH-playerImg.getWidth(null);
 	}
 	
-	private void Collision(Ground ground) {
+	private void collision(Ground ground) {
 		if(getBounds().intersects(ground.getBounds())) {
 			velY = 0;
 			falling = false;
@@ -142,19 +142,11 @@ public class Player {
 	}
 	
 	public Rectangle getBounds() {
-		return new Rectangle( (int) (x + 4), (int) ((int)y+(playerImg.getHeight(null)/2)), 24, 65);
+		return new Rectangle( x+12, y, 14, playerImg.getHeight(null));
 	}
 	
-	public Rectangle getBoundsTop() {
-		return new Rectangle( (int) (x + 4),  (int)y,  24, 65);
-	}
-	
-	public Rectangle getBoundsRight() {
-		return new Rectangle( (int) ((int)x+30), (int)y+2, 3, (int)playerImg.getHeight(null)-4);
-	}
-	
-	public Rectangle getBoundsLeft() {
-		return new Rectangle((int)x, (int)y+2, 3, (int)playerImg.getHeight(null)-4);
+	public Rectangle getWholeBounds() {
+		return new Rectangle( x, y, playerImg.getWidth(null), playerImg.getHeight(null));
 	}
 	
 	public int getX() {
@@ -179,5 +171,13 @@ public class Player {
 
 	protected void setJumping(boolean jumping) {
 		this.jumping = jumping;
+	}
+
+	public boolean isVisible() {
+		return visibility;
+	}
+
+	public void setVisibility(boolean visibility) {
+		this.visibility = visibility;
 	}
 }

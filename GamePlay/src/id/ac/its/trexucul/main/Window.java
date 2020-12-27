@@ -53,7 +53,6 @@ public class Window extends JFrame implements Runnable {
 	
 	Camera cam;
 	
-	
 	public GamePage1 getGamePage1() {
 		return gamePage1;
 	}
@@ -187,7 +186,6 @@ public class Window extends JFrame implements Runnable {
 		gameOverPage = new GameOverPage(this);
 		PageState.currentState = gamePage1;
 
-
 		Assets.init();
 	}
 	
@@ -236,20 +234,4 @@ public class Window extends JFrame implements Runnable {
 			e.printStackTrace();
 		}
 	}
-	
-	/*
-	private void update() {
-		handler.tick();
-		
-		for(int u=0; u < handler.object.size(); u++ ) {
-			
-			if(handler.object.get(u).getId() == ObjectId.Player) {
-				cam.tick(handler.object.get(u));
-				
-			}
-			
-		}
-		
-	}
-	*/
 }
