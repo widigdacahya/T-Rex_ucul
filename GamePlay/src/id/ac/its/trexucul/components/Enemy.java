@@ -6,6 +6,7 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Timer;
+import java.util.Random;
 
 import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.system.Animation;
@@ -28,7 +29,9 @@ public class Enemy {
 	protected boolean jumping = false;
 	private final int MAX_SPEED = 7;
 	
+	//utility
 	private Timer timer;
+    Random rand = new Random(); 
 	
 	//bt is bullet time which declare interval time between each shoot
 	//jt declare interval between each enemy jump
@@ -106,7 +109,7 @@ public class Enemy {
 	public void updateVisibility(PlayerBullet bullet) {
 		if (getBounds() != null && bullet.getBounds() != null) {
 			if( getBounds().intersects(bullet.getBounds()) ) {
-				health -= 30;
+				health -= (20 + rand.nextInt(7)+1 );
 				
 				if(health<0) {
 					System.out.println("tes");
