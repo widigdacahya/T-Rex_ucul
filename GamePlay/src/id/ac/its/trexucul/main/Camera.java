@@ -4,7 +4,7 @@ import id.ac.its.trexucul.components.Player;
 
 public class Camera {
 	
-private float x,y;
+	public float x,y;
 
 	public static int MAX_BG_WIDTH = 4370;
 	
