@@ -37,6 +37,7 @@ public class Enemy {
 	//jt declare interval between each enemy jump
 	//rt declare time needed to reload
 	private BulletTimer bt, jt, rt; 
+
 	private final int Delay = 200;
 	
 	private Image playerImg;
@@ -44,7 +45,7 @@ public class Enemy {
 	private BufferedImage[] pIWBuffered = new BufferedImage[6];
 	private Animation walking;
 	
-	private ArrayList<Bullet> bullets = new ArrayList<Bullet>();
+//	public EnemyBullet eBullet = new ArrayList<EnemyBullet>();
 	
 	private boolean visibility = true;
 	private boolean included = false;
@@ -96,18 +97,44 @@ public class Enemy {
 	public void update(Ground ground){
 		if (included) {
 			jump();
-			
-			fire();
-			
-			for(int i = 0; i < bullets.size(); i++) {
-				bullets.get(i).update();
-			}
 		}
 		
 		move();
-		
+			
 		collision(ground);
 		
+	}
+	
+	public void render(Graphics g) {
+
+		if (visibility) {
+			g.drawImage(enemyImg, this.x, this.y, null);
+			bounds = new Rectangle(x, y, enemyImg.getWidth(null), enemyImg.getHeight(null));
+		}
+	}
+	
+	private void move() {
+		
+		x += velX;
+		y += velY;
+		
+		if(falling || jumping) {
+			velY += gravity;
+			
+			if(velY > MAX_SPEED) {
+				velY = MAX_SPEED;
+			}
+		} else {
+			velX = velY= 0;
+		}
+		
+	}
+	
+	private void collision(Ground ground) {
+		if( getBounds().intersects( ground.getBounds() ) ) {
+			falling = false;
+			jumping = false;
+		}
 	}
 	
 	public boolean updateVisibility(PlayerBullet bullet) {
@@ -127,8 +154,17 @@ public class Enemy {
 				}
 			}
 		}
+
 		
 		return state;
+
+	}
+	
+	public void collisionBullet(PlayerBullet pBullet) {
+		if(getWholeBounds().intersects(pBullet.getBounds())) {
+			pBullet.visible = false;
+		}
+
 	}
 	
 	public int getHealth() {
@@ -149,58 +185,11 @@ public class Enemy {
 		
 	}
 	
-	private void move() {
-		
-		x += velX;
-		y += velY;
-		
-		if(falling || jumping) {
-			velY += gravity;
-			
-			if(velY > MAX_SPEED) {
-				velY = MAX_SPEED;
-			}
-		} else {
-			velX = velY= 0;
-		}
-	}
-	
-	public void fire() {
-		if(bt.finishCounting() && rt.finishCounting()) {
-			bullets.add(new EnemyBullet("Bullet", x, y+23, null));
-		}
-	}
-	
-	public void render(Graphics g) {
-
-		if (visibility) {
-			g.drawImage(enemyImg, this.x, this.y, null);
-			bounds = new Rectangle(x, y, enemyImg.getWidth(null), enemyImg.getHeight(null));
-			
-			if (included) {
-				for(int i = 0; i < bullets.size(); i++) {
-					bullets.get(i).render(g);
-				}
-			}
-		}
-	}
-	
-	private void collision(Ground ground) {
-		if( getBounds().intersects( ground.getBounds() ) ) {
-			falling = false;
-			jumping = false;
-		}
-	}
-	
-	
-	public void collisionBullet(PlayerBullet pBullet) {
-		if(getWholeBounds().intersects(pBullet.getBounds())) {
-			pBullet.visible = false;
-		}
-	}
-	
-	
-	
+//	public void fire() {
+//		if(bt.finishCounting() && rt.finishCounting()) {
+//			//bullets.add(new EnemyBullet("Bullet", x, y+23, null));
+//		}
+//	}
 	
 	public Rectangle getBounds() {
 		return new Rectangle(x+68, y, 14, enemyImg.getHeight(null));
@@ -221,6 +210,8 @@ public class Enemy {
 	public Rectangle getBoundsLeft() {
 		return new Rectangle((int)x, (int)y+2, 3, (int)playerImg.getHeight(null)-4);
 	}
+	
+	
 
 	public void setVisibility(boolean visibility) {
 		this.visibility = visibility;
@@ -236,5 +227,29 @@ public class Enemy {
 
 	public void setIncluded(boolean included) {
 		this.included = included;
+	}
+	
+	public BulletTimer getBt() {
+		return bt;
+	}
+
+	public void setBt(BulletTimer bt) {
+		this.bt = bt;
+	}
+
+	public BulletTimer getJt() {
+		return jt;
+	}
+
+	public void setJt(BulletTimer jt) {
+		this.jt = jt;
+	}
+
+	public BulletTimer getRt() {
+		return rt;
+	}
+
+	public void setRt(BulletTimer rt) {
+		this.rt = rt;
 	}
 }

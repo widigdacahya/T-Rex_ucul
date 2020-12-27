@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import id.ac.its.trexucul.components.Bullet;
+import id.ac.its.trexucul.components.CommonButton;
 import id.ac.its.trexucul.components.Enemy;
 import id.ac.its.trexucul.components.Ground;
 import id.ac.its.trexucul.components.Player;
@@ -13,6 +14,7 @@ import id.ac.its.trexucul.components.PlayerBullet;
 import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.main.Window;
 import id.ac.its.trexucul.util.BulletListener;
+import id.ac.its.trexucul.util.ClickListener;
 import id.ac.its.trexucul.util.PageState;
 
 //Level 2 Game Page
@@ -21,6 +23,9 @@ public class GamePage2 extends PageState{
 	private Player player;
 	private List<Enemy> enemy;
 	private Ground ground;
+	private int enemyCount;
+	private float camX, camY;
+	private CommonButton backButton;
 	
 	private final int [][] enemyPosition = {
 			{900,500},{1220,500},{1450,500},{1609,500},{1780,500},
@@ -37,13 +42,27 @@ public class GamePage2 extends PageState{
 		for (int[] p: enemyPosition) {
 			enemy.add(new Enemy("Enemy",p[0],p[1]));
 		}
+		
 		player = new Player("Player", 20, 500, new BulletListener() {
 			@Override
 			public void onClick(int x, int y) {
 				pBullets.add(new PlayerBullet("Bullet", x, y));
 			}
 		});
+		
 		ground = new Ground("grounddark2", 0, 646);
+		
+		Assets.width = 96;
+		Assets.height = 36;
+		backButton = new CommonButton("btn_kembali", 60, 640, new ClickListener() {
+			@Override
+			public void onClick() {
+				
+				//Go to menu
+				PageState.currentState = window.getMenuPage();
+				
+			}
+		});
 	}
 
 	@Override
@@ -52,41 +71,80 @@ public class GamePage2 extends PageState{
 		player.render(g);
 		ground.render(g);
 		
-		for(int i = 0; i < pBullets.size(); i++) {
-			pBullets.get(i).render(g);
-		}
-		
+		g.setColor(Color.WHITE);
+		g.drawString("Enemies: " + enemyCount + " ", (int)((int)(-camX)+1100), (int)((int)(-camY)+30));
+		enemyCount = 0;
 		
 		for(Enemy enemy: enemy) {	
 			if(enemy.isVisible()) {
 				enemy.render(g);
-				//enemy stats
 				g.setColor(Color.white);
 				g.drawString("Enemy: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);
+				enemyCount++;
 			}
-				
 		}
 		
+		for(PlayerBullet bullet : pBullets) {
+			bullet.render(g);
+		}
+		backButton.render(g);
 	}
 
 	@Override
 	public void update() {
+		camX = window.cam.getX();
+		camY = window.cam.getY();
+		
 		player.update(ground);
 		
 		for(Enemy enemy: enemy) {
+			if (enemy.getX() < (-camX+Window.WIDTH) && enemy.getX() > -camX)
+				enemy.setIncluded(true);
+			else
+				enemy.setIncluded(false);
 			enemy.update(ground);
 		}
 		
-		for(int i = 0; i < pBullets.size(); i++) {
-			pBullets.get(i).update();
-			
-			for(Enemy enemy: enemy) {
-				enemy.updateVisibility(pBullets.get(i));
-			}
-		}
+		checkBulletCollision();
+		
+		backButton.update();
 	}
 	
 	public Player getPlayer() {
 		return player;
+	}
+	
+	private void checkBulletCollision() {
+		int index = 0;
+		
+		while (index < pBullets.size()) {
+			boolean bState = false;
+			
+			pBullets.get(index).update();
+			
+			bState = checkEnemyCollision(pBullets.get(index));
+			
+			if (bState)
+				pBullets.remove(index);
+			else
+				index++;
+		}
+	}
+	
+	private boolean checkEnemyCollision(PlayerBullet bullet) {
+		boolean eState = false;
+		int index = 0;
+		
+		while (index < enemy.size()) {
+			if(enemy.get(index).updateVisibility(bullet)) {
+				eState = true;
+				if (!enemy.get(index).isVisible())
+					enemy.remove(index);
+				break;
+			} else
+				index++;
+		}
+		
+		return eState;
 	}
 }

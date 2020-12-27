@@ -194,6 +194,7 @@ public class Window extends JFrame implements Runnable {
 		levelPage = new LevelPage(this);
 		gameOverPage = new GameOverPage(this);
 		creditPage = new CreditPage(this);
+
 		PageState.currentState = splashPage;
 
 		Assets.init();
