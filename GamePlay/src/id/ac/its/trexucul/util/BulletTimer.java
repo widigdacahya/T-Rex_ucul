@@ -16,7 +16,7 @@ public class BulletTimer {
 		startTime = System.currentTimeMillis();
 	}
 	
-	public boolean countingStart() {
+	public boolean finishCounting() {
 		
 		currentTime = System.currentTimeMillis() - startTime;
 		timeSec = currentTime.floatValue()/1000;

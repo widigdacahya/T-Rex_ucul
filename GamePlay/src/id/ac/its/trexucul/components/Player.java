@@ -7,7 +7,6 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.Timer;
-
 import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.main.Camera;
 import id.ac.its.trexucul.system.Animation;
@@ -77,14 +76,16 @@ public class Player {
 		
 		if(KeyboardHandler.RIGHT) {
 			velX = velSpeed;
+		} 
+		
+		if(!KeyboardHandler.RIGHT && !KeyboardHandler.LEFT) {
+			velX = 0;
 		}
 		
 		
 		if(KeyboardHandler.SPACE) {
-			
-			if(bt.countingStart())
+			if(bt.finishCounting())
 				click.onClick(x + 84, y + 23);
-			
 		}
 
 		move();
@@ -98,11 +99,10 @@ public class Player {
 		
 		bounds = new Rectangle(x, y, playerImg.getWidth(null), playerImg.getHeight(null));
 
-		//		System.out.printf("velX = %f\n", velX);
 		//walking animation
 		if(velX != 0) {
 			walking.drawAnimation(g, (int)x, (int)y);
-		}else {
+		} else {
 			g.drawImage(playerImg, this.x, this.y, null);
 		}
 		
@@ -125,9 +125,6 @@ public class Player {
 			if(velY > MAX_SPEED) {
 				velY = MAX_SPEED;
 			}
-		} else {
-			velX = 0;
-			velY = 0;
 		}
 		
 		if (x < 0)
