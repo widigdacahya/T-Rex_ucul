@@ -51,7 +51,7 @@ public class Window extends JFrame implements Runnable {
 	private SplashPage splashPage;
 	private GameOverPage gameOverPage;
 	
-	Camera cam;
+	public Camera cam;
 	
 	public GamePage1 getGamePage1() {
 		return gamePage1;

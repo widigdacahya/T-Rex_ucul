@@ -11,6 +11,7 @@ import id.ac.its.trexucul.components.Ground;
 import id.ac.its.trexucul.components.Player;
 import id.ac.its.trexucul.components.PlayerBullet;
 import id.ac.its.trexucul.gfx.Assets;
+import id.ac.its.trexucul.main.Camera;
 import id.ac.its.trexucul.main.Window;
 import id.ac.its.trexucul.util.BulletListener;
 import id.ac.its.trexucul.util.PageState;
@@ -21,6 +22,8 @@ public class GamePage1 extends PageState {
 	private Player player;
 	private Ground ground;
 	private List<Enemy> enemy;
+	private int enemyCount;
+	private float camX, camY;
 	
 	private final int [][] enemyPosition = {
 		{900,500},{1220,500},{1450,500},
@@ -46,6 +49,7 @@ public class GamePage1 extends PageState {
 			}
 		});
 		ground = new Ground("darkground", 0, 646);
+
 	}
 
 	@Override
@@ -55,11 +59,19 @@ public class GamePage1 extends PageState {
 		ground.render(g);
 		player.render(g);
 		
+		//stats
+		g.setColor(Color.white);
+		System.out.println(camX + " " + camY);
+		
+		g.drawString("Enemies: " + enemyCount + " ", (int)((int)(-window.cam.getX())+1100), (int)((int)(-window.cam.getY())+30));
+		enemyCount = 0;
+		
 		for(Enemy enemy: enemy) {	
 			if(enemy.isVisible()) {
 				enemy.render(g);
 				g.setColor(Color.white);
 				g.drawString("Enemy: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);
+				enemyCount++;
 			}
 				
 		}
