@@ -104,6 +104,7 @@ public class Enemy {
 		}
 		
 		collision(ground);
+		
 	}
 	
 	public void updateVisibility(PlayerBullet bullet) {
@@ -115,7 +116,8 @@ public class Enemy {
 				health -= (20 + (rand.nextInt(7)+1) );
 
 				bullet.visible = false;
-
+				collisionBullet(bullet);
+				
 				if(health<0) {
 					visibility = false;
 				}
@@ -178,6 +180,8 @@ public class Enemy {
 			for(int i = 0; i < bullets.size(); i++) {
 				bullets.get(i).render(g);
 			}
+			
+			
 		}else {
 			
 		}
@@ -190,6 +194,16 @@ public class Enemy {
 			jumping = false;
 		}
 	}
+	
+	
+	public void collisionBullet(PlayerBullet pBullet) {
+		if(getWholeBounds().intersects(pBullet.getBounds())) {
+			pBullet.visible = false;
+		}
+	}
+	
+	
+	
 	
 	public Rectangle getBounds() {
 		return new Rectangle(x+68, y, 14, enemyImg.getHeight(null));
