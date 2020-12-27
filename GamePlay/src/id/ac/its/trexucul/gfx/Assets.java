@@ -96,11 +96,11 @@ public class Assets {
 	
 	public static Image[] getImagePlayerWalkFire() {
 		
-		playerFire[0] = ImageLoader.loadImage("res/asset/Player/" + "Walk Shooting 1.png");
-		playerFire[1] = ImageLoader.loadImage("res/asset/Player/" + "Walk Shooting 2.png");
-		playerFire[2] = ImageLoader.loadImage("res/asset/Player/" + "Walk Shooting 3.png");
-		playerFire[3] = ImageLoader.loadImage("res/asset/Player/" + "Walk Shooting 4.png");
-		playerFire[4] = ImageLoader.loadImage("res/asset/Player/" + "Walk Shooting 5.png");
+		playerFire[0] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 1.png");
+		playerFire[1] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 2.png");
+		playerFire[2] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 3.png");
+		playerFire[3] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 4.png");
+		playerFire[4] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 5.png");
 		
 		return playerFire;
 	}

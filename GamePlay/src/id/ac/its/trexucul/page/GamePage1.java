@@ -19,7 +19,6 @@ import id.ac.its.trexucul.util.PageState;
 public class GamePage1 extends PageState {
 	
 	private Player player;
-	//private Enemy enemy;
 	private Ground ground;
 	private List<Enemy> enemy;
 	
@@ -34,7 +33,6 @@ public class GamePage1 extends PageState {
 	
 	public GamePage1(Window window) {
 		super(window);
-		//enemy = new Enemy("Enemy", 1100, 500);
 		enemy = new ArrayList<>(); 
 				
 		for (int[] p: enemyPosition) {
@@ -53,8 +51,6 @@ public class GamePage1 extends PageState {
 	@Override
 	public void render(Graphics g) {
 		
-		
-		
 		g.drawImage(Assets.gamepage1BG, 0, 0, null);
 		ground.render(g);
 		player.render(g);
@@ -62,7 +58,6 @@ public class GamePage1 extends PageState {
 		for(Enemy enemy: enemy) {	
 			if(enemy.isVisible()) {
 				enemy.render(g);
-				//stats
 				g.setColor(Color.white);
 				g.drawString("Enemy: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);
 			}
@@ -77,7 +72,6 @@ public class GamePage1 extends PageState {
 	@Override
 	public void update() {
 		player.update(ground);
-		//enemy.update(ground);
 		
 		for(Enemy enemy: enemy) {
 			enemy.update(ground);
@@ -85,7 +79,6 @@ public class GamePage1 extends PageState {
 		
 		for(int i = 0; i < pBullets.size(); i++) {
 			pBullets.get(i).update();
-			//enemy.updateVisibility(pBullets.get(0));
 			for(Enemy enemy: enemy) {
 				enemy.updateVisibility(pBullets.get(i));
 			}

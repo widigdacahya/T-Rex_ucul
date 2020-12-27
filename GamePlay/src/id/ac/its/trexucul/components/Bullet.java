@@ -13,8 +13,6 @@ public class Bullet {
 	protected float velX;
 	protected Rectangle bounds;
 	protected boolean visible;
-
-	
 	protected Image bulletImg;
 	
 	public Bullet(String name, int x, int y, float velX) {

@@ -19,7 +19,6 @@ import id.ac.its.trexucul.util.KeyboardHandler;
 
 public class Player {
 
-	
 	private String imgName;
 	private int x, y;
 	private float velX, velY;
