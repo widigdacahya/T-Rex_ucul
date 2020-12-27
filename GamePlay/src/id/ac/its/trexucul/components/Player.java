@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.Timer;
 import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.main.Camera;
@@ -31,9 +33,11 @@ public class Player {
 	protected boolean jumping = false;
 	private final int MAX_SPEED = 7;
 	
+	//util
 	private Timer timer;
 	private BulletTimer bt;
 	private final int Delay = 200;
+    Random rand = new Random(); 
 	
 	//idle player
 	private Image playerImg;
@@ -62,6 +66,7 @@ public class Player {
 	private BulletListener click;
 	
 	private boolean visibility = true;
+	private int health = 100;
 	
 	public Player(String name, int x, int y, BulletListener click) {
 		this.imgName = name;
@@ -138,29 +143,32 @@ public class Player {
 	public void render(Graphics g) {
 		
 		//jika menembak ga perlu render yang walking
-		if(firingflag>0) {
-			if(velX != 0) {
-				firingWalk.drawAnimation(g, (int)x, (int)y);
-			}else {
-				firing.drawAnimation(g, (int)x, (int)y);
-			}
-			firingflag--;
-			steady = true;
-		}else
-		if(steady) {
-			g.drawImage(pISBuffered, this.x, this.y, null);
-		}else
-		if (visibility) {		
-			bounds = new Rectangle(x, y, playerImg.getWidth(null), playerImg.getHeight(null));
-	
-			//walking animation
-			if(velX != 0) {
-				walking.drawAnimation(g, (int)x, (int)y);
-				steady = false;
-			} else {
-				g.drawImage(playerImg, this.x, this.y, null);
+		
+		if (visibility) {
+			if(firingflag>0) {
+				if(velX != 0) {
+					firingWalk.drawAnimation(g, (int)x, (int)y);
+				}else {
+					firing.drawAnimation(g, (int)x, (int)y);
+				}
+				firingflag--;
+				steady = true;
+			}else
+			if(steady) {
+				g.drawImage(pISBuffered, this.x, this.y, null);
+			}else{		
+				bounds = new Rectangle(x, y, playerImg.getWidth(null), playerImg.getHeight(null));
+		
+				//walking animation
+				if(velX != 0) {
+					walking.drawAnimation(g, (int)x, (int)y);
+					steady = false;
+				} else {
+					g.drawImage(playerImg, this.x, this.y, null);
+				}
 			}
 		}
+		
 		
 	}
 	
@@ -188,6 +196,38 @@ public class Player {
 			velY = 0;
 			falling = false;
 			jumping = false;
+		}
+	}
+	
+	public void updateVisibility(ArrayList<EnemyBullet> eBullets) {
+		
+		System.out.printf("visible: %b\thealth: %d\n", visibility, health);
+		
+		for(EnemyBullet eBullet: eBullets) {
+			if (getBounds() != null && eBullet.getBounds() != null) {
+				
+
+
+				if( getBounds().intersects(eBullet.getBounds()) ) {
+
+					health -= (20 + (rand.nextInt(7)+1) );
+
+					eBullet.visible = false;
+					collisionBullet(eBullet);
+					
+					if(health<0) {
+						visibility = false;
+					}
+
+				}
+			}
+		}
+
+	}
+	
+	public void collisionBullet(EnemyBullet pBullet) {
+		if(getWholeBounds().intersects(pBullet.getBounds())) {
+			pBullet.visible = false;
 		}
 	}
 	
