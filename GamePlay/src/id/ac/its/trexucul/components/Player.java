@@ -104,7 +104,7 @@ public class Player {
 	
 	public void update(Ground ground){		
 		if(KeyboardHandler.UP && (!jumping) ) {
-			velY = -10;
+			velY = -25;
 			jumping = true;
 			falling = true;
 		}
@@ -269,5 +269,13 @@ public class Player {
 
 	public void setVisibility(boolean visibility) {
 		this.visibility = visibility;
+	}
+
+	public int getHealth() {
+		return health;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
 	}
 }

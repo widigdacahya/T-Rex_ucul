@@ -80,6 +80,10 @@ public class GamePage1 extends PageState {
 		for(PlayerBullet bullet : pBullets) {
 			bullet.render(g);
 		}
+		
+		for(EnemyBullet bullet : eBullets) {
+			bullet.render(g);
+		}
 	}
 
 	@Override
@@ -115,6 +119,14 @@ public class GamePage1 extends PageState {
 				}
 			}
 		}
+		
+		//player mati
+		if(!player.isVisible()) {
+			player.setVisibility(true);
+			player.setHealth(100);
+			PageState.currentState = window.getGameOverPage();
+		}
+			
 
 	}
 	
