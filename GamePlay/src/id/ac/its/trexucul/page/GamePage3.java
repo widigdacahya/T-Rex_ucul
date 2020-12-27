@@ -21,6 +21,8 @@ public class GamePage3 extends PageState {
 	private Player player;
 	private List<Enemy> enemy;
 	private Ground ground;
+	private int enemyCount;
+	private float camX, camY;
 	
 	private ArrayList<PlayerBullet> pBullets = new ArrayList<PlayerBullet>();
 	
@@ -38,13 +40,13 @@ public class GamePage3 extends PageState {
 			enemy.add(new Enemy("Enemy",p[0],p[1]));
 		}
 		
-		
 		player = new Player("Player", 20, 500, new BulletListener() {
 			@Override
 			public void onClick(int x, int y) {
 				pBullets.add(new PlayerBullet("Bullet", x, y));
 			}
 		});
+		
 		ground = new Ground("grounddark3", 0, 646);
 	}
 
@@ -52,44 +54,79 @@ public class GamePage3 extends PageState {
 	public void render(Graphics g) {
 		g.drawImage(Assets.gamepage3BG, 0, 0, null);
 		player.render(g);
+		ground.render(g);
+		
+		g.setColor(Color.WHITE);
+		g.drawString("Enemies: " + enemyCount + " ", (int)((int)(-camX)+1100), (int)((int)(-camY)+30));
+		enemyCount = 0;
 		
 		for(Enemy enemy: enemy) {	
 			if(enemy.isVisible()) {
 				enemy.render(g);
-				//enemy stats
 				g.setColor(Color.white);
 				g.drawString("Enemy: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);
+				enemyCount++;
 			}
-				
 		}
 		
-		
-		ground.render(g);
-		
-		for(int i = 0; i < pBullets.size(); i++) {
-			pBullets.get(i).render(g);
+		for(PlayerBullet bullet : pBullets) {
+			bullet.render(g);
 		}
 	}
 
 	@Override
 	public void update() {
+		camX = window.cam.getX();
+		camY = window.cam.getY();
+		
 		player.update(ground);
 		
 		for(Enemy enemy: enemy) {
+			if (enemy.getX() < (-camX+Window.WIDTH) && enemy.getX() > -camX)
+				enemy.setIncluded(true);
+			else
+				enemy.setIncluded(false);
 			enemy.update(ground);
 		}
 		
-		for(int i = 0; i < pBullets.size(); i++) {
-			pBullets.get(i).update();
-			
-			for(Enemy enemy: enemy) {
-				enemy.updateVisibility(pBullets.get(i));
-			}
-			
-		}
+		checkBulletCollision();
 	}
 	
 	public Player getPlayer() {
 		return player;
+	}
+	
+	private void checkBulletCollision() {
+		int index = 0;
+		
+		while (index < pBullets.size()) {
+			boolean bState = false;
+			
+			pBullets.get(index).update();
+			
+			bState = checkEnemyCollision(pBullets.get(index));
+			
+			if (bState)
+				pBullets.remove(index);
+			else
+				index++;
+		}
+	}
+	
+	private boolean checkEnemyCollision(PlayerBullet bullet) {
+		boolean eState = false;
+		int index = 0;
+		
+		while (index < enemy.size()) {
+			if(enemy.get(index).updateVisibility(bullet)) {
+				eState = true;
+				if (!enemy.get(index).isVisible())
+					enemy.remove(index);
+				break;
+			} else
+				index++;
+		}
+		
+		return eState;
 	}
 }
