@@ -110,11 +110,12 @@ public class Enemy {
 		
 	}
 	
-	public void updateVisibility(PlayerBullet bullet) {
+	public boolean updateVisibility(PlayerBullet bullet) {
+		boolean state = false;
 		
 		if (getBounds() != null && bullet.getBounds() != null) {
-
-			if( getBounds().intersects(bullet.getBounds()) ) {
+			if(getBounds().intersects(bullet.getBounds())) {
+				state = true;
 
 				health -= (20 + (rand.nextInt(7)+1) );
 
@@ -126,6 +127,8 @@ public class Enemy {
 				}
 			}
 		}
+		
+		return state;
 	}
 	
 	public int getHealth() {
