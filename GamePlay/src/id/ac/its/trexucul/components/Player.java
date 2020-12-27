@@ -40,14 +40,25 @@ public class Player {
 	private Image playerImg;
 	
 	//walking player
-	private Image[] playerImgWalk = new Image[6];
-	private BufferedImage[] pIWBuffered = new BufferedImage[6];
+	private Image[] playerImgWalk = new Image[8];
+	private BufferedImage[] pIWBuffered = new BufferedImage[8];
 	private Animation walking;
 	
 	//player firing
 	private Image[] playerImgFire = new Image[5];
 	private BufferedImage[] pIFBuffered = new BufferedImage[5];
 	private Animation firing;
+	private int firingflag = 0;
+	
+	//player firing
+	private Image[] playerImgWalkFire = new Image[5];
+	private BufferedImage[] pIWFBuffered = new BufferedImage[5];
+	private Animation firingWalk;
+	private int firingWalkFlag = 0;
+	
+	//player steady
+	private boolean steady = false;
+	private BufferedImage pISBuffered;
 	
 	private BulletListener click;
 	
@@ -76,7 +87,15 @@ public class Player {
 		playerImgFire = Assets.getImagePlayerFire();
 		for(int i=0; i<playerImgFire.length; i++)
 			pIFBuffered[i] = ImageLoader.toBufferedImage(playerImgFire[i]);
-		firing = new Animation(100, pIFBuffered);
+		firing = new Animation(1, pIFBuffered);
+		//stead
+		pISBuffered = ImageLoader.toBufferedImage(playerImgFire[4]);
+		
+		//walk fire program
+		playerImgWalkFire = Assets.getImagePlayerWalkFire();
+		for(int i=0; i<playerImgFire.length; i++)
+			pIWFBuffered[i] = ImageLoader.toBufferedImage(playerImgWalkFire[i]);
+		firingWalk = new Animation(1, pIWFBuffered);
 	}
 	
 	public void update(Ground ground){		
@@ -88,10 +107,12 @@ public class Player {
 		
 		if(KeyboardHandler.LEFT) {
 			velX = -velSpeed;
+			steady = false;
 		}
 		
 		if(KeyboardHandler.RIGHT) {
 			velX = velSpeed;
+			steady = false;
 		} 
 		
 		if(!KeyboardHandler.RIGHT && !KeyboardHandler.LEFT) {
@@ -99,8 +120,11 @@ public class Player {
 		}
 		
 		if(KeyboardHandler.SPACE) {
-			if(bt.finishCounting())
+			if(bt.finishCounting()) {
 				click.onClick(x + 84, y + 23);
+				this.firingflag = 5;
+			}
+				
 		}
 
 		move();
@@ -109,29 +133,36 @@ public class Player {
 		
 		walking.runAnimation();
 		firing.runAnimation();
+		firingWalk.runAnimation();
 	}
 	
 	public void render(Graphics g) {
+		
+		//jika menembak ga perlu render yang walking
+		if(firingflag>0) {
+			if(velX != 0) {
+				firingWalk.drawAnimation(g, (int)x, (int)y);
+			}else {
+				firing.drawAnimation(g, (int)x, (int)y);
+			}
+			firingflag--;
+			steady = true;
+		}else
+		if(steady) {
+			g.drawImage(pISBuffered, this.x, this.y, null);
+		}else
 		if (visibility) {		
 			bounds = new Rectangle(x, y, playerImg.getWidth(null), playerImg.getHeight(null));
 	
 			//walking animation
 			if(velX != 0) {
 				walking.drawAnimation(g, (int)x, (int)y);
+				steady = false;
 			} else {
 				g.drawImage(playerImg, this.x, this.y, null);
 			}
 		}
 		
-		if(KeyboardHandler.SPACE) {
-			if(bt.finishCounting())
-				firing.drawAnimation(g, (int)x, (int)y);
-		}
-		
-//		Graphics2D g2d = (Graphics2D) g;
-//		g.setColor(Color.red);
-//		g2d.draw(getBounds());
-//		g2d.draw(getWholeBounds());
 	}
 	
 	private void move() {
