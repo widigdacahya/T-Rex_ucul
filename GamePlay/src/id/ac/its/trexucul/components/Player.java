@@ -210,7 +210,7 @@ public class Player {
 
 				if( getBounds().intersects(eBullet.getBounds()) ) {
 
-					health -= (20 + (rand.nextInt(7)+1) );
+					health -= 1;
 
 					eBullet.visible = false;
 					collisionBullet(eBullet);

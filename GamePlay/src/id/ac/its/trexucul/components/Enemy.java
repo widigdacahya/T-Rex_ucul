@@ -9,6 +9,7 @@ import java.util.Timer;
 import java.util.Random;
 
 import id.ac.its.trexucul.gfx.Assets;
+import id.ac.its.trexucul.page.GamePage1;
 import id.ac.its.trexucul.system.Animation;
 import id.ac.its.trexucul.util.BulletListener;
 import id.ac.its.trexucul.util.BulletTimer;
@@ -45,11 +46,11 @@ public class Enemy {
 	private BufferedImage[] pIWBuffered = new BufferedImage[6];
 	private Animation walking;
 	
-//	public EnemyBullet eBullet = new ArrayList<EnemyBullet>();
-	
+	//enemies stats
 	private boolean visibility = true;
 	private boolean included = false;
 	private int health = 100;
+	private int bullet;
 	
 	private Image enemyImg;
 	
@@ -60,7 +61,7 @@ public class Enemy {
 		
 		this.bt = new BulletTimer(0.2f);
 		this.jt = new BulletTimer(7.5f);
-		this.rt = new BulletTimer(2.0f);
+		this.rt = new BulletTimer(5.0f);
 		initEnemy();
 	}
 	
@@ -97,6 +98,7 @@ public class Enemy {
 	public void update(Ground ground){
 		if (included) {
 			jump();
+			reload();
 		}
 		
 		move();
@@ -143,7 +145,7 @@ public class Enemy {
 		if (getBounds() != null && bullet.getBounds() != null) {
 			if(getBounds().intersects(bullet.getBounds())) {
 				state = true;
-
+				
 				health -= (20 + (rand.nextInt(7)+1) );
 
 				bullet.visible = false;
@@ -183,6 +185,12 @@ public class Enemy {
 			falling = true;
 		}
 		
+	}
+	
+	public void reload() {
+		if(rt.finishCounting()) {
+			bullet = 1;
+		}
 	}
 	
 //	public void fire() {
@@ -251,5 +259,13 @@ public class Enemy {
 
 	public void setRt(BulletTimer rt) {
 		this.rt = rt;
+	}
+
+	public int getBullet() {
+		return bullet;
+	}
+
+	public void setBullet(int bullet) {
+		this.bullet = bullet;
 	}
 }

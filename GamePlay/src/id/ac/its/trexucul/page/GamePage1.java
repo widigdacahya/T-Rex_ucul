@@ -24,6 +24,7 @@ public class GamePage1 extends PageState {
 	private List<Enemy> enemy;
 	private int enemyCount;
 	private float camX, camY;
+	public static int score=0;
 	
 	private final int [][] enemyPosition = {
 		{900,500},{1220,500},{1450,500},
@@ -64,6 +65,10 @@ public class GamePage1 extends PageState {
 		//stats
 		g.setColor(Color.white);
 		g.drawString("Enemies: " + enemyCount + " ", (int)((int)(-window.cam.getX())+1100), (int)((int)(-window.cam.getY())+30));
+		g.setColor(Color.white);
+		g.drawString("Health: " + player.getHealth() + " ", (int)((int)(-window.cam.getX())+20), (int)((int)(-window.cam.getY())+30));
+		g.setColor(Color.white);
+		g.drawString("Score: " + score + " ", (int)((int)(-window.cam.getX())+500), (int)((int)(-window.cam.getY())+30));
 
 		enemyCount = 0;
 		
@@ -93,14 +98,17 @@ public class GamePage1 extends PageState {
 		//enemy.update(ground);
 
 		for(Enemy enemy: enemy) {
-			if (enemy.getX() < (-camX+Window.WIDTH) && enemy.getX() > -camX)
+			if (enemy.getX() < (-window.cam.getX()+Window.WIDTH) && enemy.getX() > -window.cam.getX())
 				enemy.setIncluded(true);
 			else
 				enemy.setIncluded(false);
 			enemy.update(ground);
+			if( enemy.isVisible() && enemy.isIncluded() ) {
+				fire(enemy);
+				System.out.println(enemy.getBullet());
+			}
 		}
 		
-
 		checkBulletCollision();
 
 		for(int i = 0; i < eBullets.size(); i++) {
@@ -113,9 +121,6 @@ public class GamePage1 extends PageState {
 			//enemy.updateVisibility(pBullets.get(0));
 			for(Enemy enemy: enemy) {
 				enemy.updateVisibility(pBullets.get(i));
-				if( enemy.isVisible() ) {
-					fire(enemy);
-				}
 			}
 		}
 		
@@ -123,6 +128,8 @@ public class GamePage1 extends PageState {
 		if(!player.isVisible()) {
 			player.setVisibility(true);
 			player.setHealth(100);
+			window.cam.setX(0);
+			window.cam.setY(0);
 			PageState.currentState = window.getGameOverPage();
 		}
 			
@@ -130,10 +137,15 @@ public class GamePage1 extends PageState {
 	}
 	
 	public void fire(Enemy enemy) {
-		if(enemy.getBt().finishCounting() && enemy.getRt().finishCounting()) {
+		if( enemy.getBullet()!=0 ) {
+			enemy.setBullet(0);
 			eBullets.add(new EnemyBullet("Bullet", enemy.getX(), enemy.getY()+23, null));
 		}
 			
+	}
+	
+	public void scorer() {
+//		score += (damage * (101-player.getHealth()));
 	}
 	
 	public Player getPlayer() {
@@ -150,8 +162,10 @@ public class GamePage1 extends PageState {
 			
 			bState = checkEnemyCollision(pBullets.get(index));
 			
-			if (bState)
+			if (bState) {
 				pBullets.remove(index);
+				scorer();
+			}
 			else
 				index++;
 		}
@@ -160,8 +174,9 @@ public class GamePage1 extends PageState {
 	private boolean checkEnemyCollision(PlayerBullet bullet) {
 		boolean eState = false;
 		int index = 0;
-		
+
 		while (index < enemy.size()) {
+			
 			if(enemy.get(index).updateVisibility(bullet)) {
 				eState = true;
 				if (!enemy.get(index).isVisible())
@@ -170,7 +185,7 @@ public class GamePage1 extends PageState {
 			} else
 				index++;
 		}
-		
+
 		return eState;
 	}
 }
