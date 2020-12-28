@@ -119,7 +119,7 @@ public class Window extends JFrame implements Runnable {
 		gameOverPage = new GameOverPage(this);
 		victoryPage = new VictoryPage(this);
 
-		PageState.currentState = levelPage;
+		PageState.currentState = victoryPage;
 
 		
 
@@ -173,7 +173,7 @@ public class Window extends JFrame implements Runnable {
 	}
 
 	
-	public GamePage getGamePage1() {
+	public GamePage getGamePage() {
 		return gamePage;
 	}
 

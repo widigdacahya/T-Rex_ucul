@@ -25,6 +25,8 @@ public class VictoryPage extends PageState{
 	
 	private Image gameOverText = Assets.getImageText("victory.png");
 	protected ArrayList<CommonButton> buttons  = new ArrayList<CommonButton>();
+	
+	private String nameValue;
 
 	public VictoryPage(Window window) {
 		super(window);
@@ -48,21 +50,37 @@ public class VictoryPage extends PageState{
 				System.exit(1);
 			}
 		}));
+		
+		init();
 	}
 	
 	public void init() {
 		CreateTextFile.openFile();
 		
 		try {
-			CreateTextFile.addRecords( ( window.getGamePage1().getScore() ) + " " + inputName());
+			CreateTextFile.addRecords((window.getGamePage().getScore()) + "");
 		}catch(NullPointerException e) {
-			CreateTextFile.addRecords( ( 0 ) + " " + inputName());
+			e.printStackTrace();
+			CreateTextFile.addRecords((0) + "");
 		}
+//		
+		CreateTextFile.closeFile();
 		
+		inputName();
+	}
+	public void inputString(String value) {
+		CreateTextFile.openFile();
+		
+		try {
+			CreateTextFile.addRecords((value));
+		}catch(NullPointerException e) {
+			e.printStackTrace();
+		}
+//		
 		CreateTextFile.closeFile();
 	}
 	
-	public String inputName() {
+	public void inputName() {
 		
 		System.out.println("tes");
 		
@@ -70,7 +88,7 @@ public class VictoryPage extends PageState{
 //		//submit button
 //		JButton b=new JButton("Submit");    
 //		b.setBounds(100,100,140, 40);    
-		        //enter name label
+        //enter name label
 		JLabel label = new JLabel();        
 		label.setText("Enter Name :");
 		label.setBounds(10, 10, 100, 100);
@@ -78,7 +96,7 @@ public class VictoryPage extends PageState{
 		JLabel label1 = new JLabel();
 		label1.setBounds(10, 110, 200, 100);
 		        //textfield to enter name
-		JTextField textfield= new JTextField();
+		JTextField textfield= new JTextField(10);
 		textfield.setBounds(110, 50, 130, 30);
 		        //add to frame
 		f.add(label1);
@@ -88,17 +106,18 @@ public class VictoryPage extends PageState{
 		f.setSize(300,300);    
 		f.setLayout(null);    
 		f.setVisible(true);    
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		textfield.addActionListener(new ActionListener () {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				textfield.getText();			}
-
+				nameValue = textfield.getText();	
+				inputString(nameValue);		
+			}
 		});
 		
-		System.out.println(textfield.getText());
-		return textfield.getText();
+//		System.out.println(nameValue);
+//		return textfield.getText();
 	}
 
 	@Override
