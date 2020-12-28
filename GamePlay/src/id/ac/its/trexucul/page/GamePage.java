@@ -113,6 +113,10 @@ public class GamePage extends PageState {
 			}
 		}
 		
+		if(enemyCount==0) {
+			PageState.currentState = window.getVictoryPage();
+		}
+		
 		for(PlayerBullet bullet : pBullets) {
 			bullet.render(g);
 		}
@@ -171,8 +175,6 @@ public class GamePage extends PageState {
 	}
 	
 	public void score(int damage) {
-		if(damage!=0)
-			System.out.println(damage);
 		score += (damage * (101-player.getHealth()));
 	}
 	
