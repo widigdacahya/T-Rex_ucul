@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
 import id.ac.its.trexucul.gfx.Assets;
+import id.ac.its.trexucul.id.SelectedGamePage;
 import id.ac.its.trexucul.main.Camera;
 import id.ac.its.trexucul.system.Animation;
 import id.ac.its.trexucul.system.AnimationFire;
@@ -211,7 +212,10 @@ public class Player {
 		if (getBounds() != null && eBullet.getBounds() != null) {
 			if(getBounds().intersects(eBullet.getBounds()) && !shield) {
 				state = true;
-
+				
+//				if (type == SelectedGamePage.Satu)
+//				else if (type == SelectedGamePage.Dua)
+//				else if (type == SelectedGamePage.Tiga)
 				health -= 1;
 
 				eBullet.visible = false;

@@ -9,6 +9,7 @@ import java.util.Timer;
 import java.util.Random;
 
 import id.ac.its.trexucul.gfx.Assets;
+import id.ac.its.trexucul.id.SelectedGamePage;
 import id.ac.its.trexucul.page.GamePage;
 import id.ac.its.trexucul.system.Animation;
 import id.ac.its.trexucul.util.BulletListener;
@@ -143,7 +144,7 @@ public class Enemy {
 		if (getBounds() != null && bullet.getBounds() != null) {
 			if(getBounds().intersects(bullet.getBounds())) {
 				state = true;
-				
+			
 				fireDamage = (20 + (rand.nextInt(7)+1));
 				health -= fireDamage;
 
