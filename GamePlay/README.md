@@ -2,7 +2,7 @@
     
 
 <img src="Screenshot/title_readme.png" width="700">
-****
+
 
 🦖Nama : Allam Taju Sarof (05111940000053)
 🦖username : Allam0053
@@ -69,7 +69,7 @@ Class Diagram:
 ****  
 ### Referensi
   📚 <a href="https://github.com/JoshuaHernandezMartinez/Sokoban">Sokoban Game</a>  
-  📚 <a href="https://www.figma.com/file/0ei6x3VdT1XXTR5jnzUXpX/Untitled?node-id=0%3A1">Figma (Pembuatan Asset)         
+  📚 <a href="https://www.figma.com/file/0ei6x3VdT1XXTR5jnzUXpX/Untitled?node-id=0%3A1">Figma (Pembuatan Asset)</a>         
   📚 Neon Game: Java Platform Game Programming by RealTutsGML on <a href="https://www.youtube.com/playlist?list=PLWms45O3n--54U-22GDqKMRGlXROOZtMx">YouTube</a>         
   📚 Tutorial <a href="http://zetcode.com/javagames/collision/">Zetcode</a>         
   📚 <a href="https://play.google.com/store/apps/details?id=com.noodlecake.altosadventure&hl=in&gl=US">UI reference</a>         
