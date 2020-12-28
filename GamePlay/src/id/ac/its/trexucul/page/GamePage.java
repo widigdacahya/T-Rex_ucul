@@ -114,11 +114,13 @@ public class GamePage extends PageState {
 		}
 		
 		for(PlayerBullet bullet : pBullets) {
-			bullet.render(g);
+			if (checkIsIncluded(bullet.getX()))
+				bullet.render(g);
 		}
 		
 		for(EnemyBullet bullet : eBullets) {
-			bullet.render(g);
+			if (checkIsIncluded(bullet.getX()))
+				bullet.render(g);
 		}
 		
 		backButton.render(g);
@@ -132,7 +134,7 @@ public class GamePage extends PageState {
 		player.update(ground);
 
 		for(Enemy enemy: enemy) {
-			if (enemy.getX() < (-camX+Window.WIDTH) && enemy.getX() > -camX)
+			if (checkIsIncluded(enemy.getX()))
 				enemy.setIncluded(true);
 			else
 				enemy.setIncluded(false);
@@ -143,12 +145,8 @@ public class GamePage extends PageState {
 				fire(enemy);
 		}
 		
-		checkBulletCollision();
-
-		for(int i = 0; i < eBullets.size(); i++) {
-			eBullets.get(i).update();
-			player.updateVisibility(eBullets);
-		}
+		checkPlayerBulletCollision();
+		checkEnemyBulletCollision();
 		
 		//player mati
 		if(!player.isVisible()) {
@@ -163,16 +161,14 @@ public class GamePage extends PageState {
 	}
 	
 	public void fire(Enemy enemy) {
-		if( enemy.getBullet()!=0 ) {
-			enemy.setBullet(0);
+		if(enemy.getBullet()) {
+			enemy.setBullet(false);
 			eBullets.add(new EnemyBullet("Bullet", enemy.getX(), enemy.getY()+23, null));
+			System.out.printf("PosX: %d, PosY: %d%n", enemy.getX(), enemy.getY()+23);
 		}
-			
 	}
 	
 	public void score(int damage) {
-		if(damage!=0)
-			System.out.println(damage);
 		score += (damage * (101-player.getHealth()));
 	}
 	
@@ -180,19 +176,39 @@ public class GamePage extends PageState {
 		return player;
 	}
 	
-	private void checkBulletCollision() {
+	private void checkPlayerBulletCollision() {
 		int index = 0;
 		
 		while (index < pBullets.size()) {
 			boolean bState = false;
-			
-			pBullets.get(index).update();
-			
-			bState = checkEnemyCollision(pBullets.get(index));
-			
-			if (bState) {
-				pBullets.remove(index);
+
+			if (checkIsIncluded(pBullets.get(index).getX())) {
+				pBullets.get(index).update();
+				
+				bState = checkEnemyCollision(pBullets.get(index));
 			}
+			
+			if (bState)
+				pBullets.remove(index);
+			else
+				index++;
+		}
+	}
+	
+	private void checkEnemyBulletCollision() {
+		int index = 0;
+		
+		while (index < eBullets.size()) {
+			boolean bState = false;
+
+			if (checkIsIncluded(eBullets.get(index).getX())) {
+				eBullets.get(index).update();
+				
+				bState = checkPlayerCollision(eBullets.get(index));
+			}
+			
+			if (bState)
+				eBullets.remove(index);
 			else
 				index++;
 		}
@@ -216,5 +232,19 @@ public class GamePage extends PageState {
 		}
 
 		return eState;
+	}
+	
+	private boolean checkPlayerCollision(EnemyBullet bullet) {
+		boolean eState = false;
+		
+		if(player.updateVisibility(bullet)) {
+			eState = true;
+		}
+
+		return eState;
+	}
+	
+	private boolean checkIsIncluded(int x) {
+		return (x < (-camX+Window.WIDTH) && x > -camX);
 	}
 }

@@ -133,7 +133,6 @@ public class Player {
 				this.firingflag = 5;
 				shield = false;
 			}
-				
 		}
 
 		move();
@@ -148,35 +147,35 @@ public class Player {
 	public void render(Graphics g) {
 		
 		//jika menembak ga perlu render yang walking
-		
 		if (visibility) {
 			if(firingflag>0) {
 				if(velX != 0) {
 					firingWalk.drawAnimation(g, (int)x, (int)y);
-				}else {
+				} else {
 					firing.drawAnimation(g, (int)x, (int)y);
 				}
+				
 				firingflag--;
 				steady = true;
 				shield = false;
-			}else
-			if(steady) {
-				g.drawImage(pISBuffered, this.x, this.y, null);
-			}else{		
-				bounds = new Rectangle(x, y, playerImg.getWidth(null), playerImg.getHeight(null));
-		
-				//walking animation
-				if(velX != 0) {
-					walking.drawAnimation(g, (int)x, (int)y);
-					steady = false;
-					shield = true;
-				} else {
-					g.drawImage(playerImg, this.x, this.y, null);
+				
+			} else {
+				if(steady) {
+					g.drawImage(pISBuffered, this.x, this.y, null);
+				} else {		
+					bounds = new Rectangle(x, y, playerImg.getWidth(null), playerImg.getHeight(null));
+			
+					//walking animation
+					if(velX != 0) {
+						walking.drawAnimation(g, (int)x, (int)y);
+						steady = false;
+						shield = true;
+					} else {
+						g.drawImage(playerImg, this.x, this.y, null);
+					}
 				}
 			}
 		}
-		
-		
 	}
 	
 	private void move() {
@@ -206,28 +205,24 @@ public class Player {
 		}
 	}
 	
-	public void updateVisibility(ArrayList<EnemyBullet> eBullets) {
+	public boolean updateVisibility(EnemyBullet eBullet) {
+		boolean state = false;
 		
-		for(EnemyBullet eBullet: eBullets) {
-			if (getBounds() != null && eBullet.getBounds() != null) {
+		if (getBounds() != null && eBullet.getBounds() != null) {
+			if(getBounds().intersects(eBullet.getBounds()) && !shield) {
+				state = true;
+
+				health -= 1;
+
+				eBullet.visible = false;
 				
-
-
-				if( getBounds().intersects(eBullet.getBounds()) && !shield) {
-
-					health -= 1;
-
-					eBullet.visible = false;
-					collisionBullet(eBullet);
-					
-					if(health<0) {
-						visibility = false;
-					}
-
+				if(health<0) {
+					visibility = false;
 				}
 			}
 		}
 
+		return state;
 	}
 	
 	public boolean isShield() {
@@ -237,19 +232,13 @@ public class Player {
 	public void setShield(boolean shield) {
 		this.shield = shield;
 	}
-
-	public void collisionBullet(EnemyBullet pBullet) {
-		if(getWholeBounds().intersects(pBullet.getBounds())) {
-			pBullet.visible = false;
-		}
-	}
 	
 	public Rectangle getBounds() {
-		return new Rectangle( x+12, y, 14, playerImg.getHeight(null));
+		return new Rectangle(x+12, y, 14, playerImg.getHeight(null));
 	}
 	
 	public Rectangle getWholeBounds() {
-		return new Rectangle( x, y, playerImg.getWidth(null), playerImg.getHeight(null));
+		return new Rectangle(x, y, playerImg.getWidth(null), playerImg.getHeight(null));
 	}
 	
 	public int getX() {

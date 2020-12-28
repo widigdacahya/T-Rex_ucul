@@ -1,6 +1,7 @@
 package id.ac.its.trexucul.components;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class EnemyBullet extends Bullet {
 	
@@ -19,5 +20,10 @@ public class EnemyBullet extends Bullet {
 	@Override
 	public void render(Graphics g) {
 		super.render(g);
+	}
+
+	@Override
+	public Rectangle getBounds() {
+		return super.getBounds();
 	}
 }

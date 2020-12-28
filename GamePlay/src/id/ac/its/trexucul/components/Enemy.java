@@ -50,8 +50,7 @@ public class Enemy {
 	private boolean visibility = true;
 	private boolean included = false;
 	private int health = 100;
-	private int bullet;
-	
+	private boolean bullet;	
 	private Image enemyImg;
 	
 	public Enemy(String name, int x, int y) {
@@ -132,7 +131,7 @@ public class Enemy {
 	}
 	
 	private void collision(Ground ground) {
-		if( getBounds().intersects( ground.getBounds() ) ) {
+		if(getBounds().intersects(ground.getBounds())) {
 			falling = false;
 			jumping = false;
 		}
@@ -159,12 +158,6 @@ public class Enemy {
 		return state;
 	}
 	
-//	public void collisionBullet(PlayerBullet pBullet) {
-//		if(getWholeBounds().intersects(pBullet.getBounds())) {
-//			pBullet.visible = false;
-//		}
-//	}
-	
 	public int getHealth() {
 		return health;
 	}
@@ -184,7 +177,7 @@ public class Enemy {
 	
 	public void reload() {
 		if(rt.finishCounting()) {
-			bullet = 1;
+			bullet = true;
 		}
 	}
 	
@@ -248,11 +241,11 @@ public class Enemy {
 		this.rt = rt;
 	}
 
-	public int getBullet() {
+	public boolean getBullet() {
 		return bullet;
 	}
 
-	public void setBullet(int bullet) {
+	public void setBullet(boolean bullet) {
 		this.bullet = bullet;
 	}
 
