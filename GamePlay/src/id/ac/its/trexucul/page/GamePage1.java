@@ -24,7 +24,7 @@ public class GamePage1 extends PageState {
 	private List<Enemy> enemy;
 	private int enemyCount;
 	private float camX, camY;
-	public static int score=0;
+	public int score = 0;
 	
 	private final int [][] enemyPosition = {
 		{900,500},{1220,500},{1450,500},
@@ -42,7 +42,6 @@ public class GamePage1 extends PageState {
 				
 		for (int[] p: enemyPosition) {
 			enemy.add(new Enemy("Enemy",p[0],p[1]));
-			
 		}
 		
 		player = new Player("Player", 20, 500, new BulletListener() {
@@ -53,7 +52,6 @@ public class GamePage1 extends PageState {
 		});
 		
 		ground = new Ground("darkground", 0, 646);
-
 	}
 
 	@Override
@@ -94,8 +92,6 @@ public class GamePage1 extends PageState {
 	public void update() {
 		
 		player.update(ground);
-		
-		//enemy.update(ground);
 
 		for(Enemy enemy: enemy) {
 			if (enemy.getX() < (-window.cam.getX()+Window.WIDTH) && enemy.getX() > -window.cam.getX())
@@ -116,16 +112,15 @@ public class GamePage1 extends PageState {
 			player.updateVisibility(eBullets);
 		}
 		
-		for(int i = 0; i < pBullets.size(); i++) {
-			pBullets.get(i).update();
-			//enemy.updateVisibility(pBullets.get(0));
-			for(Enemy enemy: enemy) {
-				int temp = enemy.getHealth();
-				if(enemy.updateVisibility(pBullets.get(i))) {
-					scorer(temp-enemy.getHealth());
-				}
-			}
-		}
+//		for(int i = 0; i < pBullets.size(); i++) {
+//			pBullets.get(i).update();
+//			for(Enemy enemy: enemy) {
+//				int temp = enemy.getHealth();
+//				if(enemy.updateVisibility(pBullets.get(i))) {
+//					scorer(temp-enemy.getHealth());
+//				}
+//			}
+//		}
 		
 		//player mati
 		if(!player.isVisible()) {
@@ -135,8 +130,6 @@ public class GamePage1 extends PageState {
 			window.cam.setY(0);
 			PageState.currentState = window.getGameOverPage();
 		}
-			
-
 	}
 	
 	public void fire(Enemy enemy) {
@@ -147,7 +140,7 @@ public class GamePage1 extends PageState {
 			
 	}
 	
-	public void scorer(int damage) {
+	public void score(int damage) {
 		if(damage!=0)
 			System.out.println(damage);
 		score += (damage * (101-player.getHealth()));
@@ -183,6 +176,8 @@ public class GamePage1 extends PageState {
 			
 			if(enemy.get(index).updateVisibility(bullet)) {
 				eState = true;
+				score(enemy.get(index).getFireDamage());
+				
 				if (!enemy.get(index).isVisible())
 					enemy.remove(index);
 				break;

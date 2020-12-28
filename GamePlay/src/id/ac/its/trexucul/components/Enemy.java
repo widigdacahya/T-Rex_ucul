@@ -20,7 +20,7 @@ public class Enemy {
 	private String imgName;
 	private int x, y;
 	private float velX, velY;
-	
+	private int fireDamage;
 
 	private float gravity = 0.5f;
 	private float velSpeed = 4.0f;
@@ -104,7 +104,6 @@ public class Enemy {
 		move();
 			
 		collision(ground);
-		
 	}
 	
 	public void render(Graphics g) {
@@ -146,28 +145,25 @@ public class Enemy {
 			if(getBounds().intersects(bullet.getBounds())) {
 				state = true;
 				
-				health -= (20 + (rand.nextInt(7)+1) );
+				fireDamage = (20 + (rand.nextInt(7)+1));
+				health -= fireDamage;
 
 				bullet.visible = false;
-				collisionBullet(bullet);
-				
+
 				if(health < 0) {
 					visibility = false;
 				}
 			}
 		}
 
-		
 		return state;
-
 	}
 	
-	public void collisionBullet(PlayerBullet pBullet) {
-		if(getWholeBounds().intersects(pBullet.getBounds())) {
-			pBullet.visible = false;
-		}
-
-	}
+//	public void collisionBullet(PlayerBullet pBullet) {
+//		if(getWholeBounds().intersects(pBullet.getBounds())) {
+//			pBullet.visible = false;
+//		}
+//	}
 	
 	public int getHealth() {
 		return health;
@@ -184,7 +180,6 @@ public class Enemy {
 			jumping = true;
 			falling = true;
 		}
-		
 	}
 	
 	public void reload() {
@@ -192,12 +187,6 @@ public class Enemy {
 			bullet = 1;
 		}
 	}
-	
-//	public void fire() {
-//		if(bt.finishCounting() && rt.finishCounting()) {
-//			//bullets.add(new EnemyBullet("Bullet", x, y+23, null));
-//		}
-//	}
 	
 	public Rectangle getBounds() {
 		return new Rectangle(x+68, y, 14, enemyImg.getHeight(null));
@@ -217,9 +206,7 @@ public class Enemy {
 	
 	public Rectangle getBoundsLeft() {
 		return new Rectangle((int)x, (int)y+2, 3, (int)playerImg.getHeight(null)-4);
-	}
-	
-	
+	}	
 
 	public void setVisibility(boolean visibility) {
 		this.visibility = visibility;
@@ -267,5 +254,13 @@ public class Enemy {
 
 	public void setBullet(int bullet) {
 		this.bullet = bullet;
+	}
+
+	public int getFireDamage() {
+		return fireDamage;
+	}
+
+	public void setFireDamage(int fireDamage) {
+		this.fireDamage = fireDamage;
 	}
 }
