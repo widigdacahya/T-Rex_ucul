@@ -3,9 +3,9 @@ Pemrograman Berorientasi Objek Kelas E
 
 📗project 1: ShapeApp     
 📗project 2: DisplayApp             
-📗project 3: Collision Detection
-📗project 4: Collision Detection with mouse
-📗FINAL PROJECT : <a href="https://github.com/widigdacahya/T-Rex_ucul/tree/main/GamePlay">Penembak</a> 
+📗project 3: Collision Detection                
+📗project 4: Collision Detection with mouse                 
+📗FINAL PROJECT : <a href="https://github.com/widigdacahya/T-Rex_ucul/tree/main/GamePlay">Penembak</a>                  
 
 ### Anggota kelompok:  
 
@@ -19,22 +19,22 @@ Pemrograman Berorientasi Objek Kelas E
 🦖username : widigdacahya
 
 ---------------------------------------
-☕️Project 1:      
+☕️Project 1:            
 
 <img src="screenshot/projectShape.PNG" width="700">
             
-☕️Project 2:
+☕️Project 2:            
       
 <img src="screenshot/project2.PNG" width="200">
 
-☕️Project 3:
+☕️Project 3:            
       
 <img src="screenshot/preview3.jpg" width="700">
 
-☕️Project 4:
+☕️Project 4:            
       
 <img src="screenshot/collision_with_mouse.gif" width="700">
 
-☕️FINAL PROJECT :
+☕️FINAL PROJECT :       
       
 <img src="GamePlay/Screenshot/splash.gif" width="700">
