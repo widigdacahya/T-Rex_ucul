@@ -120,7 +120,10 @@ public class GamePage1 extends PageState {
 			pBullets.get(i).update();
 			//enemy.updateVisibility(pBullets.get(0));
 			for(Enemy enemy: enemy) {
-				enemy.updateVisibility(pBullets.get(i));
+				int temp = enemy.getHealth();
+				if(enemy.updateVisibility(pBullets.get(i))) {
+					scorer(temp-enemy.getHealth());
+				}
 			}
 		}
 		
@@ -144,8 +147,10 @@ public class GamePage1 extends PageState {
 			
 	}
 	
-	public void scorer() {
-//		score += (damage * (101-player.getHealth()));
+	public void scorer(int damage) {
+		if(damage!=0)
+			System.out.println(damage);
+		score += (damage * (101-player.getHealth()));
 	}
 	
 	public Player getPlayer() {
@@ -164,7 +169,6 @@ public class GamePage1 extends PageState {
 			
 			if (bState) {
 				pBullets.remove(index);
-				scorer();
 			}
 			else
 				index++;

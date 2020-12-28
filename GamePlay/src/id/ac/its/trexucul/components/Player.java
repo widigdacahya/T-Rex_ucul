@@ -201,8 +201,6 @@ public class Player {
 	
 	public void updateVisibility(ArrayList<EnemyBullet> eBullets) {
 		
-		System.out.printf("visible: %b\thealth: %d\n", visibility, health);
-		
 		for(EnemyBullet eBullet: eBullets) {
 			if (getBounds() != null && eBullet.getBounds() != null) {
 				
