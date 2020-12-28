@@ -62,6 +62,7 @@ public class Player {
 	//player steady
 	private boolean steady = false;
 	private BufferedImage pISBuffered;
+	private boolean shield = true;
 	
 	private BulletListener click;
 	
@@ -107,16 +108,19 @@ public class Player {
 			velY = -25;
 			jumping = true;
 			falling = true;
+			shield = false;
 		}
 		
 		if(KeyboardHandler.LEFT) {
 			velX = -velSpeed;
 			steady = false;
+			shield = false;
 		}
 		
 		if(KeyboardHandler.RIGHT) {
 			velX = velSpeed;
 			steady = false;
+			shield = false;
 		} 
 		
 		if(!KeyboardHandler.RIGHT && !KeyboardHandler.LEFT) {
@@ -127,6 +131,7 @@ public class Player {
 			if(bt.finishCounting()) {
 				click.onClick(x + 84, y + 23);
 				this.firingflag = 5;
+				shield = false;
 			}
 				
 		}
@@ -153,6 +158,7 @@ public class Player {
 				}
 				firingflag--;
 				steady = true;
+				shield = false;
 			}else
 			if(steady) {
 				g.drawImage(pISBuffered, this.x, this.y, null);
@@ -163,6 +169,7 @@ public class Player {
 				if(velX != 0) {
 					walking.drawAnimation(g, (int)x, (int)y);
 					steady = false;
+					shield = true;
 				} else {
 					g.drawImage(playerImg, this.x, this.y, null);
 				}
@@ -206,7 +213,7 @@ public class Player {
 				
 
 
-				if( getBounds().intersects(eBullet.getBounds()) ) {
+				if( getBounds().intersects(eBullet.getBounds()) && !shield) {
 
 					health -= 1;
 
@@ -223,6 +230,14 @@ public class Player {
 
 	}
 	
+	public boolean isShield() {
+		return shield;
+	}
+
+	public void setShield(boolean shield) {
+		this.shield = shield;
+	}
+
 	public void collisionBullet(EnemyBullet pBullet) {
 		if(getWholeBounds().intersects(pBullet.getBounds())) {
 			pBullet.visible = false;
@@ -275,5 +290,21 @@ public class Player {
 
 	public void setHealth(int health) {
 		this.health = health;
+	}
+
+	public boolean isSteady() {
+		return steady;
+	}
+
+	public void setSteady(boolean steady) {
+		this.steady = steady;
+	}
+
+	public float getVelX() {
+		return velX;
+	}
+
+	public void setVelX(float velX) {
+		this.velX = velX;
 	}
 }

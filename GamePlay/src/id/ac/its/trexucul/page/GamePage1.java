@@ -67,6 +67,14 @@ public class GamePage1 extends PageState {
 		g.drawString("Health: " + player.getHealth() + " ", (int)((int)(-window.cam.getX())+20), (int)((int)(-window.cam.getY())+30));
 		g.setColor(Color.white);
 		g.drawString("Score: " + score + " ", (int)((int)(-window.cam.getX())+500), (int)((int)(-window.cam.getY())+30));
+		g.setColor(Color.white);
+		if(player.getVelX()!=0)
+			g.drawString("Shield: OFF", (int)((int)(-window.cam.getX())+20), (int)((int)(-window.cam.getY())+45));
+		else if(player.isShield() ) 
+			g.drawString("Shield: ON", (int)((int)(-window.cam.getX())+20), (int)((int)(-window.cam.getY())+45));
+		else
+			g.drawString("Shield: OFF", (int)((int)(-window.cam.getX())+20), (int)((int)(-window.cam.getY())+45));
+		
 
 		enemyCount = 0;
 		
