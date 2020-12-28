@@ -25,7 +25,7 @@ public class GamePage extends PageState {
 	private Player player;
 	private Ground ground;
 	private List<Enemy> enemy;
-	private int enemyCount;
+	private int enemyCount = 0;
 	private float camX, camY;
 	private CommonButton backButton;
 	public int score = 0;
@@ -103,19 +103,17 @@ public class GamePage extends PageState {
 			g.drawString("Shield: OFF", (int)((int)(-camX)+20), (int)((int)(-camY)+45));
 		
 
-		enemyCount = 0;
+//		enemyCount = 0;
 		for(Enemy enemy: enemy) {	
 			if(enemy.isVisible()) {
 				enemy.render(g);
 				g.setColor(Color.white);
 				g.drawString("Enemy: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);
-				enemyCount++;
+//				enemyCount++;
 			}
 		}
 		
-		if(enemyCount==0) {
-			PageState.currentState = window.getVictoryPage();
-		}
+		
 		
 		for(PlayerBullet bullet : pBullets) {
 			if (checkIsIncluded(bullet.getX()))
@@ -136,7 +134,8 @@ public class GamePage extends PageState {
 		camY = window.cam.getY();
 		
 		player.update(ground);
-
+		
+		enemyCount = 0;
 		for(Enemy enemy: enemy) {
 			if (checkIsIncluded(enemy.getX()))
 				enemy.setIncluded(true);
@@ -145,10 +144,15 @@ public class GamePage extends PageState {
 			
 			enemy.update(ground);
 			
-			if(enemy.isVisible() && enemy.isIncluded())
-				fire(enemy);
+			if(enemy.isVisible()) {
+				enemyCount++;
+				if(enemy.isIncluded()) {
+					fire(enemy);
+					
+				}
+			}
 		}
-		
+
 		checkPlayerBulletCollision();
 		checkEnemyBulletCollision();
 		
@@ -237,6 +241,7 @@ public class GamePage extends PageState {
 
 		return eState;
 	}
+
 	
 	private boolean checkPlayerCollision(EnemyBullet bullet) {
 		boolean eState = false;
@@ -251,4 +256,15 @@ public class GamePage extends PageState {
 	private boolean checkIsIncluded(int x) {
 		return (x < (-camX+Window.WIDTH) && x > -camX);
 	}
+
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+
 }

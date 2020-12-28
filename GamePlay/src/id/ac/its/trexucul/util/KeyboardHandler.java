@@ -7,7 +7,7 @@ public class KeyboardHandler implements KeyListener {
 	
 	private boolean[] keys;
 	
-	public static boolean UP, LEFT, RIGHT, DOWN, SPACE;
+	public static boolean UP, LEFT, RIGHT, DOWN, SPACE, ENTER;
 	
 	public KeyboardHandler() {
 		keys = new boolean[256];
@@ -16,6 +16,7 @@ public class KeyboardHandler implements KeyListener {
 		RIGHT = false;
 		LEFT = false;
 		SPACE = false;
+		ENTER = false;
 	}
 	
 	public void update() {
@@ -24,6 +25,7 @@ public class KeyboardHandler implements KeyListener {
 		RIGHT = keys[KeyEvent.VK_RIGHT];
 		DOWN = keys[KeyEvent.VK_DOWN];
 		SPACE = keys[KeyEvent.VK_SPACE];
+		ENTER = keys[KeyEvent.VK_ENTER];
 	}
 	
 	@Override
