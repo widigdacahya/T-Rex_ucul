@@ -10,12 +10,12 @@ import id.ac.its.trexucul.main.Window;
 import id.ac.its.trexucul.util.ClickListener;
 import id.ac.its.trexucul.util.PageState;
 
-public class GameOverPage extends PageState {
+public class VictoryPage extends PageState {
 	
-	private Image gameOverText = Assets.getImageText("gameOver.png");
+	private Image gameOverText = Assets.getImageText("victory.png");
 	protected ArrayList<CommonButton> buttons  = new ArrayList<CommonButton>();
 
-	public GameOverPage(Window window) {
+	public VictoryPage(Window window) {
 		super(window);
 		
 		Assets.width = 177;
@@ -48,10 +48,9 @@ public class GameOverPage extends PageState {
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(Assets.gameOverPage, 0, 0, null);
+		g.drawImage(Assets.gameSplashPage, 0, 0, null);
 		g.drawImage(gameOverText, 400, 200, null);
 		for(int i = 0; i < buttons.size(); i++)
 			buttons.get(i).render(g);
 	}
-
 }

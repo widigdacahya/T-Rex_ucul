@@ -113,6 +113,10 @@ public class GamePage extends PageState {
 			}
 		}
 		
+		if(enemyCount==0) {
+			PageState.currentState = window.getVictoryPage();
+		}
+		
 		for(PlayerBullet bullet : pBullets) {
 			if (checkIsIncluded(bullet.getX()))
 				bullet.render(g);

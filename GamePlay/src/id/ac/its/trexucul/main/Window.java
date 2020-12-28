@@ -17,6 +17,7 @@ import id.ac.its.trexucul.page.GamePage;
 import id.ac.its.trexucul.page.MenuPage;
 import id.ac.its.trexucul.page.LevelPage;
 import id.ac.its.trexucul.page.SplashPage;
+import id.ac.its.trexucul.page.VictoryPage;
 import id.ac.its.trexucul.util.KeyboardHandler;
 import id.ac.its.trexucul.util.MouseHandler;
 import id.ac.its.trexucul.util.PageState;
@@ -46,6 +47,7 @@ public class Window extends JFrame implements Runnable {
 	private SplashPage splashPage;
 	private GameOverPage gameOverPage;
 	private CreditPage creditPage;
+	private VictoryPage victoryPage;
 	
 	public Camera cam;
 
@@ -115,7 +117,11 @@ public class Window extends JFrame implements Runnable {
 		splashPage = new SplashPage(this);
 		levelPage = new LevelPage(this);
 		gameOverPage = new GameOverPage(this);
+		victoryPage = new VictoryPage(this);
+
 		PageState.currentState = levelPage;
+
+		
 
 		Assets.init();
 	}
@@ -165,6 +171,7 @@ public class Window extends JFrame implements Runnable {
 			e.printStackTrace();
 		}
 	}
+
 	
 	public GamePage getGamePage1() {
 		return gamePage;
@@ -212,5 +219,14 @@ public class Window extends JFrame implements Runnable {
 
 	public void setCreditPage(CreditPage creditPage) {
 		this.creditPage = creditPage;
+	}
+
+	public VictoryPage getVictoryPage() {
+		return victoryPage;
+	}
+
+	public void setVictoryPage(VictoryPage victoryPage) {
+		this.victoryPage = victoryPage;
+
 	}
 }
