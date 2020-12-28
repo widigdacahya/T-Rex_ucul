@@ -1,7 +1,8 @@
 # ☕️ Final Project
 ****
 <img src="Screenshot/splashss.png" width="700">
-<a href="https://youtu.be/hJ1MGWCdPKY">Video Saat Playing</a>
+<a href="https://youtu.be/hJ1MGWCdPKY">Video Saat Playing</a>   
+
 ****
 🦖Nama : Allam Taju Sarof (05111940000053)
 🦖username : Allam0053
@@ -34,6 +35,7 @@ saat health Enemy habis, maka Enemy akan mati dan hilang dari screen.
   
 ### Splash Screen
 Screen awal yang menunjukkan title game sebelum ke screen menu.
+<img src="Screenshot/splash.gif" width="800">
 
 ### Menu Screen
 Screen yang memiliki beberapa pilihan tombol seperti tombol "Main" untuk memilih level dan Credit untuk menuju ke Credits Screen.
