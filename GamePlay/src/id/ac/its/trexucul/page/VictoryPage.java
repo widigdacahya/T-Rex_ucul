@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import id.ac.its.trexucul.components.CommonButton;
 import id.ac.its.trexucul.gfx.Assets;
 import id.ac.its.trexucul.main.Window;
+import id.ac.its.trexucul.serial.WriteSerial;
 import id.ac.its.trexucul.util.ClickListener;
 import id.ac.its.trexucul.util.CreateTextFile;
 import id.ac.its.trexucul.util.KeyboardHandler;
@@ -30,79 +31,46 @@ public class VictoryPage extends PageState{
 
 	public VictoryPage(Window window) {
 		super(window);
-		
+
 		Assets.width = 177;
 		Assets.height = 45;
 		buttons.add(new CommonButton("coba_lagi_btn", Window.WIDTH/2 - 300, Window.HEIGHT/2, new ClickListener() {
 			@Override
 			public void onClick() {
-				
 				//Go to Level Page
 				PageState.currentState = window.getLevelPage();
-				
 			}
 		}));
 		buttons.add(new CommonButton("keluar_btn", Window.WIDTH/2 + 125, Window.HEIGHT/2, new ClickListener() {
 			@Override
 			public void onClick() {
-				
 				// Exit game
 				System.exit(1);
 			}
 		}));
-		
-		init();
 	}
 	
-	public void init() {
-		CreateTextFile.openFile();
+	public void inputData(String level) {		
+		JFrame f=new JFrame("Button Example");
 		
-		try {
-			CreateTextFile.addRecords((window.getGamePage().getScore()) + "");
-		}catch(NullPointerException e) {
-			e.printStackTrace();
-			CreateTextFile.addRecords((0) + "");
-		}
-//		
-		CreateTextFile.closeFile();
-		
-		inputName();
-	}
-	public void inputString(String value) {
-		CreateTextFile.openFile();
-		
-		try {
-			CreateTextFile.addRecords((value));
-		}catch(NullPointerException e) {
-			e.printStackTrace();
-		}
-//		
-		CreateTextFile.closeFile();
-	}
-	
-	public void inputName() {
-		
-		System.out.println("tes");
-		
-		JFrame f=new JFrame("Button Example"); 
-//		//submit button
-//		JButton b=new JButton("Submit");    
-//		b.setBounds(100,100,140, 40);    
+		//submit button
         //enter name label
 		JLabel label = new JLabel();        
 		label.setText("Enter Name :");
 		label.setBounds(10, 10, 100, 100);
-		        //empty label which will show event after button clicked
+		
+        //empty label which will show event after button clicked
 		JLabel label1 = new JLabel();
 		label1.setBounds(10, 110, 200, 100);
-		        //textfield to enter name
+		
+        //textfield to enter name
 		JTextField textfield= new JTextField(10);
 		textfield.setBounds(110, 50, 130, 30);
-		        //add to frame
+		
+        //add to frame
 		f.add(label1);
 		f.add(textfield);
 		f.add(label);
-//		f.add(b);    
 		f.setSize(300,300);    
 		f.setLayout(null);    
 		f.setVisible(true);    
@@ -112,12 +80,9 @@ public class VictoryPage extends PageState{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				nameValue = textfield.getText();	
-				inputString(nameValue);		
+				WriteSerial.addRecords(window.getGamePage().getScore(), nameValue, level);		
 			}
 		});
-		
-//		System.out.println(nameValue);
-//		return textfield.getText();
 	}
 
 	@Override
