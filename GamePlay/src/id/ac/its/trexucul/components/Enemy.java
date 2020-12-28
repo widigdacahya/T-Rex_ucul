@@ -9,7 +9,7 @@ import java.util.Timer;
 import java.util.Random;
 
 import id.ac.its.trexucul.gfx.Assets;
-import id.ac.its.trexucul.page.GamePage1;
+import id.ac.its.trexucul.page.GamePage;
 import id.ac.its.trexucul.system.Animation;
 import id.ac.its.trexucul.util.BulletListener;
 import id.ac.its.trexucul.util.BulletTimer;

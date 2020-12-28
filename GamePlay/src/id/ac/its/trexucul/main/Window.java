@@ -13,10 +13,7 @@ import id.ac.its.trexucul.page.CreditPage;
 import id.ac.its.trexucul.page.GameOverPage;
 
 import id.ac.its.trexucul.id.SelectedGamePage;
-import id.ac.its.trexucul.page.GamePage1;
-
-import id.ac.its.trexucul.page.GamePage2;
-import id.ac.its.trexucul.page.GamePage3;
+import id.ac.its.trexucul.page.GamePage;
 import id.ac.its.trexucul.page.MenuPage;
 import id.ac.its.trexucul.page.LevelPage;
 import id.ac.its.trexucul.page.SplashPage;
@@ -42,9 +39,7 @@ public class Window extends JFrame implements Runnable {
 	private KeyboardHandler keyBoard;
 	private MouseHandler mouse;
 	
-	private GamePage1 gamePage1;
-	private GamePage2 gamePage2;
-	private GamePage3 gamePage3;
+	private GamePage gamePage;
 	
 	private LevelPage levelPage;
 	private MenuPage menuPage;
@@ -53,71 +48,6 @@ public class Window extends JFrame implements Runnable {
 	private CreditPage creditPage;
 	
 	public Camera cam;
-	
-	public GamePage1 getGamePage1() {
-		return gamePage1;
-	}
-
-	public void setGamePage(GamePage1 gamePage1) {
-		this.gamePage1 = gamePage1;
-	}
-	
-
-	public GamePage2 getGamePage2() {
-		return gamePage2;
-	}
-
-	public void setGamePage2(GamePage2 gamePage2) {
-		this.gamePage2 = gamePage2;
-	}
-
-	public GamePage3 getGamePage3() {
-		return gamePage3;
-	}
-
-	public void setGamePage3(GamePage3 gamePage3) {
-		this.gamePage3 = gamePage3;
-	}
-
-	public LevelPage getLevelPage() {
-		return levelPage;
-	}
-
-	public void setLevelPage(LevelPage levelPage) {
-		this.levelPage = levelPage;
-	}
-
-	public MenuPage getMenuPage() {
-		return menuPage;
-	}
-
-	public void setMenuPage(MenuPage menuPage) {
-		this.menuPage = menuPage;
-	}
-
-	public SplashPage getSplashPage() {
-		return splashPage;
-	}
-
-	public void setSplashPage(SplashPage splashPage) {
-		this.splashPage = splashPage;
-	}
-
-	public GameOverPage getGameOverPage() {
-		return gameOverPage;
-	}
-
-	public void setGameOverPage(GameOverPage gameOverPage) {
-		this.gameOverPage = gameOverPage;
-	}
-	
-	public CreditPage getCreditPage() {
-		return creditPage;
-	}
-
-	public void setCreditPage(CreditPage creditPage) {
-		this.creditPage = creditPage;
-	}
 
 	public Window(String title) {
 		setTitle(title);
@@ -138,6 +68,7 @@ public class Window extends JFrame implements Runnable {
 		add(canvas);
 		addMouseMotionListener(mouse);
 		addMouseListener(mouse);
+		
 		canvas.addMouseListener(mouse);
 		canvas.addMouseMotionListener(mouse);
 		canvas.addKeyListener(keyBoard);
@@ -150,14 +81,8 @@ public class Window extends JFrame implements Runnable {
 		
 		keyBoard.update();
 		
-		if (PageState.currentState == gamePage1 || PageState.currentState == gamePage2 ||
-				PageState.currentState == gamePage3) {
-			if (LevelPage.selectedPage.equals(SelectedGamePage.Satu))
-				cam.update(gamePage1.getPlayer());
-			else if (LevelPage.selectedPage.equals(SelectedGamePage.Dua))
-				cam.update(gamePage2.getPlayer());
-			else if (LevelPage.selectedPage.equals(SelectedGamePage.Tiga))
-				cam.update(gamePage3.getPlayer());
+		if (PageState.currentState == gamePage) {
+			cam.update(gamePage.getPlayer());
 		}
 	}
 
@@ -186,14 +111,11 @@ public class Window extends JFrame implements Runnable {
 	
 	private void init() {
 		cam = new Camera(0,0);
-		gamePage1 = new GamePage1(this);
-		gamePage2 = new GamePage2(this);
-		gamePage3 = new GamePage3(this);
 		menuPage = new MenuPage(this);
 		splashPage = new SplashPage(this);
 		levelPage = new LevelPage(this);
 		gameOverPage = new GameOverPage(this);
-		PageState.currentState = gamePage1;
+		PageState.currentState = levelPage;
 
 		Assets.init();
 	}
@@ -242,5 +164,53 @@ public class Window extends JFrame implements Runnable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public GamePage getGamePage1() {
+		return gamePage;
+	}
+
+	public void setGamePage(GamePage gamePage) {
+		this.gamePage = gamePage;
+	}
+
+	public LevelPage getLevelPage() {
+		return levelPage;
+	}
+
+	public void setLevelPage(LevelPage levelPage) {
+		this.levelPage = levelPage;
+	}
+
+	public MenuPage getMenuPage() {
+		return menuPage;
+	}
+
+	public void setMenuPage(MenuPage menuPage) {
+		this.menuPage = menuPage;
+	}
+
+	public SplashPage getSplashPage() {
+		return splashPage;
+	}
+
+	public void setSplashPage(SplashPage splashPage) {
+		this.splashPage = splashPage;
+	}
+
+	public GameOverPage getGameOverPage() {
+		return gameOverPage;
+	}
+
+	public void setGameOverPage(GameOverPage gameOverPage) {
+		this.gameOverPage = gameOverPage;
+	}
+	
+	public CreditPage getCreditPage() {
+		return creditPage;
+	}
+
+	public void setCreditPage(CreditPage creditPage) {
+		this.creditPage = creditPage;
 	}
 }
