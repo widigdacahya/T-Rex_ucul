@@ -1,5 +1,12 @@
 # T-Rex_ucul
 Pemrograman Berorientasi Objek Kelas E  
+
+📗project 1: ShapeApp     
+📗project 2: DisplayApp             
+📗project 3: Collision Detection
+📗project 4: Collision Detection with mouse
+📗FINAL PROJECT : <a href="https://github.com/widigdacahya/T-Rex_ucul/tree/main/GamePlay">Penembak</a> 
+
 ### Anggota kelompok:  
 
 🦖Nama : Allam Taju Sarof (05111940000053)    
@@ -10,10 +17,6 @@ Pemrograman Berorientasi Objek Kelas E
 
 🦖Nama : Cahyadesthian Rizki Widigda (05111940000156)     
 🦖username : widigdacahya
-
-🦖project 1: ShapeApp     
-🦖project 2: DisplayApp             
-🦖project 3: Collision Detection
 
 ---------------------------------------
 ☕️Project 1:      
@@ -27,3 +30,11 @@ Pemrograman Berorientasi Objek Kelas E
 ☕️Project 3:
       
 <img src="screenshot/preview3.jpg" width="700">
+
+☕️Project 4:
+      
+<img src="screenshot/collision_with_mouse.gif" width="700">
+
+☕️FINAL PROJECT :
+      
+<img src="GamePlay/Screenshot/splash.gif" width="700">
