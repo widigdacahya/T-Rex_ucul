@@ -152,6 +152,11 @@ public class GamePage extends PageState {
 				}
 			}
 		}
+		
+		if(enemyCount == 0 ) {
+			PageState.currentState = window.getVictoryPage();
+			window.getVictoryPage().init();
+		}
 
 		checkPlayerBulletCollision();
 		checkEnemyBulletCollision();
@@ -164,7 +169,8 @@ public class GamePage extends PageState {
 			window.cam.setY(0);
 			PageState.currentState = window.getGameOverPage();
 		}
-
+		
+		backButton.setX( (int) -camX+60 );
 		backButton.update();
 	}
 	
@@ -264,6 +270,14 @@ public class GamePage extends PageState {
 
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+	public SelectedGamePage getType() {
+		return type;
+	}
+
+	public void setType(SelectedGamePage type) {
+		this.type = type;
 	}
 	
 

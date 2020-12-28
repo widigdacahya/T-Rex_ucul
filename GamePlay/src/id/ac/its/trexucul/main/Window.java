@@ -118,6 +118,7 @@ public class Window extends JFrame implements Runnable {
 		levelPage = new LevelPage(this);
 		gameOverPage = new GameOverPage(this);
 		victoryPage = new VictoryPage(this);
+		creditPage = new CreditPage(this);
 
 		PageState.currentState = victoryPage;
 
