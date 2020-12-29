@@ -1,6 +1,7 @@
 package id.ac.its.trexucul.utils.helper;
 
 import id.ac.its.trexucul.components.entities.Player;
+import id.ac.its.trexucul.components.entities.Sniper;
 import id.ac.its.trexucul.main.Window;
 
 public class Camera {
@@ -31,9 +32,9 @@ public class Camera {
 	}
 	
 	
-	public void update(Player player) {
-		if (player.getX() > Window.WIDTH/2 && player.getX() < MAX_BG_WIDTH-Window.WIDTH/2)
-			x = -player.getX() + Window.WIDTH/2;
+	public void update(Sniper sniper) {
+		if (sniper.getX() > Window.WIDTH/2 && sniper.getX() < MAX_BG_WIDTH-Window.WIDTH/2)
+			x = -sniper.getX() + Window.WIDTH/2;
 	}
 
 }

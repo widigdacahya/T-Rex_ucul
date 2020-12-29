@@ -120,7 +120,7 @@ public class Window extends JFrame implements Runnable {
 		victoryPage = new VictoryPage(this);
 		creditPage = new CreditPage(this);
 
-		PageState.currentState = splashPage;
+		PageState.currentState = levelPage;
 
 		Assets.init();
 	}

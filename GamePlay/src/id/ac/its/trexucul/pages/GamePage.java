@@ -8,6 +8,7 @@ import java.util.List;
 import id.ac.its.trexucul.components.CommonButton;
 import id.ac.its.trexucul.components.entities.Enemy;
 import id.ac.its.trexucul.components.entities.Player;
+import id.ac.its.trexucul.components.entities.Sniper;
 import id.ac.its.trexucul.components.objects.EnemyBullet;
 import id.ac.its.trexucul.components.objects.Ground;
 import id.ac.its.trexucul.components.objects.PlayerBullet;
@@ -21,7 +22,7 @@ import id.ac.its.trexucul.utils.listener.ClickListener;
 //Level 1 Game Page
 public class GamePage extends PageState {
 	
-	private Player player;
+	private Sniper player;
 	private Ground ground;
 	private List<Enemy> enemy;
 	private int enemyCount = 0;
@@ -50,7 +51,7 @@ public class GamePage extends PageState {
 			enemy.add(new Enemy("Enemy",p[0],p[1]));
 		}
 		
-		player = new Player("Player", 20, 500, new BulletListener() {
+		player = new Sniper("Player", 20, 500, new BulletListener() {
 			@Override
 			public void onClick(int x, int y) {
 				pBullets.add(new PlayerBullet("Bullet", x, y));
@@ -193,7 +194,7 @@ public class GamePage extends PageState {
 		score += (damage * (101-player.getHealth()));
 	}
 	
-	public Player getPlayer() {
+	public Sniper getPlayer() {
 		return player;
 	}
 	

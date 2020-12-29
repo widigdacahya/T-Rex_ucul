@@ -1,29 +1,23 @@
 package id.ac.its.trexucul.components.entities;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
 
 import id.ac.its.trexucul.components.objects.EnemyBullet;
 import id.ac.its.trexucul.components.objects.Ground;
 import id.ac.its.trexucul.model.gfx.Assets;
-import id.ac.its.trexucul.model.id.SelectedGamePage;
 import id.ac.its.trexucul.utils.handler.KeyboardHandler;
 import id.ac.its.trexucul.utils.helper.Animation;
-import id.ac.its.trexucul.utils.helper.AnimationFire;
 import id.ac.its.trexucul.utils.helper.BulletTimer;
 import id.ac.its.trexucul.utils.helper.Camera;
 import id.ac.its.trexucul.utils.helper.ImageLoader;
 import id.ac.its.trexucul.utils.listener.BulletListener;
-import id.ac.its.trexucul.utils.listener.ClickListener;
 
-public class Player {
+public class Sniper{
 
 	private String imgName;
 	private int x, y;
@@ -48,19 +42,19 @@ public class Player {
 	private Image playerImg;
 	
 	//walking player
-	private Image[] playerImgWalk = new Image[8];
-	private BufferedImage[] pIWBuffered = new BufferedImage[8];
+	private Image[] playerImgWalk = new Image[17];
+	private BufferedImage[] pIWBuffered = new BufferedImage[17];
 	private Animation walking;
 	
 	//player firing
-	private Image[] playerImgFire = new Image[5];
-	private BufferedImage[] pIFBuffered = new BufferedImage[5];
+	private Image[] playerImgFire = new Image[15];
+	private BufferedImage[] pIFBuffered = new BufferedImage[15];
 	private Animation firing;
 	private int firingflag = 0;
 	
 	//player firing
-	private Image[] playerImgWalkFire = new Image[5];
-	private BufferedImage[] pIWFBuffered = new BufferedImage[5];
+	private Image[] playerImgWalkFire = new Image[15];
+	private BufferedImage[] pIWFBuffered = new BufferedImage[15];
 	private Animation firingWalk;
 	private int firingWalkFlag = 0;
 	
@@ -74,38 +68,39 @@ public class Player {
 	private boolean visibility = true;
 	private int health = 100;
 	
-	public Player(String name, int x, int y, BulletListener click) {
-		this.imgName = name;
+	public Sniper(String name, int x, int y, BulletListener click) {
+		this.imgName = "Sniper";
 		this.x = x;
 		this.y = y;
 		this.click = click;
 		
-		this.bt = new BulletTimer(0.2f);
+		this.bt = new BulletTimer(0.5f);
 		initPlayer();
 	}
+	
 
 	private void initPlayer() {
-		playerImg = Assets.getImagePlayer(imgName + ".png");
+		playerImg = Assets.getImageSniper("shield.png");
 		
 		//walking program
-		playerImgWalk = Assets.getImagePlayerWalk();
+		playerImgWalk = Assets.getImageSniperWalk();
 		for(int i=0; i<playerImgWalk.length; i++)
 			pIWBuffered[i] = ImageLoader.toBufferedImage(playerImgWalk[i]);
 		walking = new Animation(2, pIWBuffered);
 		
 		//firing program
-		playerImgFire = Assets.getImagePlayerFire();
+		playerImgFire = Assets.getImageSniperFire();
 		for(int i=0; i<playerImgFire.length; i++)
 			pIFBuffered[i] = ImageLoader.toBufferedImage(playerImgFire[i]);
-		firing = new Animation(1, pIFBuffered);
+		firing = new Animation(3, pIFBuffered);
 		//stead
-		pISBuffered = ImageLoader.toBufferedImage(playerImgFire[4]);
+		pISBuffered = ImageLoader.toBufferedImage(playerImgFire[14]);
 		
 		//walk fire program
-		playerImgWalkFire = Assets.getImagePlayerWalkFire();
+		playerImgWalkFire = Assets.getImageSniperWalkFire();
 		for(int i=0; i<playerImgFire.length; i++)
 			pIWFBuffered[i] = ImageLoader.toBufferedImage(playerImgWalkFire[i]);
-		firingWalk = new Animation(1, pIWFBuffered);
+		firingWalk = new Animation(2, pIWFBuffered);
 	}
 	
 	public void update(Ground ground){		
@@ -384,4 +379,5 @@ public class Player {
 		this.imgName = imgName;
 	}
 
+	
 }

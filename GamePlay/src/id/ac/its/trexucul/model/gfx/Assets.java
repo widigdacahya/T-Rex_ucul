@@ -31,6 +31,9 @@ public class Assets {
 	public static Image[] playerWalk = new Image[8];
 	public static Image[] playerFire = new Image[5];
 	public static Image[] playerWalkFire = new Image[5];
+	public static Image[] sniperWalk = new Image[17];
+	public static Image[] sniperFire = new Image[15];
+	public static Image[] sniperWalkFire = new Image[15];
 	
 	public static Font fontSplash;
 	
@@ -70,6 +73,10 @@ public class Assets {
 		return ImageLoader.loadImage("res/asset/" + imgObject).getScaledInstance(60, 130, BufferedImage.SCALE_DEFAULT);
 	}
 	
+	public static Image getImageSniper(String imgObject) {
+		return ImageLoader.loadImage("res/asset/SniperBlue/" + imgObject);
+	}
+	
 	public static Image[] getImagePlayerWalk() {
 		
 		playerWalk[0] = ImageLoader.loadImage("res/asset/Player/" + "walk 1.png");
@@ -98,13 +105,37 @@ public class Assets {
 	
 	public static Image[] getImagePlayerWalkFire() {
 		
-		playerFire[0] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 1.png");
-		playerFire[1] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 2.png");
-		playerFire[2] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 3.png");
-		playerFire[3] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 4.png");
-		playerFire[4] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 5.png");
+		playerWalkFire[0] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 1.png");
+		playerWalkFire[1] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 2.png");
+		playerWalkFire[2] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 3.png");
+		playerWalkFire[3] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 4.png");
+		playerWalkFire[4] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 5.png");
 		
 		return playerFire;
+	}
+	
+	public static Image[] getImageSniperWalk() {
+		
+		for(int i = 1; i <= 17; i++)
+		sniperWalk[i-1] = ImageLoader.loadImage("res/asset/SniperBlue/walking/"+ i +".png");
+		
+		return sniperWalk;
+	}
+	
+	public static Image[] getImageSniperFire() {
+		
+		for(int i = 1; i <= 15; i++)
+			sniperFire[i-1] = ImageLoader.loadImage("res/asset/SniperBlue/shooting/" + i +".png");
+		
+		return sniperFire;
+	}
+	
+	public static Image[] getImageSniperWalkFire() {
+		
+		for(int i = 1; i <= 15; i++)
+			sniperWalkFire[i-1] = ImageLoader.loadImage("res/asset/SniperBlue/walking/" + i +".png");
+		
+		return sniperFire;
 	}
 	
 	
