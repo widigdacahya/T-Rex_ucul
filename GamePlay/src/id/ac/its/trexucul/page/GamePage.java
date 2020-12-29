@@ -186,7 +186,7 @@ public class GamePage extends PageState {
 		if(enemy.getBullet()) {
 			enemy.setBullet(false);
 			eBullets.add(new EnemyBullet("Bullet", enemy.getX(), enemy.getY()+23, null));
-			System.out.printf("PosX: %d, PosY: %d%n", enemy.getX(), enemy.getY()+23);
+			//System.out.printf("PosX: %d, PosY: %d%n", enemy.getX(), enemy.getY()+23);
 		}
 	}
 	
