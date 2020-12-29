@@ -3,9 +3,10 @@ package id.ac.its.trexucul.components;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
-import id.ac.its.trexucul.gfx.Assets;
-import id.ac.its.trexucul.util.ClickListener;
-import id.ac.its.trexucul.util.MouseHandler;
+
+import id.ac.its.trexucul.model.gfx.Assets;
+import id.ac.its.trexucul.utils.handler.MouseHandler;
+import id.ac.its.trexucul.utils.listener.ClickListener;
 
 public class CommonButton {
 	

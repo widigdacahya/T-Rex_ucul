@@ -8,19 +8,19 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
-import id.ac.its.trexucul.gfx.Assets;
-import id.ac.its.trexucul.page.CreditPage;
-import id.ac.its.trexucul.page.GameOverPage;
-
-import id.ac.its.trexucul.id.SelectedGamePage;
-import id.ac.its.trexucul.page.GamePage;
-import id.ac.its.trexucul.page.MenuPage;
-import id.ac.its.trexucul.page.LevelPage;
-import id.ac.its.trexucul.page.SplashPage;
-import id.ac.its.trexucul.page.VictoryPage;
-import id.ac.its.trexucul.util.KeyboardHandler;
-import id.ac.its.trexucul.util.MouseHandler;
-import id.ac.its.trexucul.util.PageState;
+import id.ac.its.trexucul.model.gfx.Assets;
+import id.ac.its.trexucul.model.id.SelectedGamePage;
+import id.ac.its.trexucul.pages.CreditPage;
+import id.ac.its.trexucul.pages.GameOverPage;
+import id.ac.its.trexucul.pages.GamePage;
+import id.ac.its.trexucul.pages.LevelPage;
+import id.ac.its.trexucul.pages.MenuPage;
+import id.ac.its.trexucul.pages.PageState;
+import id.ac.its.trexucul.pages.SplashPage;
+import id.ac.its.trexucul.pages.VictoryPage;
+import id.ac.its.trexucul.utils.handler.KeyboardHandler;
+import id.ac.its.trexucul.utils.handler.MouseHandler;
+import id.ac.its.trexucul.utils.helper.Camera;
 
 public class Window extends JFrame implements Runnable {
 	
