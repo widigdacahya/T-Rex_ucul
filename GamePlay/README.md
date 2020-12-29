@@ -68,7 +68,7 @@ Class Diagram:
   <img src="ClassDiagram/dokumentasi_classdiagram_28Des20.jpg" width="1200">
 ****  
 ### Referensi
-  📚 <a href="https://www.figma.com/file/0ei6x3VdT1XXTR5jnzUXpX/Untitled?node-id=0%3A1">Figma (Pembuatan Asset)</a> 
+  📚 <a href="https://www.figma.com/file/0ei6x3VdT1XXTR5jnzUXpX/Untitled?node-id=0%3A1">Figma (Pembuatan Asset)</a>   
   📚 <a href="https://github.com/JoshuaHernandezMartinez/Sokoban">Code Architecture: Sokoban Game</a>   
   📚 Logic--> Neon Game: Java Platform Game Programming by RealTutsGML on <a href="https://www.youtube.com/playlist?list=PLWms45O3n--54U-22GDqKMRGlXROOZtMx">YouTube</a>         
   📚 Tutorial <a href="http://zetcode.com/javagames/collision/">Zetcode</a>         
