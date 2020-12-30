@@ -23,89 +23,43 @@ import id.ac.its.trexucul.utils.helper.ImageLoader;
 import id.ac.its.trexucul.utils.listener.BulletListener;
 import id.ac.its.trexucul.utils.listener.ClickListener;
 
-public class Player {
+public abstract class Player {
 
-	private String imgName;
-	private int x, y;
-	private float velX, velY;
-	private int fireDamage; //enemy damage to player
+	protected String imgName;
+	protected int x, y;
+	protected float velX, velY;
+	protected int fireDamage; //enemy damage to player
+	protected int toEnemyDamage;
 	
-	private float gravity = 0.5f;
-	private float velSpeed = 4.0f;
-	private Rectangle bounds;
+	protected float gravity = 0.5f;
+	protected float velSpeed = 4.0f;
+	protected Rectangle bounds;
 	
 	protected boolean falling = true;
 	protected boolean jumping = false;
-	private final int MAX_SPEED = 7;
+	protected final int MAX_SPEED = 7;
 	
 	//util
-	private Timer timer;
-	private BulletTimer bt;
-	private final int Delay = 200;
+	protected Timer timer;
+	protected BulletTimer bt;
+	protected final int Delay = 200;
     Random rand = new Random(); 
 	
-	//idle player
-	private Image playerImg;
+    protected boolean steady = false;
+    protected boolean shield = true;
+    protected int firingflag = 0;
+    protected int firingWalkFlag = 0;
 	
-	//walking player
-	private Image[] playerImgWalk = new Image[8];
-	private BufferedImage[] pIWBuffered = new BufferedImage[8];
-	private Animation walking;
+    protected BulletListener click;
 	
-	//player firing
-	private Image[] playerImgFire = new Image[5];
-	private BufferedImage[] pIFBuffered = new BufferedImage[5];
-	private Animation firing;
-	private int firingflag = 0;
-	
-	//player firing
-	private Image[] playerImgWalkFire = new Image[5];
-	private BufferedImage[] pIWFBuffered = new BufferedImage[5];
-	private Animation firingWalk;
-	private int firingWalkFlag = 0;
-	
-	//player steady
-	private boolean steady = false;
-	private BufferedImage pISBuffered;
-	private boolean shield = true;
-	
-	private BulletListener click;
-	
-	private boolean visibility = true;
-	private int health = 100;
+    protected boolean visibility = true;
+    protected int health = 100;
 	
 	public Player(String name, int x, int y, BulletListener click) {
 		this.imgName = name;
 		this.x = x;
 		this.y = y;
 		this.click = click;
-		
-		this.bt = new BulletTimer(0.2f);
-		initPlayer();
-	}
-
-	private void initPlayer() {
-		playerImg = Assets.getImagePlayer(imgName + ".png");
-		
-		//walking program
-		playerImgWalk = Assets.getImagePlayerWalk();
-		for(int i=0; i<playerImgWalk.length; i++)
-			pIWBuffered[i] = ImageLoader.toBufferedImage(playerImgWalk[i]);
-		walking = new Animation(2, pIWBuffered);
-		
-		//firing program
-		playerImgFire = Assets.getImagePlayerFire();
-		for(int i=0; i<playerImgFire.length; i++)
-			pIFBuffered[i] = ImageLoader.toBufferedImage(playerImgFire[i]);
-		firing = new Animation(1, pIFBuffered);
-		//stead
-		pISBuffered = ImageLoader.toBufferedImage(playerImgFire[4]);
-		
-		//walk fire program
-		playerImgWalkFire = Assets.getImagePlayerWalkFire();
-		for(int i=0; i<playerImgFire.length; i++)
-			pIWFBuffered[i] = ImageLoader.toBufferedImage(playerImgWalkFire[i]);
-		firingWalk = new Animation(1, pIWFBuffered);
 	}
 	
 	public void update(Ground ground){		
@@ -135,7 +89,7 @@ public class Player {
 		if(KeyboardHandler.SPACE) {
 			if(bt.finishCounting()) {
 				click.onClick(x + 84, y + 23);
-				this.firingflag = 5;
+				setFiringFlag();
 				shield = false;
 			}
 		}
@@ -143,47 +97,10 @@ public class Player {
 		move();
 		
 		collision(ground);
-		
-		walking.runAnimation();
-		firing.runAnimation();
-		firingWalk.runAnimation();
+		animating();
 	}
 	
-	public void render(Graphics g) {
-		
-		//jika menembak ga perlu render yang walking
-		if (visibility) {
-			if(firingflag>0) {
-				if(velX != 0) {
-					firingWalk.drawAnimation(g, (int)x, (int)y);
-				} else {
-					firing.drawAnimation(g, (int)x, (int)y);
-				}
-				
-				firingflag--;
-				steady = true;
-				shield = false;
-				
-			} else {
-				if(steady) {
-					g.drawImage(pISBuffered, this.x, this.y, null);
-				} else {		
-					bounds = new Rectangle(x, y, playerImg.getWidth(null), playerImg.getHeight(null));
-			
-					//walking animation
-					if(velX != 0) {
-						walking.drawAnimation(g, (int)x, (int)y);
-						steady = false;
-						shield = true;
-					} else {
-						g.drawImage(playerImg, this.x, this.y, null);
-					}
-				}
-			}
-		}
-	}
-	
-	private void move() {
+	public void move() {
 		
 		x += velX;
 		y += velY;
@@ -196,57 +113,26 @@ public class Player {
 			}
 		}
 		
-		if (x < 0)
-			x = 0;
-		if (x > Camera.MAX_BG_WIDTH-playerImg.getWidth(null))
-			x = Camera.MAX_BG_WIDTH-playerImg.getWidth(null);
+		setCam();
 	}
-	
-	private void collision(Ground ground) {
-		if(getBounds().intersects(ground.getBounds())) {
-			velY = 0;
-			falling = false;
-			jumping = false;
-		}
-	}
-	
-	public boolean updateVisibility(EnemyBullet eBullet) {
-		boolean state = false;
-		
-		if (getBounds() != null && eBullet.getBounds() != null) {
-			if(getBounds().intersects(eBullet.getBounds()) && !shield) {
-				state = true;
-				
-//				if (type == SelectedGamePage.Satu)
-//				else if (type == SelectedGamePage.Dua)
-//				else if (type == SelectedGamePage.Tiga)
-				health -= fireDamage;
 
-				eBullet.visible = false;
-				
-				if(health<0) {
-					visibility = false;
-				}
-			}
-		}
-
-		return state;
-	}
+	//abstract section
+	public abstract void initPlayer();
+	public abstract void animating();
+	public abstract void setFiringFlag();
+	public abstract void render(Graphics g);
+	public abstract void setCam();
+	public abstract void collision(Ground ground);
+	public abstract boolean updateVisibility(EnemyBullet eBullet);
 	
+	
+	//setter getter section
 	public boolean isShield() {
 		return shield;
 	}
 
 	public void setShield(boolean shield) {
 		this.shield = shield;
-	}
-	
-	public Rectangle getBounds() {
-		return new Rectangle(x+12, y, 14, playerImg.getHeight(null));
-	}
-	
-	public Rectangle getWholeBounds() {
-		return new Rectangle(x, y, playerImg.getWidth(null), playerImg.getHeight(null));
 	}
 	
 	public int getX() {
@@ -312,69 +198,6 @@ public class Player {
 	public void setFireDamage(int fireDamage) {
 		this.fireDamage = fireDamage;
 	}
-	public Image getPlayerImg() {
-		return playerImg;
-	}
-
-	public void setPlayerImg(Image playerImg) {
-		this.playerImg = playerImg;
-	}
-
-	public Image[] getPlayerImgWalk() {
-		return playerImgWalk;
-	}
-
-	public void setPlayerImgWalk(Image[] playerImgWalk) {
-		this.playerImgWalk = playerImgWalk;
-	}
-
-	public BufferedImage[] getpIWBuffered() {
-		return pIWBuffered;
-	}
-
-	public void setpIWBuffered(BufferedImage[] pIWBuffered) {
-		this.pIWBuffered = pIWBuffered;
-	}
-
-	public Image[] getPlayerImgFire() {
-		return playerImgFire;
-	}
-
-	public void setPlayerImgFire(Image[] playerImgFire) {
-		this.playerImgFire = playerImgFire;
-	}
-
-	public BufferedImage[] getpIFBuffered() {
-		return pIFBuffered;
-	}
-
-	public void setpIFBuffered(BufferedImage[] pIFBuffered) {
-		this.pIFBuffered = pIFBuffered;
-	}
-
-	public Image[] getPlayerImgWalkFire() {
-		return playerImgWalkFire;
-	}
-
-	public void setPlayerImgWalkFire(Image[] playerImgWalkFire) {
-		this.playerImgWalkFire = playerImgWalkFire;
-	}
-
-	public BufferedImage[] getpIWFBuffered() {
-		return pIWFBuffered;
-	}
-
-	public void setpIWFBuffered(BufferedImage[] pIWFBuffered) {
-		this.pIWFBuffered = pIWFBuffered;
-	}
-
-	public BufferedImage getpISBuffered() {
-		return pISBuffered;
-	}
-
-	public void setpISBuffered(BufferedImage pISBuffered) {
-		this.pISBuffered = pISBuffered;
-	}
 
 	public String getImgName() {
 		return imgName;
@@ -382,6 +205,14 @@ public class Player {
 
 	public void setImgName(String imgName) {
 		this.imgName = imgName;
+	}
+	
+	public int getToEnemyDamage() {
+		return toEnemyDamage;
+	}
+
+	public void setToEnemyDamage(int toEnemyDamage) {
+		this.toEnemyDamage = toEnemyDamage;
 	}
 
 }

@@ -146,8 +146,7 @@ public class Enemy {
 		if (getBounds() != null && bullet.getBounds() != null) {
 			if(getBounds().intersects(bullet.getBounds())) {
 				state = true;
-			
-				fireDamage = (20 + (rand.nextInt(7)+1));
+
 				health -= fireDamage;
 
 				bullet.visible = false;

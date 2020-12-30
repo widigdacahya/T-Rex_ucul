@@ -18,6 +18,7 @@ import id.ac.its.trexucul.model.id.SelectedGamePage;
 import id.ac.its.trexucul.utils.helper.Camera;
 import id.ac.its.trexucul.utils.listener.BulletListener;
 import id.ac.its.trexucul.utils.listener.ClickListener;
+import id.ac.its.trexucul.utils.helper.BulletTimer;
 
 //Level 1 Game Page
 public class GamePage extends PageState {
@@ -57,13 +58,9 @@ public class GamePage extends PageState {
 				pBullets.add(new PlayerBullet("Bullet", x, y));
 			}
 		});
-
-		if (type == SelectedGamePage.Satu)
-			ground = new Ground("darkground", 0, 646);
-		else if (type == SelectedGamePage.Dua)
-			ground = new Ground("grounddark2", 0, 646);
-		else if (type == SelectedGamePage.Tiga)
-			ground = new Ground("grounddark3", 0, 646);
+		
+		setDamageToEnemy(player.getToEnemyDamage());
+		setDifficulty(type);
 		
 		Assets.width = 96;
 		Assets.height = 36;
@@ -271,6 +268,33 @@ public class GamePage extends PageState {
 		return (x < (-camX+Window.WIDTH) && x > -camX);
 	}
 
+	private void setDifficulty(SelectedGamePage type) {
+		
+		if (type == SelectedGamePage.Satu) {
+			ground = new Ground("darkground", 0, 646);
+			player.setFireDamage(4);//damage musuh ke player
+			for(Enemy enemy: enemy)
+				enemy.setRt(new BulletTimer(5.0f));//set enemy reload time
+		}
+		else if (type == SelectedGamePage.Dua) {
+			ground = new Ground("grounddark2", 0, 646);
+			player.setFireDamage(7);
+			for(Enemy enemy: enemy)
+				enemy.setRt(new BulletTimer(4.0f));
+		}
+		else if (type == SelectedGamePage.Tiga) {
+			ground = new Ground("grounddark3", 0, 646);
+			player.setFireDamage(15);
+			for(Enemy enemy: enemy)
+				enemy.setRt(new BulletTimer(2.0f));
+		}
+			
+	}
+	
+	private void setDamageToEnemy(int damage) {
+		for(Enemy enemy: enemy)
+			enemy.setFireDamage(damage);
+	}
 
 	public int getScore() {
 		return score;

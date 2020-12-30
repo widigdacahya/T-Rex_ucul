@@ -14,35 +14,35 @@ import id.ac.its.trexucul.utils.helper.Camera;
 import id.ac.its.trexucul.utils.helper.ImageLoader;
 import id.ac.its.trexucul.utils.listener.BulletListener;
 
-public class Sniper extends Player{
-
+public class Riffle extends Player{
+	
 	//idle player
-	protected Image playerImg;
+    protected Image playerImg;
 	
 	//walking player
-	protected Image[] playerImgWalk = new Image[17];
-	protected BufferedImage[] pIWBuffered = new BufferedImage[17];
-	protected Animation walking;
+    protected Image[] playerImgWalk = new Image[8];
+    protected BufferedImage[] pIWBuffered = new BufferedImage[8];
+    protected Animation walking;
 	
 	//player firing
-	protected Image[] playerImgFire = new Image[15];
-	protected BufferedImage[] pIFBuffered = new BufferedImage[15];
-	protected Animation firing;
-	
+    protected Image[] playerImgFire = new Image[5];
+    protected BufferedImage[] pIFBuffered = new BufferedImage[5];
+    protected Animation firing;
+
 	//player firing
-	protected Image[] playerImgWalkFire = new Image[15];
-	protected BufferedImage[] pIWFBuffered = new BufferedImage[15];
-	protected Animation firingWalk;
-	
+    protected Image[] playerImgWalkFire = new Image[5];
+    protected BufferedImage[] pIWFBuffered = new BufferedImage[5];
+    protected Animation firingWalk;
+
 	//player steady
-	protected BufferedImage pISBuffered;
-	
-	public Sniper(String name, int x, int y, BulletListener click) {
+    protected BufferedImage pISBuffered;
+
+	public Riffle(String name, int x, int y, BulletListener click) {
 		super(name, x, y, click);
 
 		//set damage and reload
-		this.bt = new BulletTimer(1.0f);
-		super.setToEnemyDamage(90);		
+		this.bt = new BulletTimer(0.2f);
+		super.setToEnemyDamage(26);		
 		initPlayer();
 	}
 	
@@ -59,7 +59,7 @@ public class Sniper extends Player{
 		playerImgFire = Assets.getImageSniperFire();
 		for(int i=0; i<playerImgFire.length; i++)
 			pIFBuffered[i] = ImageLoader.toBufferedImage(playerImgFire[i]);
-		firing = new Animation(0, pIFBuffered);
+		firing = new Animation(1, pIFBuffered);
 		//stead
 		pISBuffered = ImageLoader.toBufferedImage(playerImgFire[14]);
 		
@@ -69,7 +69,7 @@ public class Sniper extends Player{
 			pIWFBuffered[i] = ImageLoader.toBufferedImage(playerImgWalkFire[i]);
 		firingWalk = new Animation(2, pIWFBuffered);
 	}
-	
+
 	public void animating() {
 		walking.runAnimation();
 		firing.runAnimation();
@@ -77,7 +77,7 @@ public class Sniper extends Player{
 	}
 	
 	public void setFiringFlag() {
-		this.firingflag = 15;
+		this.firingflag = 5;
 	}
 	
 	@Override
