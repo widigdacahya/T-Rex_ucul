@@ -23,6 +23,14 @@ import id.ac.its.trexucul.utils.helper.BulletTimer;
 //Level 1 Game Page
 public class GamePage extends PageState {
 	
+	/*to declare a character use
+	 * Player polymorp or specify
+	 * the class. available class:
+	 * riffle and sniper
+	 * ex:
+	 * Player player = new Sniper(param)
+	 * Sniper player = new Sniper(param)
+	 * */
 	private Sniper player;
 	private Ground ground;
 	private List<Enemy> enemy;
