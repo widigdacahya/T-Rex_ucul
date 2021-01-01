@@ -8,6 +8,7 @@ import java.util.List;
 import id.ac.its.trexucul.components.CommonButton;
 import id.ac.its.trexucul.components.entities.Enemy;
 import id.ac.its.trexucul.components.entities.Player;
+import id.ac.its.trexucul.components.entities.Riffle;
 import id.ac.its.trexucul.components.entities.Sniper;
 import id.ac.its.trexucul.components.objects.EnemyBullet;
 import id.ac.its.trexucul.components.objects.Ground;
@@ -31,7 +32,7 @@ public class GamePage extends PageState {
 	 * Player player = new Sniper(param)
 	 * Sniper player = new Sniper(param)
 	 * */
-	private Sniper player;
+	private Player player;
 	private Ground ground;
 	private List<Enemy> enemy;
 	private int enemyCount = 0;
@@ -40,6 +41,7 @@ public class GamePage extends PageState {
 	public int score = 0;
 	
 	private SelectedGamePage type;
+	public static SelectedGamePage character;
 	
 	private final int [][] enemyPosition = {
 		{900,500},{1220,500},{1450,500},
@@ -51,7 +53,10 @@ public class GamePage extends PageState {
 	private ArrayList<PlayerBullet> pBullets = new ArrayList<PlayerBullet>();
 	private ArrayList<EnemyBullet> eBullets = new ArrayList<EnemyBullet>();
 	
-	public GamePage(Window window, SelectedGamePage type) {
+	/*to do
+	 * set character on this constructor and fix other*/
+	
+	public GamePage(Window window, SelectedGamePage type, SelectedGamePage Character) {
 		super(window);
 		this.type = type;
 		enemy = new ArrayList<>(); 
@@ -60,14 +65,7 @@ public class GamePage extends PageState {
 			enemy.add(new Enemy("Enemy",p[0],p[1]));
 		}
 		
-		player = new Sniper("Player", 20, 500, new BulletListener() {
-			@Override
-			public void onClick(int x, int y) {
-				pBullets.add(new PlayerBullet("Bullet", x, y));
-			}
-		});
-		
-		setDamageToEnemy(player.getToEnemyDamage());
+		setCharacter(character);
 		setDifficulty(type);
 		
 		Assets.width = 96;
@@ -196,10 +194,10 @@ public class GamePage extends PageState {
 	}
 	
 	public void score(int damage) {
-		score += (damage * (101-player.getHealth()));
+		score += (damage * (111-player.getHealth()));
 	}
 	
-	public Sniper getPlayer() {
+	public Player getPlayer() {
 		return player;
 	}
 	
@@ -280,21 +278,18 @@ public class GamePage extends PageState {
 		
 		if (type == SelectedGamePage.Satu) {
 			ground = new Ground("darkground", 0, 646);
-			player.setFireDamage(4);//damage musuh ke player
 			for(Enemy enemy: enemy)
 				enemy.setRt(new BulletTimer(5.0f));//set enemy reload time
 		}
 		else if (type == SelectedGamePage.Dua) {
 			ground = new Ground("grounddark2", 0, 646);
-			player.setFireDamage(7);
 			for(Enemy enemy: enemy)
 				enemy.setRt(new BulletTimer(4.0f));
 		}
 		else if (type == SelectedGamePage.Tiga) {
 			ground = new Ground("grounddark3", 0, 646);
-			player.setFireDamage(15);
 			for(Enemy enemy: enemy)
-				enemy.setRt(new BulletTimer(2.0f));
+				enemy.setRt(new BulletTimer(1.0f));
 		}
 			
 	}
@@ -318,6 +313,50 @@ public class GamePage extends PageState {
 
 	public void setType(SelectedGamePage type) {
 		this.type = type;
+	}
+
+	public SelectedGamePage getCharacter() {
+		return character;
+	}
+
+	public void setCharacter(SelectedGamePage character) {
+		
+		if(character == SelectedGamePage.Satu) {
+			player = new Riffle("Player", 20, 500, new BulletListener() {
+				@Override
+				public void onClick(int x, int y) {
+					pBullets.add(new PlayerBullet("Bullet", x, y));
+				}
+			});
+			
+			settingUpAbility(100, 26, 0.2f);
+		}else if(character == SelectedGamePage.Dua) {
+			player = new Sniper("Player", 20, 500, new BulletListener() {
+				@Override
+				public void onClick(int x, int y) {
+					pBullets.add(new PlayerBullet("Bullet", x, y));
+				}
+			});
+			
+			settingUpAbility(110, 90, 0.9f);
+		}else {
+			player = new Sniper("Player", 20, 500, new BulletListener() {
+				@Override
+				public void onClick(int x, int y) {
+					pBullets.add(new PlayerBullet("Bullet", x, y));
+				}
+			});
+			
+			settingUpAbility(80, 200, 1.4f);
+		}
+		
+	}
+	
+	public void settingUpAbility(int health, int damageToEnemy, float bTimer) {
+		player.setHealth(health);
+		player.setToEnemyDamage(damageToEnemy);
+		setDamageToEnemy(player.getToEnemyDamage());
+		player.setBt(new BulletTimer(bTimer));
 	}
 	
 

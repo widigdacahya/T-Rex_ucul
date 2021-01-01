@@ -25,6 +25,7 @@ public class Assets {
 	public static Image gamepage1BG;
 	public static Image gamepage2BG;
 	public static Image gamepage3BG;
+	public static Image characterBG;
 	public static Image gameOverPage;
 	public static Image gameSplashPage;
 	public static Image creditPage;
@@ -52,6 +53,7 @@ public class Assets {
 		gameOverPage = ImageLoader.loadImage("res/menu/bggameover.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		gameSplashPage = ImageLoader.loadImage("res/menu/bgsplash.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		creditPage = ImageLoader.loadImage("res/menu/creditbg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
+		characterBG = ImageLoader.loadImage("res/menu/CharacterPage.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		
 		fontSplash = loadFont("res/fonts/Russo_One.ttf", 32);
 	}
@@ -77,39 +79,30 @@ public class Assets {
 		return ImageLoader.loadImage("res/asset/SniperBlue/" + imgObject);
 	}
 	
+	public static Image getImageSniper2(String imgObject) {
+		return ImageLoader.loadImage("res/asset/SniperRed/" + imgObject);
+	}
+	
 	public static Image[] getImagePlayerWalk() {
 		
-		playerWalk[0] = ImageLoader.loadImage("res/asset/Player/" + "walk 1.png");
-		playerWalk[1] = ImageLoader.loadImage("res/asset/Player/" + "walk 2.png");
-		playerWalk[2] = ImageLoader.loadImage("res/asset/Player/" + "walk 3.png");
-		playerWalk[3] = ImageLoader.loadImage("res/asset/Player/" + "walk 4.png");
-		playerWalk[4] = ImageLoader.loadImage("res/asset/Player/" + "walk 5.png");
-		playerWalk[5] = ImageLoader.loadImage("res/asset/Player/" + "walk 6.png");
-		playerWalk[6] = ImageLoader.loadImage("res/asset/Player/" + "walk 7.png");
-		playerWalk[7] = ImageLoader.loadImage("res/asset/Player/" + "walk 8.png");
-
+		for(int i = 0; i < 8; i++)
+			playerWalk[i] = ImageLoader.loadImage("res/asset/Player/" + "walk/" + "walk " + (i+1) + ".png");
 		
 		return playerWalk;
 	}
 	
 	public static Image[] getImagePlayerFire() {
 		
-		playerFire[0] = ImageLoader.loadImage("res/asset/Player/" + "firing1.png");
-		playerFire[1] = ImageLoader.loadImage("res/asset/Player/" + "firing2.png");
-		playerFire[2] = ImageLoader.loadImage("res/asset/Player/" + "firing3.png");
-		playerFire[3] = ImageLoader.loadImage("res/asset/Player/" + "firing4.png");
-		playerFire[4] = ImageLoader.loadImage("res/asset/Player/" + "firing5.png");
+		for(int i = 0; i < 5; i++)
+			playerFire[i] = ImageLoader.loadImage("res/asset/Player/" + "firing/" +"firing" + (i+1) + ".png");
 		
 		return playerFire;
 	}
 	
 	public static Image[] getImagePlayerWalkFire() {
 		
-		playerWalkFire[0] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 1.png");
-		playerWalkFire[1] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 2.png");
-		playerWalkFire[2] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 3.png");
-		playerWalkFire[3] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 4.png");
-		playerWalkFire[4] = ImageLoader.loadImage("res/asset/Player/" + "walk shooting 5.png");
+		for(int i = 0; i < 5; i++)
+			playerWalkFire[i] = ImageLoader.loadImage("res/asset/Player/" + "walkshoot/" + "walkshooting" + (i+1) + ".png");
 		
 		return playerFire;
 	}
@@ -134,6 +127,30 @@ public class Assets {
 		
 		for(int i = 1; i <= 15; i++)
 			sniperWalkFire[i-1] = ImageLoader.loadImage("res/asset/SniperBlue/walking/" + i +".png");
+		
+		return sniperFire;
+	}
+	
+	public static Image[] getImageSniperWalk2() {
+		
+		for(int i = 1; i <= 17; i++)
+		sniperWalk[i-1] = ImageLoader.loadImage("res/asset/SniperRed/walking/"+ i +".png");
+		
+		return sniperWalk;
+	}
+	
+	public static Image[] getImageSniperFire2() {
+		
+		for(int i = 1; i <= 15; i++)
+			sniperFire[i-1] = ImageLoader.loadImage("res/asset/SniperRed/shooting/" + i +".png");
+		
+		return sniperFire;
+	}
+	
+	public static Image[] getImageSniperWalkFire2() {
+		
+		for(int i = 1; i <= 15; i++)
+			sniperWalkFire[i-1] = ImageLoader.loadImage("res/asset/SniperRed/walking/" + i +".png");
 		
 		return sniperFire;
 	}

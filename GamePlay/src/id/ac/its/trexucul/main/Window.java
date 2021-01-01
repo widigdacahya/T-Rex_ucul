@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 
 import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
+import id.ac.its.trexucul.pages.CharacterPage;
 import id.ac.its.trexucul.pages.CreditPage;
 import id.ac.its.trexucul.pages.GameOverPage;
 import id.ac.its.trexucul.pages.GamePage;
@@ -48,6 +49,7 @@ public class Window extends JFrame implements Runnable {
 	private GameOverPage gameOverPage;
 	private CreditPage creditPage;
 	private VictoryPage victoryPage;
+	private CharacterPage characterPage;
 	
 	public Camera cam;
 
@@ -119,6 +121,7 @@ public class Window extends JFrame implements Runnable {
 		gameOverPage = new GameOverPage(this);
 		victoryPage = new VictoryPage(this);
 		creditPage = new CreditPage(this);
+		characterPage = new CharacterPage(this);
 
 		PageState.currentState = levelPage;
 
@@ -226,6 +229,13 @@ public class Window extends JFrame implements Runnable {
 
 	public void setVictoryPage(VictoryPage victoryPage) {
 		this.victoryPage = victoryPage;
+	}
 
+	public CharacterPage getCharacterPage() {
+		return characterPage;
+	}
+
+	public void setCharacterPage(CharacterPage characterPage) {
+		this.characterPage = characterPage;
 	}
 }

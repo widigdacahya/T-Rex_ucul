@@ -64,7 +64,7 @@ public abstract class Player {
 	
 	public void update(Ground ground){		
 		if(KeyboardHandler.UP && (!jumping) ) {
-			velY = -25;
+			velY = -15;
 			jumping = true;
 			falling = true;
 			shield = false;
@@ -195,8 +195,14 @@ public abstract class Player {
 		return fireDamage;
 	}
 
-	public void setFireDamage(int fireDamage) {
-		this.fireDamage = fireDamage;
+	public void setFireDamage(SelectedGamePage fireDamage) {
+		
+		if(fireDamage == SelectedGamePage.Satu)
+			this.fireDamage = 4;
+		else if(fireDamage == SelectedGamePage.Dua)
+			this.fireDamage = 7;
+		else
+			this.fireDamage = 12;
 	}
 
 	public String getImgName() {
@@ -213,6 +219,22 @@ public abstract class Player {
 
 	public void setToEnemyDamage(int toEnemyDamage) {
 		this.toEnemyDamage = toEnemyDamage;
+	}
+
+	public BulletTimer getBt() {
+		return bt;
+	}
+
+	public void setBt(BulletTimer bt) {
+		this.bt = bt;
+	}
+
+	public float getVelSpeed() {
+		return velSpeed;
+	}
+
+	public void setVelSpeed(float velSpeed) {
+		this.velSpeed = velSpeed;
 	}
 
 }

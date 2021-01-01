@@ -42,30 +42,31 @@ public class Riffle extends Player{
 
 		//set damage and reload
 		this.bt = new BulletTimer(0.2f);
-		super.setToEnemyDamage(26);		
+		super.setToEnemyDamage(26);
+		super.setVelSpeed(5.5f);
 		initPlayer();
 	}
 	
 	public void initPlayer() {//set animation
-		playerImg = Assets.getImageSniper("shield.png");
+		playerImg = Assets.getImagePlayer("Player.png");
 		
 		//walking program
-		playerImgWalk = Assets.getImageSniperWalk();
+		playerImgWalk = Assets.getImagePlayerWalk();
 		for(int i=0; i<playerImgWalk.length; i++)
 			pIWBuffered[i] = ImageLoader.toBufferedImage(playerImgWalk[i]);
 		walking = new Animation(2, pIWBuffered);
 		
 		//firing program
-		playerImgFire = Assets.getImageSniperFire();
+		playerImgFire = Assets.getImagePlayerFire();
 		for(int i=0; i<playerImgFire.length; i++)
 			pIFBuffered[i] = ImageLoader.toBufferedImage(playerImgFire[i]);
 		firing = new Animation(1, pIFBuffered);
 		//stead
-		pISBuffered = ImageLoader.toBufferedImage(playerImgFire[14]);
+		pISBuffered = ImageLoader.toBufferedImage(playerImgFire[4]);
 		
 		//walk fire program
-		playerImgWalkFire = Assets.getImageSniperWalkFire();
-		for(int i=0; i<playerImgFire.length; i++)
+		playerImgWalkFire = Assets.getImagePlayerWalkFire();
+		for(int i=0; i<playerImgWalkFire.length; i++)
 			pIWFBuffered[i] = ImageLoader.toBufferedImage(playerImgWalkFire[i]);
 		firingWalk = new Animation(2, pIWFBuffered);
 	}

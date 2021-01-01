@@ -8,6 +8,8 @@ import java.awt.image.BufferedImage;
 import id.ac.its.trexucul.components.objects.EnemyBullet;
 import id.ac.its.trexucul.components.objects.Ground;
 import id.ac.its.trexucul.model.gfx.Assets;
+import id.ac.its.trexucul.model.id.SelectedGamePage;
+import id.ac.its.trexucul.pages.CharacterPage;
 import id.ac.its.trexucul.utils.helper.Animation;
 import id.ac.its.trexucul.utils.helper.BulletTimer;
 import id.ac.its.trexucul.utils.helper.Camera;
@@ -47,16 +49,26 @@ public class Sniper extends Player{
 	}
 	
 	public void initPlayer() {//set animation
-		playerImg = Assets.getImageSniper("shield.png");
+		
 		
 		//walking program
-		playerImgWalk = Assets.getImageSniperWalk();
+		if(CharacterPage.selectedCharacter == SelectedGamePage.Dua) {
+			playerImg = Assets.getImageSniper("shield.png");
+			playerImgWalk = Assets.getImageSniperWalk();
+			playerImgFire = Assets.getImageSniperFire();
+			playerImgWalkFire = Assets.getImageSniperWalkFire();
+		}else {
+			playerImg = Assets.getImageSniper2("shield.png");
+			playerImgWalk = Assets.getImageSniperWalk2();
+			playerImgFire = Assets.getImageSniperFire2();
+			playerImgWalkFire = Assets.getImageSniperWalkFire2();
+		}
+		
 		for(int i=0; i<playerImgWalk.length; i++)
 			pIWBuffered[i] = ImageLoader.toBufferedImage(playerImgWalk[i]);
 		walking = new Animation(2, pIWBuffered);
 		
 		//firing program
-		playerImgFire = Assets.getImageSniperFire();
 		for(int i=0; i<playerImgFire.length; i++)
 			pIFBuffered[i] = ImageLoader.toBufferedImage(playerImgFire[i]);
 		firing = new Animation(0, pIFBuffered);
@@ -64,7 +76,6 @@ public class Sniper extends Player{
 		pISBuffered = ImageLoader.toBufferedImage(playerImgFire[14]);
 		
 		//walk fire program
-		playerImgWalkFire = Assets.getImageSniperWalkFire();
 		for(int i=0; i<playerImgFire.length; i++)
 			pIWFBuffered[i] = ImageLoader.toBufferedImage(playerImgWalkFire[i]);
 		firingWalk = new Animation(2, pIWFBuffered);
