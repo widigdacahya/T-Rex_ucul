@@ -150,7 +150,7 @@ public class GamePage extends PageState {
 		}
 		
 		if(enemyCount == 0 ) {
-			window.setVictoryPage(type);
+			window.setVictoryPage(type, score);
 			PageState.currentState = window.getVictoryPage();
 			return;
 		}
@@ -277,7 +277,6 @@ public class GamePage extends PageState {
 			for(Enemy enemy: enemy)
 				enemy.setRt(new SecondsTimer(1.0f));
 		}
-			
 	}
 	
 	private void setDamageToEnemy(int damage) {

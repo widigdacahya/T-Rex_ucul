@@ -123,7 +123,7 @@ public class Window extends JFrame implements Runnable {
 		victoryPage = new VictoryPage(this);
 		creditPage = new CreditPage(this);
 		characterPage = new CharacterPage(this);
-		setVictoryPage(SelectedGamePage.Satu);
+		setVictoryPage(SelectedGamePage.Satu, 5000);
 		PageState.currentState = getVictoryPage();
 
 		Assets.init();
@@ -231,8 +231,9 @@ public class Window extends JFrame implements Runnable {
 		return victoryPage;
 	}
 
-	public void setVictoryPage(SelectedGamePage type) {
-		victoryPage.setLevelType(type);;
+	public void setVictoryPage(SelectedGamePage type, int score) {
+		victoryPage.setLevelType(type);
+		victoryPage.setScore(score);
 	}
 
 	public CharacterPage getCharacterPage() {
