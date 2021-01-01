@@ -47,6 +47,7 @@ public class CharacterPage extends PageState{
 				selectedCharacter = SelectedGamePage.Dua;
 				window.setGamePage(new GamePage(window, SelectedGamePage.Dua, LevelPage.selectedPage));
 				window.getGamePage().setCharacter(SelectedGamePage.Dua);
+				window.getGamePage().getPlayer().setFireDamage(LevelPage.selectedPage);
 				PageState.currentState = window.getGamePage();
 				
 			}
@@ -60,6 +61,7 @@ public class CharacterPage extends PageState{
 				selectedCharacter = SelectedGamePage.Tiga;
 				window.setGamePage(new GamePage(window, SelectedGamePage.Tiga, LevelPage.selectedPage));
 				window.getGamePage().setCharacter(SelectedGamePage.Tiga);
+				window.getGamePage().getPlayer().setFireDamage(LevelPage.selectedPage);
 				PageState.currentState = window.getGamePage();
 				
 			}
