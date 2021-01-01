@@ -28,9 +28,23 @@ public class CommonButton {
 		initBtn();
 	}
 	
+	public CommonButton(String name, int x, int y, ClickListener click, int w, int h) {
+		this.btnName = name;
+		this.x = x;
+		this.y = y;
+		this.click = click;
+		hovering = false;
+		initBtn(w, h);
+	}
+	
 	private void initBtn() {
 		btn = Assets.getImageBtn(btnName + ".png");
 		btnHov = Assets.getImageBtn(btnName + "_hov.png");
+	}
+	
+	private void initBtn(int width, int height) {
+		btn = Assets.getImageBtn(btnName + ".png", width, height);
+		btnHov = Assets.getImageBtn(btnName + "_hov.png", width, height);
 	}
 	
 	public void update(){		

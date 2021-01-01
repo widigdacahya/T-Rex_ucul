@@ -1,6 +1,8 @@
 package id.ac.its.trexucul.pages;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -22,6 +24,7 @@ import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
 import id.ac.its.trexucul.model.serial.WriteSerial;
 import id.ac.its.trexucul.utils.handler.KeyboardHandler;
+import id.ac.its.trexucul.utils.helper.FontLoader;
 import id.ac.its.trexucul.utils.helper.SecondsTimer;
 import id.ac.its.trexucul.utils.listener.ClickListener;
 
@@ -61,6 +64,13 @@ public class VictoryPage extends PageState{
 				System.exit(1);
 			}
 		}));
+		buttons.add(new CommonButton("submit_name_btn", Window.WIDTH/2 - (185/2), Window.HEIGHT/2 + 20, new ClickListener() {
+			@Override
+			public void onClick() {
+				// Exit game
+				System.exit(1);
+			}
+		}, 185, 76));
 		
 		textfield= new JTextField(10);
 		textfield.setBounds(1000, 50, 100, 30);
@@ -118,10 +128,17 @@ public class VictoryPage extends PageState{
 	}
 	
 	public void paintComponent(Graphics g) {
-		g.setColor(Color.blue);
-		g.fillRect(r.x, r.y, r.width, r.height);
-		g.setColor(Color.black);
-		g.drawString(textTyped, r.x, r.y+r.height);
+		String label = "Masukkan nama Anda:";
+		Font input = FontLoader.loadFont("res/fonts/Russo_One.ttf", 28);
+		Font inputLabel = FontLoader.loadFont("res/fonts/Russo_One.ttf", 20);
+		FontMetrics fm = g.getFontMetrics(input);
+		FontMetrics fmL = g.getFontMetrics(inputLabel);
+		
+		g.setColor(Color.WHITE);
+		g.setFont(inputLabel);
+		g.drawString(label, Window.WIDTH/2 - (fmL.stringWidth(label)/2), Window.HEIGHT/2 - 32);
+		g.setFont(input);
+		g.drawString(textTyped, Window.WIDTH/2 - (fm.stringWidth(textTyped)/2), Window.HEIGHT/2 + 4);
 	}
 	
 	public void updateTextTyped(KeyEvent e) {

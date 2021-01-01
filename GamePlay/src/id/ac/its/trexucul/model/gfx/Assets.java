@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import id.ac.its.trexucul.main.Window;
+import id.ac.its.trexucul.utils.helper.FontLoader;
 import id.ac.its.trexucul.utils.helper.ImageLoader;
 
 public class Assets {
@@ -55,11 +56,15 @@ public class Assets {
 		creditPage = ImageLoader.loadImage("res/menu/creditbg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		characterBG = ImageLoader.loadImage("res/menu/CharacterPage.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		
-		fontSplash = loadFont("res/fonts/Russo_One.ttf", 32);
+		fontSplash = FontLoader.loadFont("res/fonts/Russo_One.ttf", 32);
 	}
 	
 	public static Image getImageBtn(String imgName) {
 		return ImageLoader.loadImage("res/button/" + imgName).getScaledInstance(width, height, BufferedImage.SCALE_DEFAULT);
+	}
+	
+	public static Image getImageBtn(String imgName, int w, int h) {
+		return ImageLoader.loadImage("res/button/" + imgName).getScaledInstance(w, h, BufferedImage.SCALE_DEFAULT);
 	}
 	
 	public static Image getImageText(String imgName) {
@@ -168,14 +173,4 @@ public class Assets {
 	public static Image getGround(String imgObject) {
 		return ImageLoader.loadImage("res/menu/" + imgObject).getScaledInstance(4370, 56, BufferedImage.SCALE_DEFAULT);
 	}
-		
-	public static Font loadFont(String path, int size){
-		try {
-			return Font.createFont(Font.TRUETYPE_FONT, new File(path)).deriveFont(Font.PLAIN, size);
-		} catch (FontFormatException | IOException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
 }
