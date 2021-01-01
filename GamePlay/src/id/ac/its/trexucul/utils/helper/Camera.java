@@ -31,10 +31,13 @@ public class Camera {
 		this.y = y;
 	}
 	
-	
 	public void update(Player player) {
 		if (player.getX() > Window.WIDTH/2 && player.getX() < MAX_BG_WIDTH-Window.WIDTH/2)
 			x = -player.getX() + Window.WIDTH/2;
 	}
-
+	
+	public void resetCameraPosition() {
+		this.x = 0;
+		this.y = 0;
+	}
 }

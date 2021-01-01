@@ -224,6 +224,7 @@ public class Window extends JFrame implements Runnable {
 	}
 
 	public VictoryPage getVictoryPage() {
+		cam.resetCameraPosition();
 		return victoryPage;
 	}
 

@@ -55,7 +55,6 @@ public class GamePage extends PageState {
 	
 	/*to do
 	 * set character on this constructor and fix other*/
-	
 	public GamePage(Window window, SelectedGamePage type, SelectedGamePage Character) {
 		super(window);
 		this.type = type;
@@ -106,17 +105,12 @@ public class GamePage extends PageState {
 			g.drawString("Shield: OFF", (int)((int)(-camX)+20), (int)((int)(-camY)+45));
 		
 
-//		enemyCount = 0;
 		for(Enemy enemy: enemy) {	
-			if(enemy.isVisible()) {
+			if(enemy.isVisible() && enemy.isIncluded()) {
 				enemy.render(g);
 				g.setColor(Color.white);
-				g.drawString("Enemy: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);
-//				enemyCount++;
-			}
+				g.drawString("Enemy: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);			}
 		}
-		
-		
 		
 		for(PlayerBullet bullet : pBullets) {
 			if (checkIsIncluded(bullet.getX()))
@@ -151,7 +145,6 @@ public class GamePage extends PageState {
 				enemyCount++;
 				if(enemy.isIncluded()) {
 					fire(enemy);
-					
 				}
 			}
 		}
