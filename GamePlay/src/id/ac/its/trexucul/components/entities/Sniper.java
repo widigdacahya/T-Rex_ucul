@@ -11,7 +11,7 @@ import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
 import id.ac.its.trexucul.pages.CharacterPage;
 import id.ac.its.trexucul.utils.helper.Animation;
-import id.ac.its.trexucul.utils.helper.BulletTimer;
+import id.ac.its.trexucul.utils.helper.SecondsTimer;
 import id.ac.its.trexucul.utils.helper.Camera;
 import id.ac.its.trexucul.utils.helper.ImageLoader;
 import id.ac.its.trexucul.utils.listener.BulletListener;
@@ -43,7 +43,7 @@ public class Sniper extends Player{
 		super(name, x, y, click);
 
 		//set damage and reload
-		this.bt = new BulletTimer(1.0f);
+		this.bt = new SecondsTimer(1.0f);
 		super.setToEnemyDamage(90);		
 		initPlayer();
 	}

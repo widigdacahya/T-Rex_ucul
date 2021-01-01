@@ -3,6 +3,7 @@ package id.ac.its.trexucul.pages;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -21,6 +22,7 @@ import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
 import id.ac.its.trexucul.model.serial.WriteSerial;
 import id.ac.its.trexucul.utils.handler.KeyboardHandler;
+import id.ac.its.trexucul.utils.helper.SecondsTimer;
 import id.ac.its.trexucul.utils.listener.ClickListener;
 
 public class VictoryPage extends PageState{
@@ -32,8 +34,13 @@ public class VictoryPage extends PageState{
 	private SelectedGamePage type;
 	private boolean initTF = false;
 	private JTextField textfield;
+	
+	private String level;
+	private Rectangle r;
+	private String textTyped;
+	private SecondsTimer timer;
 
-	public VictoryPage(Window window, SelectedGamePage type) {
+	public VictoryPage(Window window) {
 		super(window);
 		
 		this.type = type;
@@ -69,11 +76,26 @@ public class VictoryPage extends PageState{
 //				WriteSerial.addRecords(window.getGamePage().getScore(), nameValue, level);		
 			}
 		});
+		
+		r = new Rectangle(200,200,250,30);
+		textTyped = "";
+		timer = new SecondsTimer(0.1f);
 	}
 	
 	public void inputData(String level, Graphics g) {
         //textfield to enter name
 		textfield.printAll(g);
+	}
+	
+	public void setLevelType(SelectedGamePage type) {
+		this.type = type;
+		
+		if (type == SelectedGamePage.Satu)
+			level = "Level 1";
+		else if (type == SelectedGamePage.Dua)
+			level = "Level 2";
+		else if (type == SelectedGamePage.Tiga)
+			level = "Level 3";
 	}
 
 	@Override
@@ -88,12 +110,29 @@ public class VictoryPage extends PageState{
 		g.drawImage(gameOverText, 400, 200, null);
 		for(int i = 0; i < buttons.size(); i++)
 			buttons.get(i).render(g);
+
+		if(KeyboardHandler.BACK_SPACE && timer.finishCounting())
+			textTyped = method(textTyped);
 		
-		if (type == SelectedGamePage.Satu)
-			inputData("Level 1", g);
-		else if (type == SelectedGamePage.Dua)
-			inputData("Level 2", g);
-		else if (type == SelectedGamePage.Tiga)
-			inputData("Level 3", g);
+		paintComponent(g);
+	}
+	
+	public void paintComponent(Graphics g) {
+		g.setColor(Color.blue);
+		g.fillRect(r.x, r.y, r.width, r.height);
+		g.setColor(Color.black);
+		g.drawString(textTyped, r.x, r.y+r.height);
+	}
+	
+	public void updateTextTyped(KeyEvent e) {
+		if (!KeyboardHandler.BACK_SPACE)
+			textTyped += e.getKeyChar();
+	}
+	
+	public String method(String str) {
+	    if (str != null && str.length() > 0) {
+	        str = str.substring(0, str.length() - 1);
+	    }
+	    return str;
 	}
 }

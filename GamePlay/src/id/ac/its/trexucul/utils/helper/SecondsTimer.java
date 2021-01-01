@@ -2,7 +2,7 @@ package id.ac.its.trexucul.utils.helper;
 
 import java.util.Timer;
 
-public class BulletTimer {
+public class SecondsTimer {
 	
 	private Timer timer;
 	private Long startTime = 0l;
@@ -11,7 +11,7 @@ public class BulletTimer {
 	private float counter;
 	private boolean initTime = false;
 	
-	public BulletTimer(float delay) {
+	public SecondsTimer(float delay) {
 		this.counter = delay;
 		startTime = System.currentTimeMillis();
 	}

@@ -9,7 +9,7 @@ import id.ac.its.trexucul.components.objects.EnemyBullet;
 import id.ac.its.trexucul.components.objects.Ground;
 import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.utils.helper.Animation;
-import id.ac.its.trexucul.utils.helper.BulletTimer;
+import id.ac.its.trexucul.utils.helper.SecondsTimer;
 import id.ac.its.trexucul.utils.helper.Camera;
 import id.ac.its.trexucul.utils.helper.ImageLoader;
 import id.ac.its.trexucul.utils.listener.BulletListener;
@@ -41,7 +41,7 @@ public class Riffle extends Player{
 		super(name, x, y, click);
 
 		//set damage and reload
-		this.bt = new BulletTimer(0.2f);
+		this.bt = new SecondsTimer(0.2f);
 		super.setToEnemyDamage(26);
 		super.setVelSpeed(5.5f);
 		initPlayer();

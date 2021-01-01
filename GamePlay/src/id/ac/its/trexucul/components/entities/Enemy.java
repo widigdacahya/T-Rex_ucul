@@ -14,7 +14,7 @@ import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
 import id.ac.its.trexucul.pages.GamePage;
 import id.ac.its.trexucul.utils.helper.Animation;
-import id.ac.its.trexucul.utils.helper.BulletTimer;
+import id.ac.its.trexucul.utils.helper.SecondsTimer;
 import id.ac.its.trexucul.utils.helper.ImageLoader;
 import id.ac.its.trexucul.utils.listener.BulletListener;
 
@@ -40,7 +40,7 @@ public class Enemy {
 	//bt is bullet time which declare interval time between each shoot
 	//jt declare interval between each enemy jump
 	//rt declare time needed to reload
-	private BulletTimer bt, jt, rt; 
+	private SecondsTimer bt, jt, rt; 
 
 	private final int Delay = 200;
 	
@@ -61,9 +61,9 @@ public class Enemy {
 		this.x = x;
 		this.y = y;
 		
-		this.bt = new BulletTimer(0.2f);
-		this.jt = new BulletTimer(7.5f);
-		this.rt = new BulletTimer(5.0f);
+		this.bt = new SecondsTimer(0.2f);
+		this.jt = new SecondsTimer(7.5f);
+		this.rt = new SecondsTimer(5.0f);
 		initEnemy();
 	}
 	
@@ -219,27 +219,27 @@ public class Enemy {
 		this.included = included;
 	}
 	
-	public BulletTimer getBt() {
+	public SecondsTimer getBt() {
 		return bt;
 	}
 
-	public void setBt(BulletTimer bt) {
+	public void setBt(SecondsTimer bt) {
 		this.bt = bt;
 	}
 
-	public BulletTimer getJt() {
+	public SecondsTimer getJt() {
 		return jt;
 	}
 
-	public void setJt(BulletTimer jt) {
+	public void setJt(SecondsTimer jt) {
 		this.jt = jt;
 	}
 
-	public BulletTimer getRt() {
+	public SecondsTimer getRt() {
 		return rt;
 	}
 
-	public void setRt(BulletTimer rt) {
+	public void setRt(SecondsTimer rt) {
 		this.rt = rt;
 	}
 

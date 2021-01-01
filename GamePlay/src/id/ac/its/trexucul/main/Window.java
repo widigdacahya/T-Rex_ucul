@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
@@ -21,6 +22,7 @@ import id.ac.its.trexucul.pages.VictoryPage;
 import id.ac.its.trexucul.utils.handler.KeyboardHandler;
 import id.ac.its.trexucul.utils.handler.MouseHandler;
 import id.ac.its.trexucul.utils.helper.Camera;
+import id.ac.its.trexucul.utils.listener.KeyTypedListener;
 
 public class Window extends JFrame implements Runnable {
 	
@@ -60,7 +62,7 @@ public class Window extends JFrame implements Runnable {
 		setLocationRelativeTo(null);
 		
 		canvas = new Canvas();
-//		keyBoard = new KeyboardHandler();
+		keyBoard = new KeyboardHandler();
 		mouse = new MouseHandler();
 		
 		canvas.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -118,6 +120,7 @@ public class Window extends JFrame implements Runnable {
 		splashPage = new SplashPage(this);
 		levelPage = new LevelPage(this);
 		gameOverPage = new GameOverPage(this);
+		victoryPage = new VictoryPage(this);
 		creditPage = new CreditPage(this);
 		characterPage = new CharacterPage(this);
 		setVictoryPage(SelectedGamePage.Satu);
@@ -168,7 +171,6 @@ public class Window extends JFrame implements Runnable {
 			e.printStackTrace();
 		}
 	}
-
 	
 	public GamePage getGamePage() {
 		return gamePage;
@@ -220,11 +222,17 @@ public class Window extends JFrame implements Runnable {
 
 	public VictoryPage getVictoryPage() {
 		cam.resetCameraPosition();
+		keyBoard.setKeyListener(new KeyTypedListener() {
+			@Override
+			public void keyInput(KeyEvent e) {
+				victoryPage.updateTextTyped(e);
+			}
+		});
 		return victoryPage;
 	}
 
 	public void setVictoryPage(SelectedGamePage type) {
-		this.victoryPage = new VictoryPage(this, type);
+		victoryPage.setLevelType(type);;
 	}
 
 	public CharacterPage getCharacterPage() {

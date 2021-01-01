@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class AnimationFire extends Animation{
 	
-	private BulletTimer timer = new BulletTimer(0.3f);
+	private SecondsTimer timer = new SecondsTimer(0.3f);
 
 	public AnimationFire(int speed, BufferedImage[] args) {
 		super(speed, args);

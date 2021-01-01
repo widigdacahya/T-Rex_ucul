@@ -17,7 +17,7 @@ import id.ac.its.trexucul.model.id.SelectedGamePage;
 import id.ac.its.trexucul.utils.handler.KeyboardHandler;
 import id.ac.its.trexucul.utils.helper.Animation;
 import id.ac.its.trexucul.utils.helper.AnimationFire;
-import id.ac.its.trexucul.utils.helper.BulletTimer;
+import id.ac.its.trexucul.utils.helper.SecondsTimer;
 import id.ac.its.trexucul.utils.helper.Camera;
 import id.ac.its.trexucul.utils.helper.ImageLoader;
 import id.ac.its.trexucul.utils.listener.BulletListener;
@@ -41,7 +41,7 @@ public abstract class Player {
 	
 	//util
 	protected Timer timer;
-	protected BulletTimer bt;
+	protected SecondsTimer bt;
 	protected final int Delay = 200;
     Random rand = new Random(); 
 	
@@ -221,11 +221,11 @@ public abstract class Player {
 		this.toEnemyDamage = toEnemyDamage;
 	}
 
-	public BulletTimer getBt() {
+	public SecondsTimer getBt() {
 		return bt;
 	}
 
-	public void setBt(BulletTimer bt) {
+	public void setBt(SecondsTimer bt) {
 		this.bt = bt;
 	}
 
