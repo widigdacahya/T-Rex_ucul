@@ -1,7 +1,6 @@
 package id.ac.its.trexucul.main;
 
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -61,7 +60,7 @@ public class Window extends JFrame implements Runnable {
 		setLocationRelativeTo(null);
 		
 		canvas = new Canvas();
-		keyBoard = new KeyboardHandler();
+//		keyBoard = new KeyboardHandler();
 		mouse = new MouseHandler();
 		
 		canvas.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -119,11 +118,10 @@ public class Window extends JFrame implements Runnable {
 		splashPage = new SplashPage(this);
 		levelPage = new LevelPage(this);
 		gameOverPage = new GameOverPage(this);
-		victoryPage = new VictoryPage(this);
 		creditPage = new CreditPage(this);
 		characterPage = new CharacterPage(this);
-
-		PageState.currentState = levelPage;
+		setVictoryPage(SelectedGamePage.Satu);
+		PageState.currentState = getVictoryPage();
 
 		Assets.init();
 	}
@@ -132,7 +130,6 @@ public class Window extends JFrame implements Runnable {
 	public void run() {
 		long now = 0;
 		long lastTime = System.nanoTime();
-		int frames = 0;
 		long time = 0;
 		
 		init();
@@ -147,11 +144,9 @@ public class Window extends JFrame implements Runnable {
 				update();
 				draw();
 				delta --;
-				frames ++;
 			}
 			
 			if(time >= 1000000000) {
-				frames = 0;
 				time = 0;
 			}
 		}
@@ -228,8 +223,8 @@ public class Window extends JFrame implements Runnable {
 		return victoryPage;
 	}
 
-	public void setVictoryPage(VictoryPage victoryPage) {
-		this.victoryPage = victoryPage;
+	public void setVictoryPage(SelectedGamePage type) {
+		this.victoryPage = new VictoryPage(this, type);
 	}
 
 	public CharacterPage getCharacterPage() {

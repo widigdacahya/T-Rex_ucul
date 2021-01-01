@@ -15,14 +15,6 @@ public class MouseHandler extends MouseAdapter {
 		y = 0;
 	}
 
-//	@Override
-//	public void mouseClicked(MouseEvent e) {
-//		if(e.getButton() == MouseEvent.BUTTON1)
-//			leftBtn = true;
-//		if(e.getButton() == MouseEvent.BUTTON2)
-//			rightBtn= true;
-//	}
-
 	@Override
 	public void mousePressed(MouseEvent e){
 		if(e.getButton() == MouseEvent.BUTTON1)

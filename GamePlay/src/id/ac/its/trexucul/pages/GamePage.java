@@ -150,16 +150,9 @@ public class GamePage extends PageState {
 		}
 		
 		if(enemyCount == 0 ) {
+			window.setVictoryPage(type);
 			PageState.currentState = window.getVictoryPage();
-			window.getVictoryPage().update();
-			window.getVictoryPage().render(window.getGraphics());
-
-			if (type == SelectedGamePage.Satu)
-				window.getVictoryPage().inputData("Level 1");
-			else if (type == SelectedGamePage.Dua)
-				window.getVictoryPage().inputData("Level 2");
-			else if (type == SelectedGamePage.Tiga)
-				window.getVictoryPage().inputData("Level 3");
+			return;
 		}
 
 		checkPlayerBulletCollision();

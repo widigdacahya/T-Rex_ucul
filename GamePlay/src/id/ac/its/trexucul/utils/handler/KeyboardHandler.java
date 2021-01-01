@@ -3,13 +3,19 @@ package id.ac.its.trexucul.utils.handler;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import id.ac.its.trexucul.pages.PageState;
+import id.ac.its.trexucul.pages.VictoryPage;
+import id.ac.its.trexucul.utils.listener.KeyTypedListener;
+
 public class KeyboardHandler implements KeyListener {
 	
 	private boolean[] keys;
 	
 	public static boolean UP, LEFT, RIGHT, DOWN, SPACE, ENTER;
 	
-	public KeyboardHandler() {
+	private KeyTypedListener keyListener;
+	
+	public KeyboardHandler(KeyTypedListener keyListener) {
 		keys = new boolean[256];
 		UP = false;
 		DOWN = false;
@@ -17,6 +23,8 @@ public class KeyboardHandler implements KeyListener {
 		LEFT = false;
 		SPACE = false;
 		ENTER = false;
+		
+		this.keyListener = keyListener;
 	}
 	
 	public void update() {
@@ -40,6 +48,9 @@ public class KeyboardHandler implements KeyListener {
 	}
 
 	@Override
-	public void keyTyped(KeyEvent arg0) {	
+	public void keyTyped(KeyEvent e) {
+		if (PageState.currentState instanceof VictoryPage) {
+			keyListener.keyInput(e);
+		}
 	}
 }
