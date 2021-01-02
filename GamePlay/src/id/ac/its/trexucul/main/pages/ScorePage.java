@@ -76,13 +76,22 @@ public class ScorePage extends PageState {
 		int index = 0;
 		for(ArrayList<Score> scoreL : scoreList) {
 			int posAdd = 0;
-			String text = String.format("%-20s %s", "Nama", "Score");
 			
+			String text = String.format("%-20s", "Nama");
 			g.drawString(text, textPos[index][0], textPos[index][1]+posAdd);
 			for(int i = 0; i < scoreL.size(); i++) {
 				posAdd += 40;
-				text = String.format("%-20s %s", scoreL.get(i).getPlayerName(), scoreL.get(i).getScore());
+				text = String.format("%-20s", scoreL.get(i).getPlayerName());
 				g.drawString(text, textPos[index][0], textPos[index][1]+posAdd);
+			}
+			
+			posAdd = 0;
+			text = String.format("%s", "Score");
+			g.drawString(text, textPos[index][0]+127, textPos[index][1]+posAdd);
+			for(int i = 0; i < scoreL.size(); i++) {
+				posAdd += 40;
+				text = String.format("%s", scoreL.get(i).getScore());
+				g.drawString(text, textPos[index][0]+127, textPos[index][1]+posAdd);
 			}
 			index++;
 		}

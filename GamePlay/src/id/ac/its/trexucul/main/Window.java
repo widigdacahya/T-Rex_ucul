@@ -126,8 +126,8 @@ public class Window extends JFrame implements Runnable {
 		creditPage = new CreditPage(this);
 		characterPage = new CharacterPage(this);
 		scorePage = new ScorePage(this);
-		setVictoryPage(SelectedGamePage.Satu, 5000);
-		PageState.currentState = getScorePage();
+//		setVictoryPage(SelectedGamePage.Satu, 5000);
+		PageState.currentState = getMenuPage();
 
 		Assets.init();
 	}
@@ -231,6 +231,7 @@ public class Window extends JFrame implements Runnable {
 				victoryPage.updateTextTyped(e);
 			}
 		});
+		
 		return victoryPage;
 	}
 
