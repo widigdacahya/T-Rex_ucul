@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+import id.ac.its.trexucul.model.data.Score;
+
 public class WriteSerial {
 	private static ObjectOutputStream output;
 
@@ -23,7 +25,7 @@ public class WriteSerial {
 		}
 	}
 
-	public static <T> void addRecords(ArrayList<T> itemArr, String fileName) {		
+	public static void addRecords(ArrayList<Score> itemArr, String fileName) {		
 		openFile(fileName);
 		
 		try {

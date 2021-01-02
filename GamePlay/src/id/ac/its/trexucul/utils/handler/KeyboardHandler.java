@@ -3,8 +3,8 @@ package id.ac.its.trexucul.utils.handler;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import id.ac.its.trexucul.pages.PageState;
-import id.ac.its.trexucul.pages.VictoryPage;
+import id.ac.its.trexucul.main.pages.PageState;
+import id.ac.its.trexucul.main.pages.VictoryPage;
 import id.ac.its.trexucul.utils.listener.KeyTypedListener;
 
 public class KeyboardHandler implements KeyListener {

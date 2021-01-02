@@ -10,9 +10,9 @@ import java.util.Random;
 
 import id.ac.its.trexucul.components.objects.Ground;
 import id.ac.its.trexucul.components.objects.PlayerBullet;
+import id.ac.its.trexucul.main.pages.GamePage;
 import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
-import id.ac.its.trexucul.pages.GamePage;
 import id.ac.its.trexucul.utils.helper.Animation;
 import id.ac.its.trexucul.utils.helper.SecondsTimer;
 import id.ac.its.trexucul.utils.helper.ImageLoader;

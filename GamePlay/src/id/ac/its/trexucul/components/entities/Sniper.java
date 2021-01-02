@@ -7,9 +7,9 @@ import java.awt.image.BufferedImage;
 
 import id.ac.its.trexucul.components.objects.EnemyBullet;
 import id.ac.its.trexucul.components.objects.Ground;
+import id.ac.its.trexucul.main.pages.CharacterPage;
 import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
-import id.ac.its.trexucul.pages.CharacterPage;
 import id.ac.its.trexucul.utils.helper.Animation;
 import id.ac.its.trexucul.utils.helper.SecondsTimer;
 import id.ac.its.trexucul.utils.helper.Camera;

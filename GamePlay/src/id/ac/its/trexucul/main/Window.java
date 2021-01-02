@@ -8,17 +8,18 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
+import id.ac.its.trexucul.main.pages.CharacterPage;
+import id.ac.its.trexucul.main.pages.CreditPage;
+import id.ac.its.trexucul.main.pages.GameOverPage;
+import id.ac.its.trexucul.main.pages.GamePage;
+import id.ac.its.trexucul.main.pages.LevelPage;
+import id.ac.its.trexucul.main.pages.MenuPage;
+import id.ac.its.trexucul.main.pages.PageState;
+import id.ac.its.trexucul.main.pages.ScorePage;
+import id.ac.its.trexucul.main.pages.SplashPage;
+import id.ac.its.trexucul.main.pages.VictoryPage;
 import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
-import id.ac.its.trexucul.pages.CharacterPage;
-import id.ac.its.trexucul.pages.CreditPage;
-import id.ac.its.trexucul.pages.GameOverPage;
-import id.ac.its.trexucul.pages.GamePage;
-import id.ac.its.trexucul.pages.LevelPage;
-import id.ac.its.trexucul.pages.MenuPage;
-import id.ac.its.trexucul.pages.PageState;
-import id.ac.its.trexucul.pages.SplashPage;
-import id.ac.its.trexucul.pages.VictoryPage;
 import id.ac.its.trexucul.utils.handler.KeyboardHandler;
 import id.ac.its.trexucul.utils.handler.MouseHandler;
 import id.ac.its.trexucul.utils.helper.Camera;
@@ -51,6 +52,7 @@ public class Window extends JFrame implements Runnable {
 	private CreditPage creditPage;
 	private VictoryPage victoryPage;
 	private CharacterPage characterPage;
+	private ScorePage scorePage;
 	
 	public Camera cam;
 
@@ -123,12 +125,13 @@ public class Window extends JFrame implements Runnable {
 		victoryPage = new VictoryPage(this);
 		creditPage = new CreditPage(this);
 		characterPage = new CharacterPage(this);
+		scorePage = new ScorePage(this);
 		setVictoryPage(SelectedGamePage.Satu, 5000);
-		PageState.currentState = getVictoryPage();
+		PageState.currentState = getScorePage();
 
 		Assets.init();
 	}
-	
+
 	@Override
 	public void run() {
 		long now = 0;
@@ -242,5 +245,9 @@ public class Window extends JFrame implements Runnable {
 
 	public void setCharacterPage(CharacterPage characterPage) {
 		this.characterPage = characterPage;
+	}
+	
+	public ScorePage getScorePage() {
+		return scorePage;
 	}
 }

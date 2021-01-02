@@ -27,6 +27,7 @@ public class Assets {
 	public static Image gamepage2BG;
 	public static Image gamepage3BG;
 	public static Image characterBG;
+	public static Image scoreBG;
 	public static Image gameOverPage;
 	public static Image gameSplashPage;
 	public static Image creditPage;
@@ -55,6 +56,7 @@ public class Assets {
 		gameSplashPage = ImageLoader.loadImage("res/menu/bgsplash.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		creditPage = ImageLoader.loadImage("res/menu/creditbg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		characterBG = ImageLoader.loadImage("res/menu/CharacterPage.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
+		scoreBG = ImageLoader.loadImage("res/menu/ScorePage.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		
 		fontSplash = FontLoader.loadFont("res/fonts/Russo_One.ttf", 32);
 	}

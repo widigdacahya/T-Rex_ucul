@@ -8,6 +8,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+import id.ac.its.trexucul.model.data.Score;
+
 public class ReadSerial {
 	private static ObjectInputStream input;
 
@@ -21,17 +23,13 @@ public class ReadSerial {
 		}
 	}
 
-	public static <T> ArrayList<T> readRecords(String fileName) {
-		ArrayList<T> record = new ArrayList<T>();
+	public static ArrayList<Score> readRecords(String fileName) {
+		ArrayList<Score> record = new ArrayList<Score>();
 		
 		openFile(fileName);
 		
 		try {
-			record = (ArrayList<T>) input.readObject();
-			
-//			System.out.printf("%s%nNama: %s%nScore: %s%n",
-//							record.getLevel(), record.getPlayerName(),
-//							record.getScore());
+			record = (ArrayList<Score>)input.readObject();
 		} catch (EOFException endOfFileException) {
 			System.out.printf("%nNo more records%n");
 		} catch (ClassNotFoundException classNotFoundException) {
