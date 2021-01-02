@@ -32,8 +32,8 @@ public class Camera {
 	}
 	
 	public void update(Player player) {
-		if (player.getX() > Window.WIDTH/2 && player.getX() < MAX_BG_WIDTH-Window.WIDTH/2)
-			x = -player.getX() + Window.WIDTH/2;
+		if (player.getX() > Window.WIDTH/6 && player.getX() < MAX_BG_WIDTH-Window.WIDTH*5/6)
+			x = -player.getX() + Window.WIDTH/6;
 	}
 	
 	public void resetCameraPosition() {
