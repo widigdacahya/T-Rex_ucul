@@ -22,13 +22,13 @@ import id.ac.its.trexucul.components.CommonButton;
 import id.ac.its.trexucul.main.Window;
 import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
-import id.ac.its.trexucul.model.serial.ReadSerial;
 import id.ac.its.trexucul.model.serial.Score;
 import id.ac.its.trexucul.model.serial.ScoreSerialIO;
-import id.ac.its.trexucul.model.serial.WriteSerial;
 import id.ac.its.trexucul.utils.handler.KeyboardHandler;
 import id.ac.its.trexucul.utils.helper.FontLoader;
 import id.ac.its.trexucul.utils.helper.SecondsTimer;
+import id.ac.its.trexucul.utils.helper.io.ReadSerial;
+import id.ac.its.trexucul.utils.helper.io.WriteSerial;
 import id.ac.its.trexucul.utils.listener.ClickListener;
 
 public class VictoryPage extends PageState{
@@ -86,14 +86,7 @@ public class VictoryPage extends PageState{
 	}
 	
 	public void setLevelType(SelectedGamePage type) {
-		if (type == SelectedGamePage.Satu)
-			fileName = "score_data_level_1.txt";
-		else if (type == SelectedGamePage.Dua)
-			fileName = "score_data_level_2.txt";
-		else if (type == SelectedGamePage.Tiga)
-			fileName = "score_data_level_3.txt";
-		
-		scoreSerial = new ScoreSerialIO(fileName);
+		scoreSerial = new ScoreSerialIO(type);
 	}
 
 	@Override

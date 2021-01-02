@@ -1,4 +1,4 @@
-package id.ac.its.trexucul.model.serial;
+package id.ac.its.trexucul.utils.helper.io;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -43,6 +43,24 @@ public class ReadSerial {
 		closeFile();
 		
 		return record;
+	}
+	
+	public static int[] readNumData() {
+		int[] numData = new int[3];
+		openFile("score_data.txt");
+		
+		try {
+			for(int i = 0; i < 3; i++)
+				numData[i] = input.readInt();
+		} catch (EOFException endOfFileException) {
+			System.out.printf("%nNo more records%n");
+		} catch (IOException ioException) {
+			System.err.println("Error reading from file. Terminating.");
+		}
+
+		closeFile();
+		
+		return numData;
 	}
 
 	public static void closeFile() {

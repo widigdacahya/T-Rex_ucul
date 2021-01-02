@@ -1,5 +1,6 @@
-package id.ac.its.trexucul.model.serial;
+package id.ac.its.trexucul.utils.helper.io;
 
+import java.io.EOFException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -18,7 +19,6 @@ public class WriteSerial {
 			output = new ObjectOutputStream(new FileOutputStream(fileName));
 		} catch (IOException ioException) {
 			System.err.println("Error opening file. Terminating.");
-			ioException.printStackTrace();
 			System.exit(1);
 		}
 	}
@@ -34,6 +34,21 @@ public class WriteSerial {
 			System.err.println("Error writing to file. Terminating.");
 		}
 		
+		closeFile();
+	}
+	
+	public static void writeNumData(int[] numData) {
+		openFile("score_data.txt");
+		
+		try {
+			for(int i = 0; i < 3; i++)
+				output.writeInt(numData[i]);
+		} catch (EOFException endOfFileException) {
+			System.out.printf("%nNo more records%n");
+		} catch (IOException ioException) {
+			System.err.println("Error reading from file. Terminating.");
+		}
+
 		closeFile();
 	}
 
