@@ -50,8 +50,10 @@ public class CommonButton {
 	public void update(){		
 		if(bounds != null && bounds.contains(MouseHandler.x, MouseHandler.y)) {
 			hovering = true;
-			if(MouseHandler.leftBtn)
+			if(MouseHandler.leftBtn) {
 				click.onClick();
+				MouseHandler.leftBtn = false;
+			}	
 		} else
 			hovering = false;
 	}

@@ -71,7 +71,7 @@ public class CharacterPage extends PageState{
 		btns.add(new CommonButton("kembali", 11, 625, new ClickListener() {
 			@Override
 			public void onClick() {
-				PageState.currentState = window.getMenuPage();
+				PageState.currentState = window.getLevelPage();
 			}
 		}));
 	}
