@@ -52,7 +52,6 @@ public class KeyboardHandler implements KeyListener {
 //		}
 	}
 	
-	
 	@Override
 	public void keyReleased(KeyEvent e) {
 		keys[e.getKeyCode()] = false;

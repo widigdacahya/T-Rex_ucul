@@ -22,6 +22,9 @@ import id.ac.its.trexucul.components.CommonButton;
 import id.ac.its.trexucul.main.Window;
 import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
+import id.ac.its.trexucul.model.serial.ReadSerial;
+import id.ac.its.trexucul.model.serial.Score;
+import id.ac.its.trexucul.model.serial.ScoreSerialIO;
 import id.ac.its.trexucul.model.serial.WriteSerial;
 import id.ac.its.trexucul.utils.handler.KeyboardHandler;
 import id.ac.its.trexucul.utils.helper.FontLoader;
@@ -35,12 +38,10 @@ public class VictoryPage extends PageState{
 	private CommonButton inputNameButton;
 	
 	private String nameValue;
-	private SelectedGamePage type;
 	private boolean initTF = false;
 	private JTextField textfield;
 	
-	private String level;
-	private Rectangle r;
+	private String fileName;
 	private String textTyped;
 	private SecondsTimer timer;
 
@@ -48,12 +49,12 @@ public class VictoryPage extends PageState{
 	private String label = "Masukkan nama Anda:";
 	private Font input = FontLoader.loadFont("res/fonts/Russo_One.ttf", 28);
 	private Font inputLabel = FontLoader.loadFont("res/fonts/Russo_One.ttf", 20);
-	private int score;
+	
+	private int score = 0;
+	private ScoreSerialIO scoreSerial;
 
 	public VictoryPage(Window window) {
 		super(window);
-		
-		this.type = type;
 
 		Assets.width = 177;
 		Assets.height = 45;
@@ -76,7 +77,7 @@ public class VictoryPage extends PageState{
 			@Override
 			public void onClick() {
 				finishInput = true;
-//				WriteSerial.addRecords(score, textTyped, level);
+				scoreSerial.addRecord(new Score(score, textTyped));
 			}
 		}, 185, 76);
 		
@@ -85,14 +86,14 @@ public class VictoryPage extends PageState{
 	}
 	
 	public void setLevelType(SelectedGamePage type) {
-		this.type = type;
-		
 		if (type == SelectedGamePage.Satu)
-			level = "Level 1";
+			fileName = "score_data_level_1.txt";
 		else if (type == SelectedGamePage.Dua)
-			level = "Level 2";
+			fileName = "score_data_level_2.txt";
 		else if (type == SelectedGamePage.Tiga)
-			level = "Level 3";
+			fileName = "score_data_level_3.txt";
+		
+		scoreSerial = new ScoreSerialIO(fileName);
 	}
 
 	@Override
