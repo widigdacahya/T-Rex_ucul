@@ -29,8 +29,8 @@ public class LevelPage extends PageState {
 			public void onClick() {
 				// Level 1
 				//window.setGamePage(new GamePage(window, SelectedGamePage.Satu));
-				PageState.currentState = window.getCharacterPage();
 				selectedPage = SelectedGamePage.Satu;
+				PageState.currentState = window.getCharacterPage();
 			}
 		}));
 		
@@ -40,8 +40,8 @@ public class LevelPage extends PageState {
 			public void onClick() {
 				// Level 2
 				//window.setGamePage(new GamePage(window, SelectedGamePage.Dua));
-				PageState.currentState = window.getCharacterPage();
 				selectedPage = SelectedGamePage.Dua;
+				PageState.currentState = window.getCharacterPage();
 			}
 		}));
 		
@@ -51,8 +51,8 @@ public class LevelPage extends PageState {
 			public void onClick() {
 				// Level 3
 				//window.setGamePage(new GamePage(window, SelectedGamePage.Tiga));
-				PageState.currentState = window.getCharacterPage();
 				selectedPage = SelectedGamePage.Tiga;
+				PageState.currentState = window.getCharacterPage();
 			}
 		}));
 		

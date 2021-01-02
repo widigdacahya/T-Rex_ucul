@@ -30,7 +30,7 @@ public class CharacterPage extends PageState{
 			public void onClick() {
 				// Level 1
 				selectedCharacter = SelectedGamePage.Satu;
-				window.setGamePage(new GamePage(window, SelectedGamePage.Satu, LevelPage.selectedPage));
+				window.setGamePage(new GamePage(window, LevelPage.selectedPage,  selectedCharacter));
 				window.getGamePage().setCharacter(SelectedGamePage.Satu);
 				window.getGamePage().getPlayer().setFireDamage(LevelPage.selectedPage);
 				//GamePage.character = SelectedGamePage.Satu;
@@ -45,7 +45,7 @@ public class CharacterPage extends PageState{
 			public void onClick() {
 				// Level 2
 				selectedCharacter = SelectedGamePage.Dua;
-				window.setGamePage(new GamePage(window, SelectedGamePage.Dua, LevelPage.selectedPage));
+				window.setGamePage(new GamePage(window, LevelPage.selectedPage,  selectedCharacter));
 				window.getGamePage().setCharacter(SelectedGamePage.Dua);
 				window.getGamePage().getPlayer().setFireDamage(LevelPage.selectedPage);
 				PageState.currentState = window.getGamePage();
@@ -59,7 +59,7 @@ public class CharacterPage extends PageState{
 			public void onClick() {
 				// Level 3
 				selectedCharacter = SelectedGamePage.Tiga;
-				window.setGamePage(new GamePage(window, SelectedGamePage.Tiga, LevelPage.selectedPage));
+				window.setGamePage(new GamePage(window, LevelPage.selectedPage,  selectedCharacter));
 				window.getGamePage().setCharacter(SelectedGamePage.Tiga);
 				window.getGamePage().getPlayer().setFireDamage(LevelPage.selectedPage);
 				PageState.currentState = window.getGamePage();

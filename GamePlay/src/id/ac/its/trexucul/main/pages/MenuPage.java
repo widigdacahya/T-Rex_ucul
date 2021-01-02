@@ -33,7 +33,8 @@ public class MenuPage extends PageState {
 		btns.add(new CommonButton("pengaturan_menu_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 , new ClickListener() {
 			@Override
 			public void onClick() {
-				// pengaturan
+				// score
+				PageState.currentState = window.getScorePage();
 			}
 		}));
 		btns.add(new CommonButton("credit_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 + 100 , new ClickListener() {
