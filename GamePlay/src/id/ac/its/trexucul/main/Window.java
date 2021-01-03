@@ -176,6 +176,7 @@ public class Window extends JFrame implements Runnable {
 	}
 	
 	public GamePage getGamePage() {
+		cam.resetCameraPosition();
 		return gamePage;
 	}
 
@@ -184,6 +185,7 @@ public class Window extends JFrame implements Runnable {
 	}
 
 	public LevelPage getLevelPage() {
+		cam.resetCameraPosition();
 		return levelPage;
 	}
 
@@ -192,6 +194,7 @@ public class Window extends JFrame implements Runnable {
 	}
 
 	public MenuPage getMenuPage() {
+		cam.resetCameraPosition();
 		return menuPage;
 	}
 
@@ -200,6 +203,7 @@ public class Window extends JFrame implements Runnable {
 	}
 
 	public SplashPage getSplashPage() {
+		cam.resetCameraPosition();
 		return splashPage;
 	}
 
@@ -208,6 +212,7 @@ public class Window extends JFrame implements Runnable {
 	}
 
 	public GameOverPage getGameOverPage() {
+		cam.resetCameraPosition();
 		return gameOverPage;
 	}
 
@@ -216,6 +221,7 @@ public class Window extends JFrame implements Runnable {
 	}
 	
 	public CreditPage getCreditPage() {
+		cam.resetCameraPosition();
 		return creditPage;
 	}
 
@@ -241,6 +247,7 @@ public class Window extends JFrame implements Runnable {
 	}
 
 	public CharacterPage getCharacterPage() {
+		cam.resetCameraPosition();
 		return characterPage;
 	}
 
@@ -249,6 +256,8 @@ public class Window extends JFrame implements Runnable {
 	}
 	
 	public ScorePage getScorePage() {
+		cam.resetCameraPosition();
+		scorePage.initList();
 		return scorePage;
 	}
 }

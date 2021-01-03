@@ -42,7 +42,7 @@ public class ScoreSerialIO {
 			ArrayList<Score> scoreList = ReadSerial.readRecords(fileName);
 			
 			if (scoreList != null) {
-				if (scoreList.size() > 5) {
+				if (scoreList.size() >= 5) {
 					scoreList.add(data);
 					Collections.sort(scoreList, new ScoreComparator());
 					scoreList.remove(5);
@@ -67,6 +67,7 @@ public class ScoreSerialIO {
 	
 	public ArrayList<Score> getRecords() {
 		ArrayList<Score> scoreList = new ArrayList<Score>();
+		this.numData = ReadIO.readNumData();
 		
 		if (numData[indexNum] > 0) {
 			scoreList = ReadSerial.readRecords(fileName);

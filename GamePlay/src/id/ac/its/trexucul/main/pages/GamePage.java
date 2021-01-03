@@ -109,7 +109,8 @@ public class GamePage extends PageState {
 			if(enemy.isVisible() && enemy.isIncluded()) {
 				enemy.render(g);
 				g.setColor(Color.white);
-				g.drawString("Enemy: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);			}
+				g.drawString("Enemy: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);			
+			}
 		}
 		
 		for(PlayerBullet bullet : pBullets) {
@@ -167,7 +168,7 @@ public class GamePage extends PageState {
 			PageState.currentState = window.getGameOverPage();
 		}
 		
-		backButton.setX( (int) -camX+60 );
+		backButton.setX( (int)-camX+60 );
 		backButton.update();
 	}
 	

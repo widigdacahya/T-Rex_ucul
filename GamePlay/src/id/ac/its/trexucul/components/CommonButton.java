@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
 
+import id.ac.its.trexucul.main.pages.GamePage;
+import id.ac.its.trexucul.main.pages.PageState;
 import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.utils.handler.MouseHandler;
 import id.ac.its.trexucul.utils.listener.ClickListener;
@@ -47,8 +49,13 @@ public class CommonButton {
 		btnHov = Assets.getImageBtn(btnName + "_hov.png", width, height);
 	}
 	
-	public void update(){		
-		if(bounds != null && bounds.contains(MouseHandler.x, MouseHandler.y)) {
+	public void update(){
+		int addition = 0;
+		
+		if (PageState.currentState instanceof GamePage)
+			addition = this.x-60;
+		
+		if(bounds != null && bounds.contains(MouseHandler.x+addition, MouseHandler.y)) {
 			hovering = true;
 			if(MouseHandler.leftBtn) {
 				click.onClick();
@@ -61,10 +68,10 @@ public class CommonButton {
 	public void render(Graphics g) {
 		if(hovering) {
 			g.drawImage(btnHov, this.x, this.y, null);
-			bounds = new Rectangle(x, y, btnHov.getWidth(null), btnHov.getHeight(null));
+			bounds = new Rectangle(this.x, this.y, btnHov.getWidth(null), btnHov.getHeight(null));
 		} else {
 			g.drawImage(btn, this.x, this.y, null);
-			bounds = new Rectangle(x, y, btn.getWidth(null), btn.getHeight(null));
+			bounds = new Rectangle(this.x, this.y, btn.getWidth(null), btn.getHeight(null));
 		}
 	}
 

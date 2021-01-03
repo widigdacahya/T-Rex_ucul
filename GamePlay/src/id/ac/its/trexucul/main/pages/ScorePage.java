@@ -47,8 +47,6 @@ public class ScorePage extends PageState {
 		level1IO = new ScoreSerialIO(SelectedGamePage.Satu);
 		level2IO = new ScoreSerialIO(SelectedGamePage.Dua);
 		level3IO = new ScoreSerialIO(SelectedGamePage.Tiga);
-		
-		initList();
 	}
 
 	@Override
@@ -63,7 +61,9 @@ public class ScorePage extends PageState {
 		paintScore(g);
 	}
 	
-	private void initList() {
+	public void initList() {
+		if (scoreList.size() > 0)
+			scoreList.clear();
 		scoreList.add(level1IO.getRecords());
 		scoreList.add(level2IO.getRecords());
 		scoreList.add(level3IO.getRecords());
@@ -93,6 +93,7 @@ public class ScorePage extends PageState {
 				text = String.format("%s", scoreL.get(i).getScore());
 				g.drawString(text, textPos[index][0]+127, textPos[index][1]+posAdd);
 			}
+			
 			index++;
 		}
 	}

@@ -15,6 +15,7 @@ import id.ac.its.trexucul.model.data.ScoreSerialIO;
 import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
 import id.ac.its.trexucul.utils.handler.KeyboardHandler;
+import id.ac.its.trexucul.utils.handler.MouseHandler;
 import id.ac.its.trexucul.utils.helper.FontLoader;
 import id.ac.its.trexucul.utils.helper.SecondsTimer;
 import id.ac.its.trexucul.utils.listener.ClickListener;
@@ -45,6 +46,7 @@ public class VictoryPage extends PageState{
 			@Override
 			public void onClick() {
 				//Go to Level Page
+				MouseHandler.leftBtn = false;
 				PageState.currentState = window.getLevelPage();
 			}
 		}));
@@ -52,6 +54,7 @@ public class VictoryPage extends PageState{
 			@Override
 			public void onClick() {
 				// Exit game
+				MouseHandler.leftBtn = false;
 				System.exit(1);
 			}
 		}));
@@ -60,6 +63,7 @@ public class VictoryPage extends PageState{
 			@Override
 			public void onClick() {
 				finishInput = true;
+				MouseHandler.leftBtn = false;
 				scoreSerial.addRecord(new Score(score, textTyped));
 			}
 		}, 185, 76);
@@ -70,6 +74,7 @@ public class VictoryPage extends PageState{
 	
 	public void setLevelType(SelectedGamePage type) {
 		finishInput = false;
+		textTyped = "";
 		scoreSerial = new ScoreSerialIO(type);
 	}
 
