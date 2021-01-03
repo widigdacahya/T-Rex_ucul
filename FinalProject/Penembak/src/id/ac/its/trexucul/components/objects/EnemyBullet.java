@@ -1,0 +1,26 @@
+package id.ac.its.trexucul.components.objects;
+
+import java.awt.Graphics;
+import java.awt.Rectangle;
+
+public class EnemyBullet extends Bullet {
+	
+	public EnemyBullet(String name, int x, int y) {
+		super(name, x, y, -50.0f);
+	}
+
+	@Override
+	public void update() {
+		super.update();
+	}
+
+	@Override
+	public void render(Graphics g) {
+		super.render(g);
+	}
+
+	@Override
+	public Rectangle getBounds() {
+		return super.getBounds();
+	}
+}
