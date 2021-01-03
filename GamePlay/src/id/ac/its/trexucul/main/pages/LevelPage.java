@@ -7,6 +7,7 @@ import id.ac.its.trexucul.components.CommonButton;
 import id.ac.its.trexucul.main.Window;
 import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
+import id.ac.its.trexucul.utils.handler.MouseHandler;
 import id.ac.its.trexucul.utils.listener.ClickListener;
 
 public class LevelPage extends PageState {
@@ -30,6 +31,7 @@ public class LevelPage extends PageState {
 				// Level 1
 				//window.setGamePage(new GamePage(window, SelectedGamePage.Satu));
 				selectedPage = SelectedGamePage.Satu;
+				MouseHandler.leftBtn = false;
 				PageState.currentState = window.getCharacterPage();
 			}
 		}));
@@ -41,6 +43,7 @@ public class LevelPage extends PageState {
 				// Level 2
 				//window.setGamePage(new GamePage(window, SelectedGamePage.Dua));
 				selectedPage = SelectedGamePage.Dua;
+				MouseHandler.leftBtn = false;
 				PageState.currentState = window.getCharacterPage();
 			}
 		}));
@@ -52,6 +55,7 @@ public class LevelPage extends PageState {
 				// Level 3
 				//window.setGamePage(new GamePage(window, SelectedGamePage.Tiga));
 				selectedPage = SelectedGamePage.Tiga;
+				MouseHandler.leftBtn = false;
 				PageState.currentState = window.getCharacterPage();
 			}
 		}));
@@ -60,6 +64,7 @@ public class LevelPage extends PageState {
 		btns.add(new CommonButton("kembali", 11, 625, new ClickListener() {
 			@Override
 			public void onClick() {
+				MouseHandler.leftBtn = false;
 				PageState.currentState = window.getMenuPage();
 			}
 		}));

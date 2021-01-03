@@ -69,6 +69,7 @@ public class VictoryPage extends PageState{
 	}
 	
 	public void setLevelType(SelectedGamePage type) {
+		finishInput = false;
 		scoreSerial = new ScoreSerialIO(type);
 	}
 
