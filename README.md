@@ -5,7 +5,7 @@ Pemrograman Berorientasi Objek Kelas E
 📗project 2: DisplayApp             
 📗project 3: Collision Detection                
 📗project 4: Collision Detection with mouse                 
-📗FINAL PROJECT : <a href="https://github.com/widigdacahya/T-Rex_ucul/tree/main/FinalProject">Final Projeck:Penembak</a>                  
+📗FINAL PROJECT : <a href="https://github.com/widigdacahya/T-Rex_ucul/tree/main/FinalProject">Final Project: Penembak</a>                  
 
 ### Anggota kelompok:  
 
