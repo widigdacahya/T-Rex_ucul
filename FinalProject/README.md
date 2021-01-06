@@ -29,64 +29,64 @@ Penembak memiliki beberapa fitur seperti beberapa screen untuk pemilihan level, 
 
 📘 Penjelasan masing-masing kelas yang digunakan:
 -->📁 components
-`CommonButton.java`
-components/entities:
-`Enemy.java`
-`Player.java`
-`Riffle.java`
-`Sniper.java`
-components/object:
-`Bullet.java`
-`EnemyBullet.java`
-`Ground.java`: digunakan untuk memuat gambar komponen tanah dan bounds yang menjadi tempat player dan enemy berpijak
-`PlayerBullet.java`
+`CommonButton.java`: class untuk            
+components/entities:    
+`Enemy.java`: class untuk           
+`Player.java`: class untuk          
+`Riffle.java`: class untuk          
+`Sniper.java`: class untuk              
+components/object:              
+`Bullet.java`: class untuk              
+`EnemyBullet.java`: class untuk                
+`Ground.java`: digunakan untuk memuat gambar komponen tanah dan bounds yang menjadi tempat player dan enemy berpijak            
+`PlayerBullet.java`: class untuk              
+    
+-->📁 main  
+`Launcher.java`: class untuk               
+`Window.java`: class untuk                
+main/pages:         
+`CharacterPage.java`: class untuk         
+`CreditPage.java`: digunakan untuk menampilkan gambar anggota kelompok dan biodata dan tombol untuk kembali ke menu utama       
+`GameOverPage.java`: class screen gameover page menyediakan tombol untuk keluar game atau mencoba kembali       
+`GamePage.java`: class untuk                
+`LevelPage.java`: class untuk               
+`MenuPage.java`: class untuk                    
+`PageState.java`: class untuk                   
+`ScorePage.java`: class untuk                       
+`SplashPage.java`: class digunakan untuk screen awal yang menunjukkan identitas game selama beberapa detik dan mengarahkan pemain ke menu utama     
+`VictoryPage.java`: class untuk                         
 
--->📁 main
-`Launcher.java`
-`Window.java`
-main/pages:
-`CharacterPage.java`
-`CreditPage.java`: digunakan untuk menampilkan gambar anggota kelompok dan biodata dan tombol untuk kembali ke menu utama 
-`GameOverPage.java`: class screen gameover page menyediakan tombol untuk keluar game atau mencoba kembali 
-`GamePage.java`
-`LevelPage.java`
-`MenuPage.java`
-`PageState.java`
-`ScorePage.java`
-`SplashPage.java`: class digunakan untuk screen awal yang menunjukkan identitas game selama beberapa detik dan mengarahkan pemain ke menu utama
-`VictoryPage.java`
-
--->📁 model
-model/data:
-`Score.java`
-`ScoreComparator.java`
-`ScoreSerialIO.java`
-model/gfx:
-`Assets.java`
-`Text.java`
-model/id:
-`SelectedGamePage.java`
+-->📁 model                 
+model/data:             
+`Score.java`: class untuk               
+`ScoreComparator.java`: class untuk                 
+`ScoreSerialIO.java`: class untuk                   
+model/gfx:                  
+`Assets.java`: class untuk                      
+`Text.java`: class untuk                        
+model/id:                           
+`SelectedGamePage.java`: class untuk                    
 
 -->📁 utils
-utils/handler:
-`KeyboardHandler.java`
-`MouseHandler.java`
-utils/helper:
-`Animation.java`
-`AnimationFire.java`
-`Camera.java`
-`FontLoader.java`
-`ImageLoader.java`
-`SecondsTimer.java`
-utils/helper/io:
-`ReadIO.java`
-`ReadSerial.java`
-`WriteIO.java`
-`WriteSerial.java`
-utils/listener:
-`BulletListener.java`
-`ClickListener.java`
-`KeyTypedListener.java`
+utils/handler:                          
+`KeyboardHandler.java`: class untuk                     
+`MouseHandler.java`: class untuk                        
+utils/helper:               
+`Animation.java`: class untuk                           
+`AnimationFire.java`: class untuk                           
+`Camera.java`: class untuk                          
+`FontLoader.java`: class untuk                      
+`ImageLoader.java`: class untuk                         
+`SecondsTimer.java`: class untuk                            
+utils/helper/io:                    
+`ReadIO.java`: class untuk                          
+`ReadSerial.java`: class untuk                              
+`WriteIO.java`: class untuk                                 
+`WriteSerial.java`: class untuk                                 
+utils/listener:                         
+`BulletListener.java`: class untuk                  
+`ClickListener.java`: class untuk                       
+`KeyTypedListener.java`: class untuk                            
 
 
 ### Player 👦🏻
