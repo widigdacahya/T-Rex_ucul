@@ -22,6 +22,73 @@
 Penembak adalah sebuah permainan tembak-tembakan stickman yang terdiri dari bebera level. 
 Penembak memiliki beberapa fitur seperti beberapa screen untuk pemilihan level, menu, player yang memiliki shield saat tidak sedang bergerak, serta beberapa hal lainnya.
 
+****  
+📗 Class Diagram:  
+  <img src="ClassDiagram/classDiagram6Januari2021_medium.jpg" width="1200">
+**** 
+
+📘 Penjelasan masing-masing kelas yang digunakan:
+-->📁 components
+`CommonButton.java`
+components/entities:
+`Enemy.java`
+`Player.java`
+`Riffle.java`
+`Sniper.java`
+components/object:
+`Bullet.java`
+`EnemyBullet.java`
+`Ground.java`: digunakan untuk memuat gambar komponen tanah dan bounds yang menjadi tempat player dan enemy berpijak
+`PlayerBullet.java`
+
+-->📁 main
+`Launcher.java`
+`Window.java`
+main/pages:
+`CharacterPage.java`
+`CreditPage.java`: digunakan untuk menampilkan gambar anggota kelompok dan biodata dan tombol untuk kembali ke menu utama 
+`GameOverPage.java`: class screen gameover page menyediakan tombol untuk keluar game atau mencoba kembali 
+`GamePage.java`
+`LevelPage.java`
+`MenuPage.java`
+`PageState.java`
+`ScorePage.java`
+`SplashPage.java`: class digunakan untuk screen awal yang menunjukkan identitas game selama beberapa detik dan mengarahkan pemain ke menu utama
+`VictoryPage.java`
+
+-->📁 model
+model/data:
+`Score.java`
+`ScoreComparator.java`
+`ScoreSerialIO.java`
+model/gfx:
+`Assets.java`
+`Text.java`
+model/id:
+`SelectedGamePage.java`
+
+-->📁 utils
+utils/handler:
+`KeyboardHandler.java`
+`MouseHandler.java`
+utils/helper:
+`Animation.java`
+`AnimationFire.java`
+`Camera.java`
+`FontLoader.java`
+`ImageLoader.java`
+`SecondsTimer.java`
+utils/helper/io:
+`ReadIO.java`
+`ReadSerial.java`
+`WriteIO.java`
+`WriteSerial.java`
+utils/listener:
+`BulletListener.java`
+`ClickListener.java`
+`KeyTypedListener.java`
+
+
 ### Player 👦🏻
 Player merupakan pemain yang dikendalikan oleh pemain untuk menembak musuh yang ada. 
 Pemain menggunakan player untuk membunuh semua enemy yang ada di setiap level untuk mendapat score.
@@ -40,7 +107,11 @@ saat health Enemy habis, maka Enemy akan mati dan hilang dari screen.
 
 ### Menu Screen
 📄Screen yang memiliki beberapa pilihan tombol seperti tombol "Main" untuk memilih level dan Credit untuk menuju ke Credits Screen.     
-  <img src="Screenshot/menuss.png" width="400">
+  <img src="Screenshot/menu_page_new.png" width="400">
+
+### Hall of Fame Screen
+📄Screen yang menampilkan score dari Player yang berhasil mengalahkan Enemy.     
+  <img src="Screenshot/hall_of_fame.png" width="400">
 
 ### Credit Screen
 📄Screen yang menampilkan data diri kelompok Trex-ucul.     
@@ -48,7 +119,11 @@ saat health Enemy habis, maka Enemy akan mati dan hilang dari screen.
 
 ### Level Screen
 📄Screen untuk memilih map pertandingan yang akan dilalui oleh Player melawan Enemy.        
-  <img src="Screenshot/levelss.png" width="400">
+  <img src="Screenshot/new_level_screen.png" width="400">
+  
+### Character Screen
+📄Screen untuk memilih karakter penembak untuk melawan Enemy.        
+  <img src="Screenshot/memilih_penembak.png" width="400">
 
 ### GamePage
 📄Screen tempat dimana Player dan Enemy saling menembak.
@@ -57,16 +132,13 @@ Terdapat 3 jenis map yang ada dalam permainan.
 
 ### Victory Screen
 📄Screen yang muncul saat player berhasil mengalahkan enemy     
-  <img src="Screenshot/victoryss.png" width="400">  
+  <img src="Screenshot/victory_input.png" width="200"> <img src="Screenshot/victoryss.png" width="200"> 
 
 ### Game Over Screen
 📄Screen yang muncul saat Player kalah atau healthnya habis karena tertembak oleh Enemy     
   <img src="Screenshot/gameoverss.png" width="400">
 
-****  
-Class Diagram:  
-  <img src="ClassDiagram/dokumentasi_classdiagram_28Des20.jpg" width="1200">
-****  
+ 
 ### Referensi
   📚 <a href="https://www.figma.com/file/0ei6x3VdT1XXTR5jnzUXpX/Untitled?node-id=0%3A1">Figma (Pembuatan Asset)</a>   
   📚 <a href="https://github.com/JoshuaHernandezMartinez/Sokoban">Code Architecture: Sokoban Game</a>   
