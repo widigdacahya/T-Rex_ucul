@@ -27,9 +27,9 @@ Penembak memiliki beberapa fitur seperti beberapa screen untuk pemilihan level, 
   <img src="ClassDiagram/classDiagram6Januari2021_medium.jpg" width="1200">
 **** 
 
-📘 Penjelasan masing-masing kelas yang digunakan:  
+📘 Penjelasan masing-masing kelas yang digunakan (Silahkan klik nama kelas untuk melihat penjelasannya):  
 -->📁 components  
-`CommonButton.java`            
+[`CommonButton.java`](PenjelasanKelas/Componenets/CommonButton.md)            
 components/entities:    
 `Enemy.java`           
 `Player.java`          
