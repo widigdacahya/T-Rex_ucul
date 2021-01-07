@@ -1,4 +1,4 @@
-# ☕️ Score Class
+# ☕️ Text Class
 
 ****
 ### 💡Penjelasan:

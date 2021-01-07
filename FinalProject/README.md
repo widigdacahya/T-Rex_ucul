@@ -69,8 +69,8 @@ model/id:
 
 -->📁 utils
 utils/handler:                          
-`KeyboardHandler.java`                     
-`MouseHandler.java`                        
+[`KeyboardHandler.java`](PenjelasanKelas/handler/KeyboardHandler.md)                       
+[`MouseHandler.java`](PenjelasanKelas/handler/MouseHandler.md)                        
 utils/helper:               
 [`Animation.java`](PenjelasanKelas/helper/Animation.md)                           
 [`AnimationFire.java`](PenjelasanKelas/helper/AnimationFire.md)                           
