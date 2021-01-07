@@ -50,13 +50,13 @@ model/id:
 
 -->📁 utils
 utils/handler:                          
-[`KeyboardHandler.java`](PenjelasanKelas/handler/KeyboardHandler.md) dan [`MouseHandler.java`](PenjelasanKelas/handler/MouseHandler.md)                        
+[`KeyboardHandler.java`](PenjelasanKelas/Utils/Handler/KeyboardHandler.md) dan [`MouseHandler.java`](PenjelasanKelas/Utils/Handler/MouseHandler.md)                        
 utils/helper:               
-[`Animation.java`](PenjelasanKelas/helper/Animation.md), [`AnimationFire.java`](PenjelasanKelas/helper/AnimationFire.md), [`Camera.java`](PenjelasanKelas/helper/Camera.md), [`FontLoader.java`](PenjelasanKelas/helper/FontLoader.md), [`ImageLoader.java`](PenjelasanKelas/helper/ImageLoader.md) dan [`SecondsTimer.java`](PenjelasanKelas/helper/SecondsTimer.md)                            
+[`Animation.java`](PenjelasanKelas/Utils/Helper/Animation.md), [`AnimationFire.java`](PenjelasanKelas/Utils/Helper/AnimationFire.md), [`Camera.java`](PenjelasanKelas/Utils/Helper/Camera.md), [`FontLoader.java`](PenjelasanKelas/Utils/Helper/FontLoader.md), [`ImageLoader.java`](PenjelasanKelas/Utils/Helper/ImageLoader.md) dan [`SecondsTimer.java`](PenjelasanKelas/Utils/Helper/SecondsTimer.md)                            
 utils/helper/io:                    
-[`ReadIO.java`](PenjelasanKelas/IO/ReadIO.md), [`ReadSerial.java`](PenjelasanKelas/IO/ReadSerial.md), [`WriteIO.java`](PenjelasanKelas/IO/WriteIO.md), dan [`WriteSerial.java`](PenjelasanKelas/IO/WriteSerial.md)                                 
+[`ReadIO.java`](PenjelasanKelas/Utils/Helper/IO/ReadIO.md), [`ReadSerial.java`](PenjelasanKelas/Utils/Helper/IO/ReadSerial.md), [`WriteIO.java`](PenjelasanKelas/Utils/Helper/IO/WriteIO.md), dan [`WriteSerial.java`](PenjelasanKelas/Utils/Helper/IO/WriteSerial.md)                                 
 utils/listener:                         
-[`BulletListener.java`](PenjelasanKelas/Listener/BulletListener.md), [`ClickListener.java`](PenjelasanKelas/Listener/ClickListener.md), dan [`KeyTypedListener.java`](PenjelasanKelas/Listener/KeyTypedListener.md)                            
+[`BulletListener.java`](PenjelasanKelas/Utils/Listener/BulletListener.md), [`ClickListener.java`](PenjelasanKelas/Utils/Listener/ClickListener.md), dan [`KeyTypedListener.java`](PenjelasanKelas/Utils/Listener/KeyTypedListener.md)                            
 
 ## Objek Game
 Berikut objek atau componen permainan yang ada dalam proyek ini:
