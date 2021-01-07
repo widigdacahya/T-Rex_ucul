@@ -72,21 +72,21 @@ utils/handler:
 `KeyboardHandler.java`                     
 `MouseHandler.java`                        
 utils/helper:               
-`Animation.java`                           
-`AnimationFire.java`                           
-`Camera.java`                          
-`FontLoader.java`                      
-`ImageLoader.java`                         
-`SecondsTimer.java`                            
+[`Animation.java`](PenjelasanKelas/helper/Animation.md)                           
+[`AnimationFire.java`](PenjelasanKelas/helper/AnimationFire.md)                           
+[`Camera.java`](PenjelasanKelas/helper/Camera.md)                          
+[`FontLoader.java`](PenjelasanKelas/helper/FontLoader.md)                      
+[`ImageLoader.java`](PenjelasanKelas/helper/ImageLoader.md)                         
+[`SecondsTimer.java`](PenjelasanKelas/helper/SecondsTimer.md)                            
 utils/helper/io:                    
-`ReadIO.java`                          
-`ReadSerial.java`                              
-`WriteIO.java`                                 
-`WriteSerial.java`                                 
+[`ReadIO.java`](PenjelasanKelas/IO/ReadIO.md)                          
+[`ReadSerial.java`](PenjelasanKelas/IO/ReadSerial.md)                              
+[`WriteIO.java`](PenjelasanKelas/IO/WriteIO.md)                                 
+[`WriteSerial.java`](PenjelasanKelas/IO/WriteSerial.md)                                 
 utils/listener:                         
-`BulletListener.java`                  
-`ClickListener.java`                       
-`KeyTypedListener.java`                            
+[`BulletListener.java`](PenjelasanKelas/Listener/BulletListener.md)
+[`ClickListener.java`](PenjelasanKelas/Listener/ClickListener.md)                       
+[`KeyTypedListener.java`](PenjelasanKelas/Listener/KeyTypedListener.md)                            
 
 ## Objek Game
 Berikut objek atau componen permainan yang ada dalam proyek ini:
