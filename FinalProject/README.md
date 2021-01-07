@@ -101,6 +101,7 @@ Untuk menggerakkan player, pemain dapat menggunakan:
 - Tombol arah kiri untuk bergerak mundur.      
 - Tombol spasi untuk menembakkan peluru.      
 **Tambahan**: Ketika tombol ditekan pelindung akan dalam keadaan terbuka (mati).      
+
 Pemain diberikan pilihan untuk menentukan karakter mana yang ingin dipakai ketika bermain.
 Setiap karakter memiliki variasi health, damage, dan interval tembak yang berbeda.
 Terdapat 3 pilihan karakter yang dapat dipilih pemain.              
@@ -114,18 +115,22 @@ Enemy akan bergerakn melompat-lompat untuk mempersulit player dalam bergerak.
 Pada setiap level memiliki perbedaan damage dari tembakan enemy dan selang enemy menembakkan pelurunya.
 Semakin tinggi level, maka damage akan semakin tinggi dan interval menembakknya semakin cepat.
 
-## Layar
+## Layar Game
 Berikut layar-layar atau halaman-halaman yang ada dalam permainan ini:
 ### Splash Screen
 📄Screen awal yang menunjukkan title game sebelum ke screen menu.       
   <img src="Screenshot/splash.gif" width="800">
 
 ### Menu Screen
-📄Screen yang memiliki beberapa pilihan tombol seperti tombol "Main" untuk memilih level dan Credit untuk menuju ke Credits Screen.     
+📄Screen yang memiliki beberapa pilihan tombol seperti tombol "Main",
+untuk memulai bermain dengan memilih level dan karakter sebelumnya.
+Lalu ada tombol "Skor" untuk melihat capaian skor permainan.
+Dan tombol "Credits" untuk menuju ke Credit Screen.     
   <img src="Screenshot/menu_page_new.png" width="400">
 
 ### Score Screen
-📄Screen yang menampilkan score dari Player yang berhasil mengalahkan Enemy.     
+📄Screen yang menampilkan score dari Player yang berhasil mengalahkan Enemy.
+Skor akan ditampilkan dalam 5 tertinggi dan disusun per levelnya.     
   <img src="Screenshot/hall_of_fame.png" width="400">
 
 ### Credit Screen
@@ -133,7 +138,8 @@ Berikut layar-layar atau halaman-halaman yang ada dalam permainan ini:
   <img src="Screenshot/creditscreeen.jpg" width="400">
 
 ### Level Screen
-📄Screen untuk memilih map pertandingan yang akan dilalui oleh Player melawan Enemy.        
+📄Screen untuk memilih map pertandingan yang akan dilalui oleh Player melawan Enemy.
+Selain itu juga memilih tingkat kesulitan game yang akan dimainkan.        
   <img src="Screenshot/new_level_screen.png" width="400">
   
 ### Character Screen
@@ -141,7 +147,7 @@ Berikut layar-layar atau halaman-halaman yang ada dalam permainan ini:
   <img src="Screenshot/memilih_penembak.png" width="400">
 
 ### Game Screen
-📄Screen tempat dimana Player dan Enemy saling menembak.
+📄Screen tempat dimana Player dan Enemy saling menembak atau bertempur.
 Terdapat 3 jenis map yang ada dalam permainan perbedaan map ini ditempatkan pada setiap level yang berbeda.      
 - Map level 1.   
   <img src="Screenshot/level1ss.png" width="200">   
@@ -151,11 +157,13 @@ Terdapat 3 jenis map yang ada dalam permainan perbedaan map ini ditempatkan pada
   <img src="Screenshot/level3ss.png" width="200">
 
 ### Victory Screen
-📄Screen yang muncul saat player berhasil mengalahkan enemy     
+📄Screen yang muncul saat player berhasil mengalahkan enemy.
+Pada screen ini pemain akan diminta untuk memeasukkan nama sebagai rekam capaian dari permainan.
+Data skor dari Game Screen atau permainan saat itu juga akan ditampilkan disini.     
   <img src="Screenshot/victory_input.png" width="200"> <img src="Screenshot/victoryss.png" width="200"> 
 
 ### Game Over Screen
-📄Screen yang muncul saat Player kalah atau healthnya habis karena tertembak oleh Enemy     
+📄Screen yang muncul saat Player kalah atau healthnya habis karena tertembak oleh Enemy.     
   <img src="Screenshot/gameoverss.png" width="400">
 
  
