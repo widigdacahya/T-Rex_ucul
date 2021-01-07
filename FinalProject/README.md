@@ -42,19 +42,19 @@ components/object:
 [`PlayerBullet.java`](PenjelasanKelas/Components/Objects/PlayerBullet.md)              
     
 -->📁 main  
-`Launcher.java`               
-`Window.java`                
+[`Launcher.java`](PenjelasanKelas/Components/Main/Launcher.md)               
+[`Window.java`](PenjelasanKelas/Components/Main/Window.md)                
 main/pages:         
-`CharacterPage.java`         
-`CreditPage.java`       
-`GameOverPage.java`       
-`GamePage.java`                
-`LevelPage.java`               
-`MenuPage.java`                    
-`PageState.java`                   
-`ScorePage.java`                       
-`SplashPage.java`     
-`VictoryPage.java`                         
+[`CharacterPage.java`](PenjelasanKelas/Components/Main/Pages/CharacterPage.md)         
+[`CreditPage.java`](PenjelasanKelas/Components/Main/Pages/CreditPage.md)       
+[`GameOverPage.java`](PenjelasanKelas/Components/Main/Pages/GameOverPage.md)       
+[`GamePage.java`](PenjelasanKelas/Components/Main/Pages/GamePage.md)                
+[`LevelPage.java`](PenjelasanKelas/Components/Main/Pages/LevelPage.md)               
+[`MenuPage.java`](PenjelasanKelas/Components/Main/Pages/MenuPage.md)                    
+[`PageState.java`](PenjelasanKelas/Components/Main/Pages/PageState.md)                   
+[`ScorePage.java`](PenjelasanKelas/Components/Main/Pages/ScorePage.md)                       
+[`SplashPage.java`](PenjelasanKelas/Components/Main/Pages/SplashPage.md)     
+[`VictoryPage.java`](PenjelasanKelas/Components/Main/Pages/VictoryPage.md)                         
 
 -->📁 model                 
 model/data:             
