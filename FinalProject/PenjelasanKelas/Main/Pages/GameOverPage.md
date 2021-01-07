@@ -1,14 +1,22 @@
-package id.ac.its.trexucul.main.pages;
+# ☕️ GameOverPage Class
 
-import java.awt.Graphics;
-import java.awt.Image;
-import java.util.ArrayList;
+****
+### 💡Penjelasan:
+Kelas ini berfungsi sebagai screen yang ditampilkan ketika pemain gagal untuk memenangkan permainan.
+Dalam screen ini hanya ada tombol untuk coba lagi dan keluar dari aplikasi.
 
-import id.ac.its.trexucul.components.CommonButton;
-import id.ac.its.trexucul.main.Window;
-import id.ac.its.trexucul.model.gfx.Assets;
-import id.ac.its.trexucul.utils.listener.ClickListener;
+### 💡Atribut dan Fungsi:
+Ada 2 atribut:   
+- gameOverText: judul dari screen ini.
+- buttons: tombol coba lagi dan keluar.
 
+Ada 2 jenis fungsi:   
+- Konstruktor: GameOverPage.
+- Update dan render objek: update dan render.
+
+****
+
+```java
 public class GameOverPage extends PageState {
 	
 	private Image gameOverText = Assets.getImageText("gameOver.png", 481, 87);
@@ -49,3 +57,4 @@ public class GameOverPage extends PageState {
 			buttons.get(i).render(g);
 	}
 }
+```
