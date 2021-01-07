@@ -31,62 +31,32 @@ Penembak memiliki beberapa fitur seperti beberapa screen untuk pemilihan level, 
 -->📁 components  
 [`CommonButton.java`](PenjelasanKelas/Components/CommonButton.md)            
 components/entities:    
-[`Enemy.java`](PenjelasanKelas/Components/Entities/Enemy.md)           
-[`Player.java`](PenjelasanKelas/Components/Entities/Player.md)          
-[`Riffle.java`](PenjelasanKelas/Components/Entities/Riffle.md)          
-[`Sniper.java`](PenjelasanKelas/Components/Entities/Sniper.md)              
+[`Enemy.java`](PenjelasanKelas/Components/Entities/Enemy.md), [`Player.java`](PenjelasanKelas/Components/Entities/Player.md), [`Riffle.java`](PenjelasanKelas/Components/Entities/Riffle.md), dan [`Sniper.java`](PenjelasanKelas/Components/Entities/Sniper.md).              
 components/object:              
-[`Bullet.java`](PenjelasanKelas/Components/Objects/Bullet.md)              
-[`EnemyBullet.java`](PenjelasanKelas/Components/Objects/EnemyBullet.md)                
-[`Ground.java`](PenjelasanKelas/Components/Objects/Ground.md)            
-[`PlayerBullet.java`](PenjelasanKelas/Components/Objects/PlayerBullet.md)              
+[`Bullet.java`](PenjelasanKelas/Components/Objects/Bullet.md), [`EnemyBullet.java`](PenjelasanKelas/Components/Objects/EnemyBullet.md), [`Ground.java`](PenjelasanKelas/Components/Objects/Ground.md), dan [`PlayerBullet.java`](PenjelasanKelas/Components/Objects/PlayerBullet.md).              
     
 -->📁 main  
-[`Launcher.java`](PenjelasanKelas/Main/Launcher.md)               
-[`Window.java`](PenjelasanKelas/Main/Window.md)                
+[`Launcher.java`](PenjelasanKelas/Main/Launcher.md) dan [`Window.java`](PenjelasanKelas/Main/Window.md).                
 main/pages:         
-[`CharacterPage.java`](PenjelasanKelas/Main/Pages/CharacterPage.md)         
-[`CreditPage.java`](PenjelasanKelas/Main/Pages/CreditPage.md)       
-[`GameOverPage.java`](PenjelasanKelas/Main/Pages/GameOverPage.md)       
-[`GamePage.java`](PenjelasanKelas/Main/Pages/GamePage.md)                
-[`LevelPage.java`](PenjelasanKelas/Main/Pages/LevelPage.md)               
-[`MenuPage.java`](PenjelasanKelas/Main/Pages/MenuPage.md)                    
-[`PageState.java`](PenjelasanKelas/Main/Pages/PageState.md)                   
-[`ScorePage.java`](PenjelasanKelas/Main/Pages/ScorePage.md)                       
-[`SplashPage.java`](PenjelasanKelas/Main/Pages/SplashPage.md)     
-[`VictoryPage.java`](PenjelasanKelas/Main/Pages/VictoryPage.md)                         
+[`CharacterPage.java`](PenjelasanKelas/Main/Pages/CharacterPage.md), [`CreditPage.java`](PenjelasanKelas/Main/Pages/CreditPage.md), [`GameOverPage.java`](PenjelasanKelas/Main/Pages/GameOverPage.md), [`GamePage.java`](PenjelasanKelas/Main/Pages/GamePage.md), [`LevelPage.java`](PenjelasanKelas/Main/Pages/LevelPage.md), [`MenuPage.java`](PenjelasanKelas/Main/Pages/MenuPage.md), [`PageState.java`](PenjelasanKelas/Main/Pages/PageState.md), [`ScorePage.java`](PenjelasanKelas/Main/Pages/ScorePage.md), [`SplashPage.java`](PenjelasanKelas/Main/Pages/SplashPage.md), dan [`VictoryPage.java`](PenjelasanKelas/Main/Pages/VictoryPage.md).                         
 
 -->📁 model                 
 model/data:             
-[`Score.java`](PenjelasanKelas/Model/Data/Score.md)               
-[`ScoreComparator.java`](PenjelasanKelas/Model/Data/ScoreComparator.md)                 
-[`ScoreSerialIO.java`](PenjelasanKelas/Model/Data/ScoreSerialIO.md)                   
+[`Score.java`](PenjelasanKelas/Model/Data/Score.md), [`ScoreComparator.java`](PenjelasanKelas/Model/Data/ScoreComparator.md), dan [`ScoreSerialIO.java`](PenjelasanKelas/Model/Data/ScoreSerialIO.md)                   
 model/gfx:                  
-[`Assets.java`](PenjelasanKelas/Model/Gfx/Assets.md)                      
-[`Text.java`](PenjelasanKelas/Model/Gfx/Text.md)                        
+[`Assets.java`](PenjelasanKelas/Model/Gfx/Assets.md) dan [`Text.java`](PenjelasanKelas/Model/Gfx/Text.md)                        
 model/id:                           
 [`SelectedGamePage.java`](PenjelasanKelas/Model/Id/SelectedGamePage.md)                    
 
 -->📁 utils
 utils/handler:                          
-[`KeyboardHandler.java`](PenjelasanKelas/handler/KeyboardHandler.md)                       
-[`MouseHandler.java`](PenjelasanKelas/handler/MouseHandler.md)                        
+[`KeyboardHandler.java`](PenjelasanKelas/handler/KeyboardHandler.md) dan [`MouseHandler.java`](PenjelasanKelas/handler/MouseHandler.md)                        
 utils/helper:               
-[`Animation.java`](PenjelasanKelas/helper/Animation.md)                           
-[`AnimationFire.java`](PenjelasanKelas/helper/AnimationFire.md)                           
-[`Camera.java`](PenjelasanKelas/helper/Camera.md)                          
-[`FontLoader.java`](PenjelasanKelas/helper/FontLoader.md)                      
-[`ImageLoader.java`](PenjelasanKelas/helper/ImageLoader.md)                         
-[`SecondsTimer.java`](PenjelasanKelas/helper/SecondsTimer.md)                            
+[`Animation.java`](PenjelasanKelas/helper/Animation.md), [`AnimationFire.java`](PenjelasanKelas/helper/AnimationFire.md), [`Camera.java`](PenjelasanKelas/helper/Camera.md), [`FontLoader.java`](PenjelasanKelas/helper/FontLoader.md), [`ImageLoader.java`](PenjelasanKelas/helper/ImageLoader.md) dan [`SecondsTimer.java`](PenjelasanKelas/helper/SecondsTimer.md)                            
 utils/helper/io:                    
-[`ReadIO.java`](PenjelasanKelas/IO/ReadIO.md)                          
-[`ReadSerial.java`](PenjelasanKelas/IO/ReadSerial.md)                              
-[`WriteIO.java`](PenjelasanKelas/IO/WriteIO.md)                                 
-[`WriteSerial.java`](PenjelasanKelas/IO/WriteSerial.md)                                 
+[`ReadIO.java`](PenjelasanKelas/IO/ReadIO.md), [`ReadSerial.java`](PenjelasanKelas/IO/ReadSerial.md), [`WriteIO.java`](PenjelasanKelas/IO/WriteIO.md), dan [`WriteSerial.java`](PenjelasanKelas/IO/WriteSerial.md)                                 
 utils/listener:                         
-[`BulletListener.java`](PenjelasanKelas/Listener/BulletListener.md)                       
-[`ClickListener.java`](PenjelasanKelas/Listener/ClickListener.md)                       
-[`KeyTypedListener.java`](PenjelasanKelas/Listener/KeyTypedListener.md)                            
+[`BulletListener.java`](PenjelasanKelas/Listener/BulletListener.md), [`ClickListener.java`](PenjelasanKelas/Listener/ClickListener.md), dan [`KeyTypedListener.java`](PenjelasanKelas/Listener/KeyTypedListener.md)                            
 
 ## Objek Game
 Berikut objek atau componen permainan yang ada dalam proyek ini:
@@ -135,7 +105,7 @@ Skor akan ditampilkan dalam 5 tertinggi dan disusun per levelnya.
 
 ### Credit Screen
 📄Screen yang menampilkan data diri kelompok Trex-ucul.     
-  <img src="Screenshot/creditscreeen.jpg" width="400">
+  <img src="Screenshot/creditscreeen.png" width="400">
 
 ### Level Screen
 📄Screen untuk memilih map pertandingan yang akan dilalui oleh Player melawan Enemy.
