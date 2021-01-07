@@ -42,51 +42,51 @@ components/object:
 [`PlayerBullet.java`](PenjelasanKelas/Components/Objects/PlayerBullet.md)              
     
 -->📁 main  
-[`Launcher.java`](PenjelasanKelas/Components/Main/Launcher.md)               
-[`Window.java`](PenjelasanKelas/Components/Main/Window.md)                
+[`Launcher.java`](PenjelasanKelas/Main/Launcher.md)               
+[`Window.java`](PenjelasanKelas/Main/Window.md)                
 main/pages:         
-[`CharacterPage.java`](PenjelasanKelas/Components/Main/Pages/CharacterPage.md)         
-[`CreditPage.java`](PenjelasanKelas/Components/Main/Pages/CreditPage.md)       
-[`GameOverPage.java`](PenjelasanKelas/Components/Main/Pages/GameOverPage.md)       
-[`GamePage.java`](PenjelasanKelas/Components/Main/Pages/GamePage.md)                
-[`LevelPage.java`](PenjelasanKelas/Components/Main/Pages/LevelPage.md)               
-[`MenuPage.java`](PenjelasanKelas/Components/Main/Pages/MenuPage.md)                    
-[`PageState.java`](PenjelasanKelas/Components/Main/Pages/PageState.md)                   
-[`ScorePage.java`](PenjelasanKelas/Components/Main/Pages/ScorePage.md)                       
-[`SplashPage.java`](PenjelasanKelas/Components/Main/Pages/SplashPage.md)     
-[`VictoryPage.java`](PenjelasanKelas/Components/Main/Pages/VictoryPage.md)                         
+[`CharacterPage.java`](PenjelasanKelas/Main/Pages/CharacterPage.md)         
+[`CreditPage.java`](PenjelasanKelas/Main/Pages/CreditPage.md)       
+[`GameOverPage.java`](PenjelasanKelas/Main/Pages/GameOverPage.md)       
+[`GamePage.java`](PenjelasanKelas/Main/Pages/GamePage.md)                
+[`LevelPage.java`](PenjelasanKelas/Main/Pages/LevelPage.md)               
+[`MenuPage.java`](PenjelasanKelas/Main/Pages/MenuPage.md)                    
+[`PageState.java`](PenjelasanKelas/Main/Pages/PageState.md)                   
+[`ScorePage.java`](PenjelasanKelas/Main/Pages/ScorePage.md)                       
+[`SplashPage.java`](PenjelasanKelas/Main/Pages/SplashPage.md)     
+[`VictoryPage.java`](PenjelasanKelas/Main/Pages/VictoryPage.md)                         
 
 -->📁 model                 
 model/data:             
-`Score.java`               
-`ScoreComparator.java`                 
-`ScoreSerialIO.java`                   
+[`Score.java`](PenjelasanKelas/Model/Data/Score.md)               
+[`ScoreComparator.java`](PenjelasanKelas/Model/Data/ScoreComparator.md)                 
+[`ScoreSerialIO.java`](PenjelasanKelas/Model/Data/ScoreSerialIO.md)                   
 model/gfx:                  
-`Assets.java`                      
-`Text.java`                        
+[`Assets.java`](PenjelasanKelas/Model/Gfx/Assets.md)                      
+[`Text.java`](PenjelasanKelas/Model/Gfx/Text.md)                        
 model/id:                           
-`SelectedGamePage.java`                    
+[`SelectedGamePage.java`](PenjelasanKelas/Model/Id/SelectedGamePage.md)                    
 
 -->📁 utils
 utils/handler:                          
 `KeyboardHandler.java`                     
 `MouseHandler.java`                        
 utils/helper:               
-`Animation.java`                           
-`AnimationFire.java`                           
-`Camera.java`                          
-`FontLoader.java`                      
-`ImageLoader.java`                         
-`SecondsTimer.java`                            
+[`Animation.java`](PenjelasanKelas/helper/Animation.md)                           
+[`AnimationFire.java`](PenjelasanKelas/helper/AnimationFire.md)                           
+[`Camera.java`](PenjelasanKelas/helper/Camera.md)                          
+[`FontLoader.java`](PenjelasanKelas/helper/FontLoader.md)                      
+[`ImageLoader.java`](PenjelasanKelas/helper/ImageLoader.md)                         
+[`SecondsTimer.java`](PenjelasanKelas/helper/SecondsTimer.md)                            
 utils/helper/io:                    
-`ReadIO.java`                          
-`ReadSerial.java`                              
-`WriteIO.java`                                 
-`WriteSerial.java`                                 
+[`ReadIO.java`](PenjelasanKelas/IO/ReadIO.md)                          
+[`ReadSerial.java`](PenjelasanKelas/IO/ReadSerial.md)                              
+[`WriteIO.java`](PenjelasanKelas/IO/WriteIO.md)                                 
+[`WriteSerial.java`](PenjelasanKelas/IO/WriteSerial.md)                                 
 utils/listener:                         
-`BulletListener.java`                  
-`ClickListener.java`                       
-`KeyTypedListener.java`                            
+[`BulletListener.java`](PenjelasanKelas/Listener/BulletListener.md)                       
+[`ClickListener.java`](PenjelasanKelas/Listener/ClickListener.md)                       
+[`KeyTypedListener.java`](PenjelasanKelas/Listener/KeyTypedListener.md)                            
 
 ## Objek Game
 Berikut objek atau componen permainan yang ada dalam proyek ini:
