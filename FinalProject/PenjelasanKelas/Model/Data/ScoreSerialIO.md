@@ -1,4 +1,4 @@
-# ☕️ ScoreComparator Class
+# ☕️ ScoreSerialIO Class
 
 ****
 ### 💡Penjelasan:
