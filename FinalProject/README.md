@@ -19,7 +19,7 @@
 ****
 
 ## Deskripsi Aplikasi 📌 
-Penembak adalah sebuah permainan tembak-tembakan stickman yang terdiri dari bebera level. 
+Penembak adalah sebuah permainan tembak-tembakan stickman yang terdiri dari beberapa level. 
 Penembak memiliki beberapa fitur seperti beberapa screen untuk pemilihan level, menu, player yang memiliki shield saat tidak sedang bergerak, serta beberapa hal lainnya.
 
 ****  
@@ -29,64 +29,64 @@ Penembak memiliki beberapa fitur seperti beberapa screen untuk pemilihan level, 
 
 📘 Penjelasan masing-masing kelas yang digunakan:  
 -->📁 components  
-`CommonButton.java`: class untuk            
+`CommonButton.java`            
 components/entities:    
-`Enemy.java`: class untuk           
-`Player.java`: class untuk          
-`Riffle.java`: class untuk          
-`Sniper.java`: class untuk              
+`Enemy.java`           
+`Player.java`          
+`Riffle.java`          
+`Sniper.java`              
 components/object:              
-`Bullet.java`: class untuk              
-`EnemyBullet.java`: class untuk                
-`Ground.java`: digunakan untuk memuat gambar komponen tanah dan bounds yang menjadi tempat player dan enemy berpijak            
-`PlayerBullet.java`: class untuk              
+`Bullet.java`              
+`EnemyBullet.java`                
+`Ground.java`            
+`PlayerBullet.java`              
     
 -->📁 main  
-`Launcher.java`: class untuk               
-`Window.java`: class untuk                
+`Launcher.java`               
+`Window.java`                
 main/pages:         
-`CharacterPage.java`: class untuk         
-`CreditPage.java`: digunakan untuk menampilkan gambar anggota kelompok dan biodata dan tombol untuk kembali ke menu utama       
-`GameOverPage.java`: class screen gameover page menyediakan tombol untuk keluar game atau mencoba kembali       
-`GamePage.java`: class untuk                
-`LevelPage.java`: class untuk               
-`MenuPage.java`: class untuk                    
-`PageState.java`: class untuk                   
-`ScorePage.java`: class untuk                       
-`SplashPage.java`: class digunakan untuk screen awal yang menunjukkan identitas game selama beberapa detik dan mengarahkan pemain ke menu utama     
-`VictoryPage.java`: class untuk                         
+`CharacterPage.java`         
+`CreditPage.java`       
+`GameOverPage.java`       
+`GamePage.java`                
+`LevelPage.java`               
+`MenuPage.java`                    
+`PageState.java`                   
+`ScorePage.java`                       
+`SplashPage.java`     
+`VictoryPage.java`                         
 
 -->📁 model                 
 model/data:             
-`Score.java`: class untuk               
-`ScoreComparator.java`: class untuk                 
-`ScoreSerialIO.java`: class untuk                   
+`Score.java`               
+`ScoreComparator.java`                 
+`ScoreSerialIO.java`                   
 model/gfx:                  
-`Assets.java`: class untuk                      
-`Text.java`: class untuk                        
+`Assets.java`                      
+`Text.java`                        
 model/id:                           
-`SelectedGamePage.java`: class untuk                    
+`SelectedGamePage.java`                    
 
 -->📁 utils
 utils/handler:                          
-`KeyboardHandler.java`: class untuk                     
-`MouseHandler.java`: class untuk                        
+`KeyboardHandler.java`                     
+`MouseHandler.java`                        
 utils/helper:               
-`Animation.java`: class untuk                           
-`AnimationFire.java`: class untuk                           
-`Camera.java`: class untuk                          
-`FontLoader.java`: class untuk                      
-`ImageLoader.java`: class untuk                         
-`SecondsTimer.java`: class untuk                            
+`Animation.java`                           
+`AnimationFire.java`                           
+`Camera.java`                          
+`FontLoader.java`                      
+`ImageLoader.java`                         
+`SecondsTimer.java`                            
 utils/helper/io:                    
-`ReadIO.java`: class untuk                          
-`ReadSerial.java`: class untuk                              
-`WriteIO.java`: class untuk                                 
-`WriteSerial.java`: class untuk                                 
+`ReadIO.java`                          
+`ReadSerial.java`                              
+`WriteIO.java`                                 
+`WriteSerial.java`                                 
 utils/listener:                         
-`BulletListener.java`: class untuk                  
-`ClickListener.java`: class untuk                       
-`KeyTypedListener.java`: class untuk                            
+`BulletListener.java`                  
+`ClickListener.java`                       
+`KeyTypedListener.java`                            
 
 
 ### Player 👦🏻
@@ -109,7 +109,7 @@ saat health Enemy habis, maka Enemy akan mati dan hilang dari screen.
 📄Screen yang memiliki beberapa pilihan tombol seperti tombol "Main" untuk memilih level dan Credit untuk menuju ke Credits Screen.     
   <img src="Screenshot/menu_page_new.png" width="400">
 
-### Hall of Fame Screen
+### Score Screen
 📄Screen yang menampilkan score dari Player yang berhasil mengalahkan Enemy.     
   <img src="Screenshot/hall_of_fame.png" width="400">
 
@@ -125,7 +125,7 @@ saat health Enemy habis, maka Enemy akan mati dan hilang dari screen.
 📄Screen untuk memilih karakter penembak untuk melawan Enemy.        
   <img src="Screenshot/memilih_penembak.png" width="400">
 
-### GamePage
+### Game Screen
 📄Screen tempat dimana Player dan Enemy saling menembak.
 Terdapat 3 jenis map yang ada dalam permainan.      
   <img src="Screenshot/level1ss.png" width="200"> <img src="Screenshot/level2ss.png" width="200"> <img src="Screenshot/level3ss.png" width="200">
@@ -141,8 +141,9 @@ Terdapat 3 jenis map yang ada dalam permainan.
  
 ### Referensi
   📚 <a href="https://www.figma.com/file/0ei6x3VdT1XXTR5jnzUXpX/Untitled?node-id=0%3A1">Figma (Pembuatan Asset)</a>   
-  📚 <a href="https://github.com/JoshuaHernandezMartinez/Sokoban">Code Architecture: Sokoban Game</a>   
-  📚 Logic--> Neon Game: Java Platform Game Programming by RealTutsGML on <a href="https://www.youtube.com/playlist?list=PLWms45O3n--54U-22GDqKMRGlXROOZtMx">YouTube</a>         
+  📚 <a href="https://github.com/JoshuaHernandezMartinez/Sokoban">Code and Paging Structure: Sokoban Game</a>   
+  📚 Code Architecture: Combining between MVP (Model View Presenter) Architecture from Android Dev and common Java Game Programming Architecture.         
+  📚 Logic and Game Mechanics -> Neon Game: Java Platform Game Programming by RealTutsGML on <a href="https://www.youtube.com/playlist?list=PLWms45O3n--54U-22GDqKMRGlXROOZtMx">YouTube</a>         
   📚 Tutorial <a href="http://zetcode.com/javagames/collision/">Zetcode</a>         
   📚 <a href="https://play.google.com/store/apps/details?id=com.noodlecake.altosadventure&hl=in&gl=US">UI reference</a>         
   📚 dan dokumentasi lainnya dari Oracle dan penugasan harian.  
