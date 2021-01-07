@@ -36,10 +36,10 @@ components/entities:
 [`Riffle.java`](PenjelasanKelas/Components/Entities/Riffle.md)          
 [`Sniper.java`](PenjelasanKelas/Components/Entities/Sniper.md)              
 components/object:              
-`Bullet.java`              
-`EnemyBullet.java`                
-`Ground.java`            
-`PlayerBullet.java`              
+[`Bullet.java`](PenjelasanKelas/Components/Objects/Bullet.md)              
+[`EnemyBullet.java`](PenjelasanKelas/Components/Objects/EnemyBullet.md)                
+[`Ground.java`](PenjelasanKelas/Components/Objects/Ground.md)            
+[`PlayerBullet.java`](PenjelasanKelas/Components/Objects/PlayerBullet.md)              
     
 -->📁 main  
 `Launcher.java`               
