@@ -58,12 +58,12 @@ main/pages:
 
 -->📁 model                 
 model/data:             
-[`Score.java`](PenjelasanKelas//Main/Pages/VictoryPage.md)               
-`ScoreComparator.java`                 
-`ScoreSerialIO.java`                   
+[`Score.java`](PenjelasanKelas/Model/Data/Score.md)               
+[`ScoreComparator.java`](PenjelasanKelas/Model/Data/ScoreComparator.md)                 
+[`ScoreSerialIO.java`](PenjelasanKelas/Model/Data/ScoreSerialIO.md)                   
 model/gfx:                  
-`Assets.java`                      
-`Text.java`                        
+[`Assets.java`](PenjelasanKelas/Model/Gfx/Assets.md)                      
+[`Text.java`](PenjelasanKelas/Model/Gfx/Text.md)                        
 model/id:                           
 `SelectedGamePage.java`                    
 
