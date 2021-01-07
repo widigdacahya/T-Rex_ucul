@@ -88,19 +88,34 @@ utils/listener:
 `ClickListener.java`                       
 `KeyTypedListener.java`                            
 
-
+## Objek Game
+Berikut objek atau componen permainan yang ada dalam proyek ini:
 ### Player 👦🏻
 Player merupakan pemain yang dikendalikan oleh pemain untuk menembak musuh yang ada. 
 Pemain menggunakan player untuk membunuh semua enemy yang ada di setiap level untuk mendapat score.
-Player memiliki health yang berkurang saat ditembaki oleh enemy, saat health player habis maka akan muncul screen Game Over.
-Player juga memiliki shield yang melindungi dirinya dari peluru Enemy saat Player berdiam diri.             
-  <img src="Screenshot/playerenemy.gif" width="800">
+Player memiliki health yang berkurang saat ditembaki oleh enemy, saat health player habis maka akan muncul layar Game Over.
+Player juga memiliki shield yang melindungi dirinya dari peluru Enemy saat Player berdiam diri.   
+Untuk menggerakkan player, pemain dapat menggunakan:   
+- Tombol arah atas untuk melompat.   
+- Tombol arah kanan untuk bergerkan maju.     
+- Tombol arah kiri untuk bergerak mundur.      
+- Tombol spasi untuk menembakkan peluru.      
+**Tambahan**: Ketika tombol ditekan pelindung akan dalam keadaan terbuka (mati).      
+Pemain diberikan pilihan untuk menentukan karakter mana yang ingin dipakai ketika bermain.
+Setiap karakter memiliki variasi health, damage, dan interval tembak yang berbeda.
+Terdapat 3 pilihan karakter yang dapat dipilih pemain.              
+<img src="Screenshot/playerenemy.gif" width="800">
 
 ### Enemy 👩🏻
 Musuh player yang menembak player dengan tujuan untuk membunuh player.
 Enemy memiliki health yang berkurang saat terkenap peluru tembakan Player,
-saat health Enemy habis, maka Enemy akan mati dan hilang dari screen.
-  
+saat health Enemy habis, maka Enemy akan mati dan hilang dari layar.
+Enemy akan bergerakn melompat-lompat untuk mempersulit player dalam bergerak.
+Pada setiap level memiliki perbedaan damage dari tembakan enemy dan selang enemy menembakkan pelurunya.
+Semakin tinggi level, maka damage akan semakin tinggi dan interval menembakknya semakin cepat.
+
+## Layar
+Berikut layar-layar atau halaman-halaman yang ada dalam permainan ini:
 ### Splash Screen
 📄Screen awal yang menunjukkan title game sebelum ke screen menu.       
   <img src="Screenshot/splash.gif" width="800">
@@ -127,8 +142,13 @@ saat health Enemy habis, maka Enemy akan mati dan hilang dari screen.
 
 ### Game Screen
 📄Screen tempat dimana Player dan Enemy saling menembak.
-Terdapat 3 jenis map yang ada dalam permainan.      
-  <img src="Screenshot/level1ss.png" width="200"> <img src="Screenshot/level2ss.png" width="200"> <img src="Screenshot/level3ss.png" width="200">
+Terdapat 3 jenis map yang ada dalam permainan perbedaan map ini ditempatkan pada setiap level yang berbeda.      
+- Map level 1.   
+  <img src="Screenshot/level1ss.png" width="200">   
+- Map level 2.   
+  <img src="Screenshot/level2ss.png" width="200">   
+- Map level 3.   
+  <img src="Screenshot/level3ss.png" width="200">
 
 ### Victory Screen
 📄Screen yang muncul saat player berhasil mengalahkan enemy     
@@ -139,10 +159,11 @@ Terdapat 3 jenis map yang ada dalam permainan.
   <img src="Screenshot/gameoverss.png" width="400">
 
  
-### Referensi
+## Referensi
   📚 <a href="https://www.figma.com/file/0ei6x3VdT1XXTR5jnzUXpX/Untitled?node-id=0%3A1">Figma (Pembuatan Asset)</a>   
   📚 <a href="https://github.com/JoshuaHernandezMartinez/Sokoban">Code and Paging Structure: Sokoban Game</a>   
-  📚 Code Architecture: Combining between MVP (Model View Presenter) Architecture from Android Dev and common Java Game Programming Architecture.         
+  📚 Code Architecture: Mengkombinasikan antara MVP (Model View Presenter) dari Android Dev
+  dan arsitektur Java Game Programming pada umumnya.         
   📚 Logic and Game Mechanics -> Neon Game: Java Platform Game Programming by RealTutsGML on <a href="https://www.youtube.com/playlist?list=PLWms45O3n--54U-22GDqKMRGlXROOZtMx">YouTube</a>         
   📚 Tutorial <a href="http://zetcode.com/javagames/collision/">Zetcode</a>         
   📚 <a href="https://play.google.com/store/apps/details?id=com.noodlecake.altosadventure&hl=in&gl=US">UI reference</a>         
