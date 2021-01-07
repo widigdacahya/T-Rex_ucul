@@ -42,23 +42,23 @@ components/object:
 [`PlayerBullet.java`](PenjelasanKelas/Components/Objects/PlayerBullet.md)              
     
 -->📁 main  
-[`Launcher.java`](PenjelasanKelas/Components/Main/Launcher.md)               
-[`Window.java`](PenjelasanKelas/Components/Main/Window.md)                
+[`Launcher.java`](PenjelasanKelas/Main/Launcher.md)               
+[`Window.java`](PenjelasanKelas/Main/Window.md)                
 main/pages:         
-[`CharacterPage.java`](PenjelasanKelas/Components/Main/Pages/CharacterPage.md)         
-[`CreditPage.java`](PenjelasanKelas/Components/Main/Pages/CreditPage.md)       
-[`GameOverPage.java`](PenjelasanKelas/Components/Main/Pages/GameOverPage.md)       
-[`GamePage.java`](PenjelasanKelas/Components/Main/Pages/GamePage.md)                
-[`LevelPage.java`](PenjelasanKelas/Components/Main/Pages/LevelPage.md)               
-[`MenuPage.java`](PenjelasanKelas/Components/Main/Pages/MenuPage.md)                    
-[`PageState.java`](PenjelasanKelas/Components/Main/Pages/PageState.md)                   
-[`ScorePage.java`](PenjelasanKelas/Components/Main/Pages/ScorePage.md)                       
-[`SplashPage.java`](PenjelasanKelas/Components/Main/Pages/SplashPage.md)     
-[`VictoryPage.java`](PenjelasanKelas/Components/Main/Pages/VictoryPage.md)                         
+[`CharacterPage.java`](PenjelasanKelas/Main/Pages/CharacterPage.md)         
+[`CreditPage.java`](PenjelasanKelas/Main/Pages/CreditPage.md)       
+[`GameOverPage.java`](PenjelasanKelas/Main/Pages/GameOverPage.md)       
+[`GamePage.java`](PenjelasanKelas/Main/Pages/GamePage.md)                
+[`LevelPage.java`](PenjelasanKelas/Main/Pages/LevelPage.md)               
+[`MenuPage.java`](PenjelasanKelas/Main/Pages/MenuPage.md)                    
+[`PageState.java`](PenjelasanKelas/Main/Pages/PageState.md)                   
+[`ScorePage.java`](PenjelasanKelas/Main/Pages/ScorePage.md)                       
+[`SplashPage.java`](PenjelasanKelas/Main/Pages/SplashPage.md)     
+[`VictoryPage.java`](PenjelasanKelas/Main/Pages/VictoryPage.md)                         
 
 -->📁 model                 
 model/data:             
-`Score.java`               
+[`Score.java`](PenjelasanKelas//Main/Pages/VictoryPage.md)               
 `ScoreComparator.java`                 
 `ScoreSerialIO.java`                   
 model/gfx:                  
