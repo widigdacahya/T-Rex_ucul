@@ -15,7 +15,8 @@ Ada 8 atribut:
 - click: menangani pemanggilan fungsi ketika kompnen diklik.
 - btn: gambar dari komponen.
 - btnHov: gambar dari komponen ketika pointer sedang diatasnya.
-Ada 5 jenis fungsi:
+
+Ada 4 jenis fungsi:
 - Konstruktor: CommonButton.
 - Inisiasi gambar komponen: initBtn.
 - Update dan render komponen: update dan render.

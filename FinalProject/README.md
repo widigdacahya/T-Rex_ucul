@@ -29,12 +29,12 @@ Penembak memiliki beberapa fitur seperti beberapa screen untuk pemilihan level, 
 
 📘 Penjelasan masing-masing kelas yang digunakan (Silahkan klik nama kelas untuk melihat penjelasannya):  
 -->📁 components  
-[`CommonButton.java`](PenjelasanKelas/Componenets/CommonButton.md)            
+[`CommonButton.java`](PenjelasanKelas/Components/CommonButton.md)            
 components/entities:    
-`Enemy.java`           
-`Player.java`          
-`Riffle.java`          
-`Sniper.java`              
+[`Enemy.java`](PenjelasanKelas/Components/Entities/Enemy.md)           
+[`Player.java`](PenjelasanKelas/Components/Entities/Player.md)          
+[`Riffle.java`](PenjelasanKelas/Components/Entities/Riffle.md)          
+[`Sniper.java`](PenjelasanKelas/Components/Entities/Sniper.md)              
 components/object:              
 `Bullet.java`              
 `EnemyBullet.java`                
