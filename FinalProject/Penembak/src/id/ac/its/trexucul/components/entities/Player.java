@@ -31,17 +31,17 @@ public abstract class Player {
 	protected Timer timer;
 	protected SecondsTimer bt;
 	protected final int Delay = 200;
-    Random rand = new Random(); 
-	
-    protected boolean steady = false;
-    protected boolean shield = true;
-    protected int firingflag = 0;
-    protected int firingWalkFlag = 0;
-	
-    protected BulletListener click;
-	
-    protected boolean visibility = true;
-    protected int health = 100;
+  Random rand = new Random(); 
+
+  protected boolean steady = false;
+  protected boolean shield = true;
+  protected int firingflag = 0;
+  protected int firingWalkFlag = 0;
+
+  protected BulletListener click;
+
+  protected boolean visibility = true;
+  protected int health = 100;
 
 	//abstract section
 	public abstract void initPlayer();

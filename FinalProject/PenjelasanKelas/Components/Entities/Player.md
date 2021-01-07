@@ -8,7 +8,7 @@ Kelas ini digunakan dalam Game Screen, selain itu kelas ini juga mengatur perger
 Mulai dari mengambil gambar player dari aset, mengatur interval tembak, hingga mentukan posisi dan kecepatan geraknya.
 
 ### 💡Atribut dan Fungsi:
-Ada 20 atribut:   
+Ada 22 atribut:   
 - imgName: gambar objek.
 - x, y: posisi objek.
 - velX, velY, velSpeed: kecepatan objek.
