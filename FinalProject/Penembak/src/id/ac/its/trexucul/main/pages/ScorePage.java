@@ -41,7 +41,7 @@ public class ScorePage extends PageState {
 			public void onClick() {
 				PageState.currentState = window.getMenuPage();
 			}
-		}, 239, 52);
+		}, 193, 42);
 		
 		level1IO = new ScoreSerialIO(SelectedGamePage.Satu);
 		level2IO = new ScoreSerialIO(SelectedGamePage.Dua);

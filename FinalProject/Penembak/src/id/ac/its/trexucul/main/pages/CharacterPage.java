@@ -78,7 +78,7 @@ public class CharacterPage extends PageState{
 				MouseHandler.leftBtn = false;
 				PageState.currentState = window.getLevelPage();
 			}
-		}, 239, 52));
+		}, 193, 42));
 	}
 	
 	public void setLevel(SelectedGamePage level) { 

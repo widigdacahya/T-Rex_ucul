@@ -25,7 +25,7 @@ public class CreditPage extends PageState{
 				//Go to menu
 				PageState.currentState = window.getMenuPage();
 			}
-		}, 239, 52);
+		}, 193, 42);
 		
 		
 	}

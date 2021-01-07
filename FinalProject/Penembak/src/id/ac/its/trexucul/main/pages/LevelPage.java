@@ -67,7 +67,7 @@ public class LevelPage extends PageState {
 				MouseHandler.leftBtn = false;
 				PageState.currentState = window.getMenuPage();
 			}
-		}, 239, 52));
+		}, 193, 42));
 	}
 
 	@Override
