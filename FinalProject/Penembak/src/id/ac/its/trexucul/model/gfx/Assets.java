@@ -40,11 +40,6 @@ public class Assets {
 		menuBG = ImageLoader.loadImage("res/menu/menu_bg.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		levelBG = ImageLoader.loadImage("res/menu/LevelPage.png").getScaledInstance(Window.WIDTH, Window.HEIGHT, BufferedImage.SCALE_DEFAULT);
 		
-//		mainMenuBtn = ImageLoader.loadImage("/menu/main_menu_btn.png");
-//		pengaturanMenuBtn = ImageLoader.loadImage("/menu/pengaturan_menu_btn.png");
-//		mainMenuBtnHov = ImageLoader.loadImage("/menu/main_menu_btn_hov.png");
-//		pengaturanMenuBtnHov = ImageLoader.loadImage("/menu/pengaturan_menu_btn_hov.png");
-		
 		gamepage1BG = ImageLoader.loadImage("res/menu/map1.png").getScaledInstance(4370, 720, BufferedImage.SCALE_DEFAULT);
 		gamepage2BG = ImageLoader.loadImage("res/menu/map2.png").getScaledInstance(4370, 720, BufferedImage.SCALE_DEFAULT);
 		gamepage3BG = ImageLoader.loadImage("res/menu/map3.png").getScaledInstance(4370, 720, BufferedImage.SCALE_DEFAULT);
@@ -69,10 +64,13 @@ public class Assets {
 		return ImageLoader.loadImage("res/asset/" + imgName).getScaledInstance(481, 87, BufferedImage.SCALE_DEFAULT);
 	}
 	
+	public static Image getImageText(String imgName, int w, int h) {
+		return ImageLoader.loadImage("res/asset/" + imgName).getScaledInstance(w, h, BufferedImage.SCALE_DEFAULT);
+	}
+	
 	public static Image getImageAssetGen(String imgName) {
 		return ImageLoader.loadImage("res/asset/" + imgName).getScaledInstance(1280, 720, BufferedImage.SCALE_DEFAULT);
 	}
-	
 	
 	public static Image getImagePlayer(String imgObject) {
 		return ImageLoader.loadImage("res/asset/" + imgObject).getScaledInstance(60, 130, BufferedImage.SCALE_DEFAULT);

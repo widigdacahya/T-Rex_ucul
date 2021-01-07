@@ -130,7 +130,7 @@ public class Window extends JFrame implements Runnable {
 		characterPage = new CharacterPage(this);
 		scorePage = new ScorePage(this);
 		
-		PageState.currentState = getSplashPage();
+		PageState.currentState = getMenuPage();
 
 		Assets.init();
 	}

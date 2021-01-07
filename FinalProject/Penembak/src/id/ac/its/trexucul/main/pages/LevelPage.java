@@ -25,7 +25,7 @@ public class LevelPage extends PageState {
 		selectedPage = SelectedGamePage.Satu;
 		
 		//level 1
-		btns.add(new CommonButton("main_menu_btn", 194, 525, new ClickListener() {
+		btns.add(new CommonButton("main_btn", 194, 525, new ClickListener() {
 			@Override
 			public void onClick() {
 				// Level 1
@@ -37,7 +37,7 @@ public class LevelPage extends PageState {
 		}));
 		
 		//level 2
-		btns.add(new CommonButton("main_menu_btn", 581, 525, new ClickListener() {
+		btns.add(new CommonButton("main_btn", 581, 525, new ClickListener() {
 			@Override
 			public void onClick() {
 				// Level 2
@@ -49,7 +49,7 @@ public class LevelPage extends PageState {
 		}));
 		
 		//level 3
-		btns.add(new CommonButton("main_menu_btn", 968, 525, new ClickListener() {
+		btns.add(new CommonButton("main_btn", 968, 525, new ClickListener() {
 			@Override
 			public void onClick() {
 				// Level 3
@@ -61,13 +61,13 @@ public class LevelPage extends PageState {
 		}));
 		
 		//kembali
-		btns.add(new CommonButton("kembali", 11, 625, new ClickListener() {
+		btns.add(new CommonButton("kembali_btn", 10, 630, new ClickListener() {
 			@Override
 			public void onClick() {
 				MouseHandler.leftBtn = false;
 				PageState.currentState = window.getMenuPage();
 			}
-		}));
+		}, 239, 52));
 	}
 
 	@Override

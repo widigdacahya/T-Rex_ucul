@@ -1,6 +1,8 @@
 package id.ac.its.trexucul.main.pages;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ import id.ac.its.trexucul.components.objects.PlayerBullet;
 import id.ac.its.trexucul.main.Window;
 import id.ac.its.trexucul.model.gfx.Assets;
 import id.ac.its.trexucul.model.id.SelectedGamePage;
+import id.ac.its.trexucul.utils.helper.FontLoader;
 import id.ac.its.trexucul.utils.helper.SecondsTimer;
 import id.ac.its.trexucul.utils.listener.BulletListener;
 import id.ac.its.trexucul.utils.listener.ClickListener;
@@ -41,6 +44,9 @@ public class GamePage extends PageState {
 	
 	private SelectedGamePage type;
 	public static SelectedGamePage character;
+	private Font font = FontLoader.loadFont("res/fonts/Russo_One.ttf", 14);
+	private Font fontm = FontLoader.loadFont("res/fonts/Russo_One.ttf", 16);
+	private Font fontl = FontLoader.loadFont("res/fonts/Russo_One.ttf", 24);
 	
 	private final int [][] enemyPosition = {
 		{900,500},{1220,500},{1450,500},
@@ -66,15 +72,13 @@ public class GamePage extends PageState {
 		setCharacter(character);
 		setDifficulty(type);
 		
-		Assets.width = 96;
-		Assets.height = 36;
-		backButton = new CommonButton("btn_kembali", 60, 640, new ClickListener() {
+		backButton = new CommonButton("kembali_btn", 10, 640, new ClickListener() {
 			@Override
 			public void onClick() {
 				//Go to menu
 				PageState.currentState = window.getMenuPage();
 			}
-		});
+		}, 239, 52);
 	}
 
 	@Override
@@ -91,24 +95,34 @@ public class GamePage extends PageState {
 		player.render(g);
 		
 		//stats
+		FontMetrics fm = g.getFontMetrics(fontm);
+		FontMetrics fmL = g.getFontMetrics(fontl);
+		
 		g.setColor(Color.white);
-		g.drawString("Enemies: " + enemyCount + " ", (int)(-camX)+1100, (int)(-camY)+30);
-		g.drawString("Health: " + player.getHealth() + " ", (int)(-camX)+20, (int)(-camY)+30);
-		g.drawString("Score: " + score + " ", (int)(-camX)+500, (int)(-camY)+30);
+		g.setFont(fontm);
+		String enemiesCountText = "Musuh: " + enemyCount;
+		g.drawString(enemiesCountText, (int)(-camX)+(Window.WIDTH-fm.stringWidth(enemiesCountText)-20), (int)(-camY)+30);
+		g.drawString("HP Player: " + player.getHealth() + " ", (int)(-camX)+20, (int)(-camY)+30);
+		
+		g.setFont(fontl);
+		String scoreText = "Skor: " + score;
+		g.drawString(scoreText, (int)(-camX)+(Window.WIDTH/2-fmL.stringWidth(scoreText)/2), (int)(-camY)+30);
 
+		g.setFont(fontm);
 		if(player.getVelX()!=0)
-			g.drawString("Shield: OFF", (int)(-camX)+20, (int)(-camY)+45);
+			g.drawString("Pelindung: Mati", (int)(-camX)+20, (int)(-camY)+45);
 		else if(player.isShield() ) 
-			g.drawString("Shield: ON", (int)(-camX)+20, (int)(-camY)+45);
+			g.drawString("Pelindung: Hidup", (int)(-camX)+20, (int)(-camY)+45);
 		else
-			g.drawString("Shield: OFF", (int)(-camX)+20, (int)(-camY)+45);
+			g.drawString("Pelindung: Mati", (int)(-camX)+20, (int)(-camY)+45);
 		
 
 		for(Enemy enemy: enemy) {	
 			if(enemy.isVisible() && enemy.isIncluded()) {
 				enemy.render(g);
 				g.setColor(Color.white);
-				g.drawString("Enemy: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);			
+				g.setFont(font);
+				g.drawString("HP Musuh: " + enemy.getHealth() + " ", enemy.getX()+5, enemy.getY()-20);			
 			}
 		}
 		
@@ -167,7 +181,7 @@ public class GamePage extends PageState {
 			PageState.currentState = window.getGameOverPage();
 		}
 		
-		backButton.setX( (int)-camX+60 );
+		backButton.setX( (int)-camX+10 );
 		backButton.update();
 	}
 	
@@ -175,7 +189,6 @@ public class GamePage extends PageState {
 		if(enemy.getBullet()) {
 			enemy.setBullet(false);
 			eBullets.add(new EnemyBullet("Bullet", enemy.getX(), enemy.getY()+23));
-			//System.out.printf("PosX: %d, PosY: %d%n", enemy.getX(), enemy.getY()+23);
 		}
 	}
 	

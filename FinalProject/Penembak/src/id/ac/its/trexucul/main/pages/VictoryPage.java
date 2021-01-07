@@ -22,7 +22,7 @@ import id.ac.its.trexucul.utils.listener.ClickListener;
 
 public class VictoryPage extends PageState{
 	
-	private Image victoryText = Assets.getImageText("victory.png");
+	private Image victoryText = Assets.getImageText("victory.png", 721, 87);
 	protected ArrayList<CommonButton> buttons  = new ArrayList<CommonButton>();
 	private CommonButton inputNameButton;
 	
@@ -40,24 +40,22 @@ public class VictoryPage extends PageState{
 	public VictoryPage(Window window) {
 		super(window);
 
-		Assets.width = 177;
-		Assets.height = 45;
-		buttons.add(new CommonButton("coba_lagi_btn", Window.WIDTH/2 - 300, Window.HEIGHT/2, new ClickListener() {
+		buttons.add(new CommonButton("coba_lagi_btn", Window.WIDTH/2 - 399, Window.HEIGHT/2 - 45, new ClickListener() {
 			@Override
 			public void onClick() {
 				//Go to Level Page
 				MouseHandler.leftBtn = false;
 				PageState.currentState = window.getLevelPage();
 			}
-		}));
-		buttons.add(new CommonButton("keluar_btn", Window.WIDTH/2 + 125, Window.HEIGHT/2, new ClickListener() {
+		}, 237, 91));
+		buttons.add(new CommonButton("keluar_btn", Window.WIDTH/2 + 161, Window.HEIGHT/2 - 45, new ClickListener() {
 			@Override
 			public void onClick() {
 				// Exit game
 				MouseHandler.leftBtn = false;
 				System.exit(1);
 			}
-		}));
+		}, 237, 91));
 		
 		inputNameButton = new CommonButton("submit_name_btn", Window.WIDTH/2 - (185/2), Window.HEIGHT/2 + 20, new ClickListener() {
 			@Override
@@ -90,7 +88,7 @@ public class VictoryPage extends PageState{
 	@Override
 	public void render(Graphics g) {
 		g.drawImage(Assets.gameSplashPage, 0, 0, null);
-		g.drawImage(victoryText, 400, 200, null);
+		g.drawImage(victoryText, 280, 130, null);
 		if(finishInput) {
 			for(int i = 0; i < buttons.size(); i++)
 				buttons.get(i).render(g);
@@ -108,10 +106,13 @@ public class VictoryPage extends PageState{
 		FontMetrics fm = g.getFontMetrics(input);
 		FontMetrics fmL = g.getFontMetrics(inputLabel);
 		
+		String scoreText = "Skormu: " + this.score;
+		
 		g.setColor(Color.WHITE);
 		g.setFont(inputLabel);
 		g.drawString(label, Window.WIDTH/2 - (fmL.stringWidth(label)/2), Window.HEIGHT/2 - 32);
 		g.setFont(input);
+		g.drawString(scoreText, Window.WIDTH/2 - (fm.stringWidth(scoreText)/2), Window.HEIGHT/2 - 86);
 		g.drawString(textTyped, Window.WIDTH/2 - (fm.stringWidth(textTyped)/2), Window.HEIGHT/2 + 4);
 	}
 	

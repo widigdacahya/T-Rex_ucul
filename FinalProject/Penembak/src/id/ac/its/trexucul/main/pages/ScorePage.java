@@ -36,12 +36,12 @@ public class ScorePage extends PageState {
 		Assets.height = 43;
 		
 		//kembali
-		backBtn = new CommonButton("kembali", 11, 625, new ClickListener() {
+		backBtn = new CommonButton("kembali_btn", 10, 630, new ClickListener() {
 			@Override
 			public void onClick() {
 				PageState.currentState = window.getMenuPage();
 			}
-		});
+		}, 239, 52);
 		
 		level1IO = new ScoreSerialIO(SelectedGamePage.Satu);
 		level2IO = new ScoreSerialIO(SelectedGamePage.Dua);

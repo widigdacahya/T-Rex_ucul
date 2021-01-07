@@ -15,35 +15,29 @@ public class MenuPage extends PageState {
 	private Image titleGameMenu = Assets.getImageAssetGen("titledimenuya.png");
 
 	public MenuPage(Window window) {
-		
 		super(window);
-		//mengubah ukuran tombol main
-		Assets.width = 250;
-		Assets.height = 80;
 		
-		btns.add(new CommonButton("main_menu_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 - 100, new ClickListener() {
+		btns.add(new CommonButton("main_btn", Window.WIDTH/2 - 136, Window.HEIGHT/2 - 135, new ClickListener() {
 			@Override
 			public void onClick() {
-				
 				// Level Page
 				PageState.currentState = window.getLevelPage();
-				
 			}
-		}));
-		btns.add(new CommonButton("pengaturan_menu_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 , new ClickListener() {
+		}, 273, 104));
+		btns.add(new CommonButton("skor_btn", Window.WIDTH/2 - 136, Window.HEIGHT/2 - 2, new ClickListener() {
 			@Override
 			public void onClick() {
 				// score
 				PageState.currentState = window.getScorePage();
 			}
-		}));
-		btns.add(new CommonButton("credit_btn", Window.WIDTH/2 - 125, Window.HEIGHT/2 + 100 , new ClickListener() {
+		}, 273, 104));
+		btns.add(new CommonButton("credit_btn", Window.WIDTH/2 - 136, Window.HEIGHT/2 + 131 , new ClickListener() {
 			@Override
 			public void onClick() {
 				// go to credit screen
 				PageState.currentState = window.getCreditPage();
 			}
-		}));
+		}, 273, 104));
 	}
 
 	@Override

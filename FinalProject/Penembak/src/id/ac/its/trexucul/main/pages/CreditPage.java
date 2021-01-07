@@ -19,15 +19,13 @@ public class CreditPage extends PageState{
 		
 		Assets.width = 177;
 		Assets.height = 45;
-		backButton = new CommonButton("btn_kembali", 60, 600, new ClickListener() {
+		backButton = new CommonButton("kembali_black_btn", 50, 620, new ClickListener() {
 			@Override
 			public void onClick() {
-				
 				//Go to menu
 				PageState.currentState = window.getMenuPage();
-				
 			}
-		});
+		}, 239, 52);
 		
 		
 	}
