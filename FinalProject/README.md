@@ -84,7 +84,7 @@ utils/helper/io:
 [`WriteIO.java`](PenjelasanKelas/IO/WriteIO.md)                                 
 [`WriteSerial.java`](PenjelasanKelas/IO/WriteSerial.md)                                 
 utils/listener:                         
-[`BulletListener.java`](PenjelasanKelas/Listener/BulletListener.md)
+[`BulletListener.java`](PenjelasanKelas/Listener/BulletListener.md)                       
 [`ClickListener.java`](PenjelasanKelas/Listener/ClickListener.md)                       
 [`KeyTypedListener.java`](PenjelasanKelas/Listener/KeyTypedListener.md)                            
 
