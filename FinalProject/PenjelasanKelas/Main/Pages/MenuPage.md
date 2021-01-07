@@ -11,7 +11,7 @@ Ada 2 atribut:
 - btns: objek tombol untuk setiap menu.
 - titleGameMenu: gambar untuk judul dari permainan yang ada pada tampilan utama.
 
-Ada 2 jenis fungsi:
+Ada 2 jenis fungsi:   
 - Konstruktor: MenuPage.
 - Update dan render objek: update dan render.
 
