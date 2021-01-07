@@ -150,11 +150,11 @@ Selain itu juga memilih tingkat kesulitan game yang akan dimainkan.
 📄Screen tempat dimana Player dan Enemy saling menembak atau bertempur.
 Terdapat 3 jenis map yang ada dalam permainan perbedaan map ini ditempatkan pada setiap level yang berbeda.      
 - Map level 1.   
-  <img src="Screenshot/level1ss.png" width="200">   
+  <img src="Screenshot/level1ss.png" width="400">   
 - Map level 2.   
-  <img src="Screenshot/level2ss.png" width="200">   
+  <img src="Screenshot/level2ss.png" width="400">   
 - Map level 3.   
-  <img src="Screenshot/level3ss.png" width="200">
+  <img src="Screenshot/level3ss.png" width="400">
 
 ### Victory Screen
 📄Screen yang muncul saat player berhasil mengalahkan enemy.
