@@ -7,7 +7,7 @@ Dalam representasinya, screen ini menampilkan data capaian dalam 5 tertinggi pad
 Setiap data akan dilengakpi dengan nama dan score yang dicapai.
 
 ### 💡Atribut dan Fungsi:
-Ada 3 atribut:   
+Ada 7 atribut:   
 - scoreList: list yang berisi data yang akan ditampilkan.
 - level1IO: data yang ada pada level 1.
 - level2IO: data yang ada pada level 2.
