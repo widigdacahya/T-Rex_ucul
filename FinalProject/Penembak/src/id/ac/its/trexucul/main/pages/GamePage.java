@@ -78,7 +78,7 @@ public class GamePage extends PageState {
 				//Go to menu
 				PageState.currentState = window.getMenuPage();
 			}
-		}, 239, 52);
+		}, 152, 35);
 	}
 
 	@Override
