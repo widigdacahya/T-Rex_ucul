@@ -65,7 +65,7 @@ model/gfx:
 [`Assets.java`](PenjelasanKelas/Model/Gfx/Assets.md)                      
 [`Text.java`](PenjelasanKelas/Model/Gfx/Text.md)                        
 model/id:                           
-`SelectedGamePage.java`                    
+[`SelectedGamePage.java`](PenjelasanKelas/Model/Id/SelectedGamePage.md)                    
 
 -->📁 utils
 utils/handler:                          
