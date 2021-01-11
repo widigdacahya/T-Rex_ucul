@@ -16,7 +16,7 @@
 ****
 ### 💡Judul : Penembak 
 ### 💡Jenis : Permainan 
-### 💡Link Youtube (Presentasi): [Klik disini untuk melihat](https://youtu.be/QJsbJ5qIVL8) 
+### 💡Link Youtube (Presentasi): <a href="https://youtu.be/QJsbJ5qIVL8" target="_blank">Klik disini untuk melihat</a> 
 ****
 
 ## Deskripsi Aplikasi 📌 
